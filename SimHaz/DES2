@@ -1,0 +1,13 @@
+Package: SimHaz
+Type: Package
+Title: Simulated Survival and Hazard Analysis for time-dependent exposure
+Version: 0.1
+Date: 2015-07-22
+Author: Danyi Xiong, Teeranan Pokaprakarn, Nusrat Rabbee
+Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
+Depends: R (>= 3.1.1), survival
+Suggests: MASS
+Description: SimHaz package in R to generate power for the Cox proportional hazards model by simulating 
+survival events data with time dependent exposure status for subjects. A dichotomous exposure variable is 
+considered with a single transition from unexposed to exposed status during the subject’s time on study.
+License: GPL-2

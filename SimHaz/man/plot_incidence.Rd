@@ -1,0 +1,53 @@
+\name{plot.incidence}
+\alias{plot.incidence}
+%- Also NEED an '\alias' for EACH other topic documented here.
+\title{
+Make an incidence plot from simulated data.
+}
+\description{
+%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Create an incidence plot ordered by follow-up time from a survival data simulated.
+}
+\usage{
+plot.incidence(data, title="Sample Survival Data")
+}
+%- maybe also 'usage' for other objects documented here.
+\arguments{
+  \item{data}{A dataframe of survival data containing the following columns: id, start, stop, status, x}
+  \item{title}{Title of the graph}
+}
+\details{
+%%  ~~ If necessary, more details than the description above ~~
+This makes the incidence plot of the survival data based on the input dataframe from the tdSim.method1 or tdSim.method2 function. More generally, this function would also works with a dataframe containing survival data with the same columns name as indicated above.
+}
+\value{
+%%  ~Describe the value returned
+%%  If it is a LIST, use
+%%  \item{comp1 }{Description of 'comp1'}
+%%  \item{comp2 }{Description of 'comp2'}
+%% ...
+}
+\references{
+%% ~put references to the literature/web site here ~
+}
+\author{
+Danyi Xiong, Teeranan Pokaprakarn, Nusrat Rabbee \cr
+Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
+}
+\note{
+%%  ~~further notes~~
+}
+
+%% ~Make other sections like Warning with \section{Warning }{....} ~
+
+\seealso{
+%% ~~objects to See Also as \code{\link{help}}, ~~~
+}
+\examples{
+dat <- tdSim.method2(500, lambda12=1.36, lambda23=0.0389, lambda13=0.0288, exp.rate=0.2,rateC=0.05, filterA=4, filterB=4)
+plot_simuData(dat, title='method2_filter')
+}
+% Add one or more standard keywords, see file 'KEYWORDS' in the
+% R documentation directory.
+\keyword{ ~kwd1 }
+\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
