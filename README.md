@@ -1,5 +1,5 @@
 # SimHaz
-SimHaz package in R to generate power for the Cox proportional hazards model by simulating survival events data with time dependent exposure status for subjects. A dichotomous exposure variable is considered with a single transition from unexposed to exposed status during the subject's time on study.
+SimHaz package is a package in R to generate power for the Cox proportional hazards model by simulating survival events data with time dependent exposure status for subjects. A dichotomous exposure variable is considered with a single transition from unexposed to exposed status during the subject's time on study.
 ## Motivation
 
 
