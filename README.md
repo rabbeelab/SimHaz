@@ -4,10 +4,10 @@ SimHaz package in R to generate power for the Cox proportional hazards model by 
 
 
 ## Installation
-1. Using SimHaz_0.1.tar.gz (Recommended)
+1. Download SimHaz_0.1.tar.gz
 2. In R, run the following command: install.packages(path_to_file, repos = NULL, type="source") where path_to_file is the full path to the tarball file.  
 OR  
-Open Terminal, run the following command: R CMD INSTALL SimHaz_0.1.tar.gz
+Open Terminal, run the following command in the directory where the tarball file is: R CMD INSTALL SimHaz_0.1.tar.gz
 
 
 ## Contributors
