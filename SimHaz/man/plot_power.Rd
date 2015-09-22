@@ -10,7 +10,7 @@ frame that match the list of input parameters.
 }
 \usage{
 plot_power(table_df, N, type, exp.prop, min.futime, min.postexp.futime, plot = TRUE,
-newplot, col, lty, lwd, pch)
+    newplot, col, lty, lwd, pch)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -91,12 +91,14 @@ time-dependent exposure}
 	# Visualize the subsetted data frame of interest and create a new plot
 
 visualize1 <- plot_power(table_df = tb, N = 600, type = "td", exp.prop = 0.2,
-min.futime = 4, min.postexp.futime = 4, plot = TRUE, newplot = TRUE, co l = "red", lty = 1, lwd = 2, pch = 16)
+    min.futime = 4, min.postexp.futime = 4, plot = TRUE, newplot = TRUE,
+    col = "red", lty = 1, lwd = 2, pch = 16)
 
 # Add a different power curve to the previously created plot
 
 visualize2 <- plot_power(table_df = tb, N = 600, type = "td", exp.prop=0.2,
-min.futime = 4, min.postexp.futime = 0, plot = TRUE, newplot = FALSE, col = "blue", lty = 1, lwd = 2, pch = 16)
+    min.futime = 4, min.postexp.futime = 0, plot = TRUE, newplot = FALSE,
+    col = "blue", lty = 1, lwd = 2, pch = 16)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

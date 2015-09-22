@@ -11,9 +11,10 @@ This functions runs nSim (Number of simulations, specified by the user) Monte Ca
 tdSim.method1 internally. The function returns a data frame of scenario-specific parameters (including statistical power) and appends the output to a file with file name specified in the input parameters list. The user also have an option whether to plot an incidence plot or not.
 }
 \usage{
-getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1, med.TimeToCensor = 14,
-b, exp.prop, type, scenario, prop.fullexp = 0, maxrelexptime = 1, min.futime = 0,
-min.postexp.futime = 0, output.fn, incidence.plot = FALSE)
+getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1,
+    med.TimeToCensor = 14, b, exp.prop, type, scenario, prop.fullexp = 0,
+    maxrelexptime = 1, min.futime = 0, min.postexp.futime = 0, output.fn, 
+    incidence.plot = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -98,7 +99,7 @@ time-dependent exposure}
 }
 \references{
 %% ~put references to the literature/web site here ~
-Therneau T (2015). A Package for Survival Analysis in S. version 2.38,
+Therneau T (2015). A Package for Survival Analysis in S. version 2.38, 
 http://CRAN.R-project.org/package=survival
 }
 \author{
@@ -129,9 +130,9 @@ library(survival)
 # control group to be 24 months; exposure effect to be 0.3; median time to
 # censoring to be 14 months; and exposure proportion to be 20%.
 
-ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2, type = "td", scenario = 
-" ", maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4,
-output.fn = "output.csv")
+ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2,
+    type = "td", scenario = " ", maxrelexptime = 1/6, min.futime = 4,
+    min.postexp.futime = 4, output.fn = "output.csv")
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

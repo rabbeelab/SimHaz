@@ -11,7 +11,7 @@ This function simulate Survival Data. It generates a simulated dataset with time
 }
 \usage{
 tdSim.method2 <-function(N,duration, lambda12, lambda23=NULL, lambda13, 
-HR=NULL, exp.prop,rateC, min.futime = 0, min.postexp.futime = 0)
+    HR=NULL, exp.prop,rateC, min.futime = 0, min.postexp.futime = 0)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -62,9 +62,8 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-sim_data <- tdSim.method2(500, duration=24,lambda12=1.3,
-lambda23=0.04, lambda13=0.03, exp.prop=0.2,rateC=0.05,
-min.futime=4, min.postexp.futime=4)
+sim_data <- tdSim.method2(500, duration=24,lambda12=1.3,lambda23=0.04, 
+    lambda13=0.03, exp.prop=0.2,rateC=0.05, min.futime=4, min.postexp.futime=4)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

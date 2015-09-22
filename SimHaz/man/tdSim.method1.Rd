@@ -12,7 +12,7 @@ method 1 with a user-specified list of parameters as input. Survival times and c
 }
 \usage{
 tdSim.method1(N, duration = 24, lambda, rho = 1, beta, rateC, exp.prop, 
-prop.fullexp  = 0, maxrelexptime = 1, min.futime = 0, min.postexp.futime = 0)
+    prop.fullexp  = 0, maxrelexptime = 1, min.futime = 0, min.postexp.futime = 0)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -113,12 +113,13 @@ df2 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
 
 # Simulate a dataset of 600 subjects with time-dependent exposure with
 # both minimum follow-up time (4 months) and minimum post-exposure
-# follow-up time (4 months) imposed. Also consider a quick exposure after entering the study for each exposed subject. Set the maximum relative exposure time to be ⅙. Other parameters remain the same as in the first case.
+# follow-up time (4 months) imposed. Also consider a quick exposure after
+# entering the study for each exposed subject. Set the maximum relative
+# exposure time to be ⅙. Other parameters remain the same as in the first case.
 
 df3 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1, 
-   beta = 0.3, rateC = log(2)/14, exprate = 0.2, 
-   fullyexp.p  = 0, maxrelexp.t = 1/6, min.fut = 4,
-   min.postexp.fut = 4)
+   beta = 0.3, rateC = log(2)/14, exprate = 0.2, fullyexp.p  = 0,
+   maxrelexp.t = 1/6, min.fut = 4,min.postexp.fut = 4)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

@@ -9,7 +9,10 @@ time-dependent exposure using method 1 with clustering
 This functions runs nSim (number of simulations, specified by the user) Monte Carlo simulations on the Cox proportional model with the cluster option. At each simulation, the function calls tdSim.clst internally. The function returns a data frame of scenario-specific parameters (including statistical power) and appends the output to a file with file name specified in the input parameters list. The user also have an option whether to plot an incidence plot or not.
 }
 \usage{
-getpower.clst(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1, beta, med.TimeToCensor = 14, df,            type, scenario, prop.fullexp = 0, maxrelexptime = 1, min.futime = 0, min.postexp.futime = 0, output.fn, incidence.plot = FALSE)
+getpower.clst(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1, beta,
+    med.TimeToCensor = 14, df, type, scenario, prop.fullexp = 0,
+    maxrelexptime = 1, min.futime = 0, min.postexp.futime = 0, output.fn,
+    incidence.plot = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,8 +21,7 @@ getpower.clst(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1, beta, med.T
   \item{duration}{Length of the study in Months. The default value is 24 (months)}
   \item{med.TTE.Control}{Median time to event for control group. The default value is 24 (months)}
   \item{rho}{
-Shape parameter of the Weibull distribution, which is defaulted as 1, as
-  we generate survival times by using the exponential distribution.
+Shape parameter of the Weibull distribution, which is defaulted as 1, as we generate survival times by using the exponential distribution.
 }
   \item{beta}{
 A numeric value that represents the exposure effect, which is the
@@ -134,7 +136,7 @@ library(survival)
 # Create a clustering data frame as input with 3 categories and a 20% weighted
 # exposure proportion.
   
-	input_df <- data.frame(cat_id = c('lo', 'med', 'hi'), cat_prop = c(0.65, 0.2, 0.15),
+input_df <- data.frame(cat_id = c('lo', 'med', 'hi'), cat_prop = c(0.65, 0.2, 0.15),
 cat_exp.prop = c(0.1, 0.3, 0.5))
 
 # Run 500 simulations. Each time simulate a dataset of 600 subjects with
@@ -147,7 +149,9 @@ cat_exp.prop = c(0.1, 0.3, 0.5))
 # control group to be 24 months; exposure effect to be 0.3; median time to
 # censoring to be 14 months.
 
-ret <- getpower.clst(nSim = 500, N = 600, beta = 0.3, df = input_df, type = "td", scenario = "clustering", maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4, output.fn = "output_clst.csv",) 
+ret <- getpower.clst(nSim = 500, N = 600, beta = 0.3, df = input_df,
+    type = "td", scenario = "clustering", maxrelexptime = 1/6, min.futime = 4,
+    min.postexp.futime = 4, output.fn = "output_clst.csv",) 
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

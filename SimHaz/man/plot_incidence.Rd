@@ -44,7 +44,8 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-dat <- tdSim.method2(500, lambda12=1.36, lambda23=0.0389, lambda13=0.0288, exp.rate=0.2,rateC=0.05, filterA=4, filterB=4)
+dat <- tdSim.method2(500, lambda12=1.36, lambda23=0.0389, lambda13=0.0288,
+    exp.rate=0.2,rateC=0.05, filterA=4, filterB=4)
 plot_simuData(dat, title='method2_filter')
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

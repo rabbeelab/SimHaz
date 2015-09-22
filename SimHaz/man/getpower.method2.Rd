@@ -11,7 +11,9 @@ This functions runs nSim (Number of simulations, specified by the user) Monte Ca
 tdSim.method2 internally. The function returns a data frame of scenario-specific input parameters- and it also output statistical power. The user has the option to append the output to a file with file name specified in the input parameters list.
 }
 \usage{
-getpower.method2(nSim = 500, N, duration = 24, scenario, lambda12, lambda23 = NULL, lambda13, HR = NULL, exp.prop, rateC, min.fut, min.postexp.fut, filename, simu.plot = FALSE)
+getpower.method2(nSim = 500, N, duration = 24, scenario, lambda12,
+    lambda23 = NULL, lambda13, HR = NULL, exp.prop, rateC, min.fut, 
+    min.postexp.fut, filename, simu.plot = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
