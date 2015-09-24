@@ -18,46 +18,52 @@ getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1,
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{nSim}{Number of simulations}
-  \item{N}{Number of subjects needs to be screened}
-  \item{duration}{Length of the study in Months. The default value is 24 (months)}
-  \item{med.TTE.Control}{Median time to event for control group. The default value is 24 (months)}
-  \item{rho}{Shape parameter of the Weibull distribution, which is defaulted as 1, as we generate survival times by using the exponential distribution. med.TimeToCensor	Median time to censoring for all subjects. The default value is 14 (months)}
-  \itme{med.TimeToCensor}{Median time to censoring for all subjects. The default value is 14
-  		(months)}
-  \item{b}{A numeric value that represents the exposure effect, which is the
-  regression coefficient (log hazard ratio) that represent the magnitude of
-the relationship between the exposure covariate and the risk of an event}
-  \item{exp.prop}{A numeric value between 0 and 1 (not include 0 and 1) that 
-  	represents the proportion of subjects that are assigned with an 
-		exposure}
-  \item{type}{A text string indicating the what type of dataset is of interest.   Either one of
-“fixed” or “td” should be inputted}
-  \item{scenario}{Any text string inputted by the user as an option to name a scenario   		that is being simulated. The use can simply put “ ” if he/she decides
-		to not name the scenario}
-    \item{prop.fullexp}{A numeric value in interval [0, 1) that represents the proportion of
-  	exposed subjects that are fully exposed from the beginning to the
-		end of the study. The default value is 0, which means all exposed
-		subjects have an exposure status transition at some point during
-the study}
-    \item{maxrelexptime}{A numeric value in interval (0, 1] that represents the
-maximum
-  		relative exposure time. The default value is 1, which means all
-			exposed subjects have an exposure status transition at some point
-			during the study and possibly at the start or end}
-      \item{min.futime}{A numeric value that represents minimum follow-up time (in
-  	months). The default value is 0, which means no minimum
-follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study}
-  \item{min.postexp.futime}{A numeric value that represents minimum post-exposure
-follow-up time (in months). The default value is 0, which
-  		means no minimum post-exposure follow-up time is
-			considered. If it has a positive value, this argument will help
-			exclude subjects that only spend a short amount of time in
-			the study after their exposure}
-  \item{output.fn}{A .csv filename to write in the output. If the filename does not exist,
-  	the function will create a new .csv file for the output}
-    \item{incidence.plot}{A logical value indicating whether to output an incidence plot
-or not.The default value is FALSE}
+  \item{nSim}{
+  Number of simulations
+  }
+  \item{N}{
+  Number of subjects needs to be screened
+  }
+  \item{duration}{
+  Length of the study in Months. The default value is 24 (months)
+  }
+  \item{med.TTE.Control}{
+  Median time to event for control group. The default value is 24 (months)
+  }
+  \item{rho}{
+  Shape parameter of the Weibull distribution, which is defaulted as 1, as we generate survival times by using the exponential distribution. med.TimeToCensor	Median time to censoring for all subjects. The default value is 14 (months)
+  }
+  \itme{med.TimeToCensor}{
+  Median time to censoring for all subjects. The default value is 14 (months)
+  }
+  \item{b}{
+  A numeric value that represents the exposure effect, which is the regression coefficient (log hazard ratio) that represent the magnitude of the relationship between the exposure covariate and the risk of an event
+  }
+  \item{exp.prop}{
+  A numeric value between 0 and 1 (not include 0 and 1) that represents the proportion of subjects that are assigned with an exposure
+  }
+  \item{type}{
+  A text string indicating the what type of dataset is of interest. Either one of "fixed" or "td" should be inputted
+  }
+  \item{scenario}{
+  Any text string inputted by the user as an option to name a scenario that is being simulated. The use can simply put " "  if he/she decide to not name the scenario}
+  \item{prop.fullexp}{
+  A numeric value in interval [0, 1) that represents the proportion of exposed subjects that are fully exposed from the beginning to the end of the study. The default value is 0, which means all exposed subjects have an exposure status transition at some point during the study
+  }
+  \item{maxrelexptime}{
+  A numeric value in interval (0, 1] that represents the maximum relative exposure time. The default value is 1, which means all exposed subjects have an exposure status transition at some point during the study and possibly at the start or end
+  }
+  \item{min.futime}{
+  A numeric value that represents minimum follow-up time (in months). The default value is 0, which means no minimum follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study
+  }
+  \item{min.postexp.futime}{
+  A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure
+  }
+  \item{output.fn}{
+  A .csv filename to write in the output. If the filename does not exist, the function will create a new .csv file for the output}
+  \item{incidence.plot}{
+  A logical value indicating whether to output an incidence plot or not.The default value is FALSE
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -67,35 +73,64 @@ function from the survival library
 }
 \value{
 A data.frame object with columns corresponding to
-  \item{i_scenario}{Scenario name specified by the user}
-  \item{i_type}{Dataset type specified by the user}
-  \item{i_N}{Number of subjects needs to be screened, specified by the user}
-  \item{i_min.futime}{Minimum follow-up time to be considered, specified by the user}
-  \item{i_min.postexp.futime}{Minimum post-exposure follow-up time to be
-considered, specified by the user}
-  \item{i_exp.prop}{Exposure rate specified by the user}
-  \item{i_lambda}{Value of the scale parameter of the Weibull distribution to generate
-  	survival times. Calculated from median time to event for control
-group, which is specified by the user}
-  \item{i_rho}{User-specified Value of the shape parameter of the Weibull distribution to
-generate survival times}
-  \item{i_rateC}{Rate of the exponential distribution to generate censoring times.
-  Calculated from median time to censoring, which is specified by the user.
-i_beta  Input value of regression coefficient (log hazard ratio)}
-  \item{N_eff}{Simulated number of evaluable subjects, which is the resulting number of
-subjects with or without considering minimum follow-up time and/or minimum post-exposure follow-up time}
-  \item{N_effexp_p}{Simulated proportion of exposed subjects with or without
-considering minimum follow-up time and/or minimum
-post-exposure follow-up time}
-  \item{bhat}{Simulated value of regression coefficient (log hazard ratio)}
-  \item{HR}{Simulated value of hazard ratio}
-  \item{d}{Simulated number of events in total}
-  \item{d_c}{Simulated number of events in control group}
-  \item{d_exp}{Simulated number of events in exposed group}
-  \item{mst_c}{Simulated median survival time in control group}
-  \item{mst_exp}{Simulated median survival time in exposed group}
-  \item{pow}{Simulated statistical power from the Cox regression model on data with
-time-dependent exposure}
+  \item{i_scenario}{
+  Scenario name specified by the user
+  }
+  \item{i_type}{
+  Dataset type specified by the user
+  }
+  \item{i_N}{
+  Number of subjects needs to be screened, specified by the user
+  }
+  \item{i_min.futime}{
+  Minimum follow-up time to be considered, specified by the user
+  }
+  \item{i_min.postexp.futime}{
+  Minimum post-exposure follow-up time to be considered, specified by the user
+}
+  \item{i_exp.prop}{
+  Exposure rate specified by the user
+  }
+  \item{i_lambda}{
+  Value of the scale parameter of the Weibull distribution to generate survival times. Calculated from median time to event for control group, which is specified by the user
+  }
+  \item{i_rho}{
+  User-specified Value of the shape parameter of the Weibull distribution to generate survival times
+  }
+  \item{i_rateC}{
+  Rate of the exponential distribution to generate censoring times. Calculated from median time to censoring, which is specified by the user. i_beta  Input value of regression coefficient (log hazard ratio)
+  }
+  \item{N_eff}{
+  Simulated number of evaluable subjects, which is the resulting number of subjects with or without considering minimum follow-up time and/or minimum post-exposure follow-up time
+  }
+  \item{N_effexp_p}{
+  Simulated proportion of exposed subjects with or without considering minimum follow-up time and/or minimum post-exposure follow-up time
+  }
+  \item{bhat}{
+  Simulated value of regression coefficient (log hazard ratio)
+  }
+  \item{HR}{
+  Simulated value of hazard ratio
+  }
+  \item{d}{
+  Simulated number of events in total
+  }
+  \item{d_c}{
+  Simulated number of events in control group
+  }
+  \item{d_exp}{
+  Simulated number of events in exposed group
+  }
+  \item{mst_c}{
+  Simulated median survival time in control group
+  }
+  \item{mst_exp}{
+  Simulated median survival time in exposed group
+  }
+  \item{pow}{
+  Simulated statistical power from the Cox regression model on data with
+time-dependent exposure
+}
 }
 \references{
 %% ~put references to the literature/web site here ~

@@ -13,8 +13,12 @@ plot.incidence(data, title="Sample Survival Data")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{data}{A dataframe of survival data containing the following columns: id, start, stop, status, x}
-  \item{title}{Title of the graph}
+  \item{data}{
+  A dataframe of survival data containing the following columns: id, start, stop, status, x
+  }
+  \item{title}{
+  Title of the graph
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
