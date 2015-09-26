@@ -7,11 +7,11 @@ Simulate 1 dataframe (1 simulation) of time-dep exposure under method 2
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-This function simulate Survival Data. It generates a simulated dataset with time-dependent exposure under method 2
+This function simulate Survival Data. It generates a simulated dataset with time-dependent exposure under method 2 with a user-specified list of parameters as input.
 }
 \usage{
-tdSim.method2 <-function(N,duration, lambda12, lambda23=NULL, lambda13, 
-HR=NULL, exp.prop,rateC, min.futime = 0, min.postexp.futime = 0)
+tdSim.method2 <-function(N,duration, lambda12, lambda23, lambda13, 
+HR, exp.prop,rateC, min.futime = 0, min.postexp.futime = 0)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -28,6 +28,7 @@ HR=NULL, exp.prop,rateC, min.futime = 0, min.postexp.futime = 0)
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
+
 }
 \value{
 %%  ~Describe the value returned
