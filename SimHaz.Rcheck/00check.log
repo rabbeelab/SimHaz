@@ -1,0 +1,163 @@
+* using log directory ‘/Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz.Rcheck’
+* using R version 3.1.1 (2014-07-10)
+* using platform: x86_64-apple-darwin13.1.0 (64-bit)
+* using session charset: UTF-8
+* checking for file ‘SimHaz/DESCRIPTION’ ... OK
+* this is package ‘SimHaz’ version ‘0.1’
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  .DS_Store
+  R/.DS_Store
+  man/.DS_Store
+These were most likely included in error. See section ‘Package
+structure’ in the ‘Writing R Extensions’ manual.
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘SimHaz’ can be installed ... WARNING
+Found the following significant warnings:
+  Warning: package ‘survival’ was built under R version 3.1.3
+  Warning: /Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz/man/SimHaz-package.Rd:30: All text must be in a section
+  Warning: /Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz/man/SimHaz-package.Rd:31: All text must be in a section
+  Warning: /Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz/man/getpower.method1.Rd:25: unknown macro '\itme'
+  Warning: /Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz/man/getpower.method2.Rd:39: unexpected UNKNOWN '\item'
+  Warning: /Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz/man/getpower.method2.Rd:39: All text must be in a section
+  Warning: /Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz/man/getpower.method2.Rd:40: All text must be in a section
+See ‘/Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz.Rcheck/00install.out’ for details.
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking dependencies in R code ... NOTE
+Package in Depends field not imported from: ‘survival’
+  These packages need to be imported from (in the NAMESPACE file)
+  for when this namespace is loaded but not attached.
+See the information on DESCRIPTION files in the chapter ‘Creating R
+packages’ of the ‘Writing R Extensions’ manual.
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+getpower.method2: no visible binding for global variable ‘numsim’
+getpower.method2: no visible binding for global variable ‘lambda’
+plot_power: no visible binding for global variable ‘i_N’
+plot_power: no visible binding for global variable ‘i_type’
+plot_power: no visible binding for global variable ‘i_exp.prop’
+plot_power: no visible binding for global variable ‘i_min.futime’
+plot_power: no visible binding for global variable
+  ‘i_min.postexp.futime’
+plot_power: no visible binding for global variable ‘N_eff’
+plot_power: no visible binding for global variable ‘i_beta’
+plot_power: no visible binding for global variable ‘pow’
+tdSim.clst: no visible binding for global variable ‘t_exposed’
+tdSim.method1: no visible binding for global variable ‘t_exposed’
+* checking Rd files ... WARNING
+prepare_Rd: SimHaz-package.Rd:30: All text must be in a section
+prepare_Rd: SimHaz-package.Rd:31: All text must be in a section
+getpower.clst.Rd: non-ASCII input and no declared encoding
+getpower.method1.Rd: non-ASCII input and no declared encoding
+getpower.method2.Rd: non-ASCII input and no declared encoding
+prepare_Rd: plot_incidence.Rd:23-29: Dropping empty section \value
+prepare_Rd: plot_incidence.Rd:37-39: Dropping empty section \note
+prepare_Rd: plot_incidence.Rd:30-32: Dropping empty section \references
+prepare_Rd: plot_incidence.Rd:43-45: Dropping empty section \seealso
+plot_power.Rd: non-ASCII input and no declared encoding
+tdSim.clst.Rd: non-ASCII input and no declared encoding
+tdSim.method1.Rd: non-ASCII input and no declared encoding
+tdSim.method2.Rd: non-ASCII input and no declared encoding
+problems found in ‘getpower.clst.Rd’, ‘getpower.method1.Rd’, ‘getpower.method2.Rd’, ‘plot_power.Rd’, ‘tdSim.clst.Rd’, ‘tdSim.method1.Rd’, ‘tdSim.method2.Rd’
+* checking Rd metadata ... OK
+* checking Rd cross-references ... WARNING
+Unknown package ‘<pkg>’ in Rd xrefs
+* checking for missing documentation entries ... WARNING
+Undocumented code objects:
+  ‘plot_simuData’ ‘plot_simuData_jasa’ ‘simulWeib’ ‘simulWeib.clst’
+All user-level objects in a package should have documentation entries.
+See the chapter ‘Writing R documentation files’ in the ‘Writing R
+Extensions’ manual.
+* checking for code/documentation mismatches ... WARNING
+Functions or methods with usage in documentation object 'plot.incidence' but not in code:
+  plot.incidence
+
+Codoc mismatches from documentation object 'getpower.method2':
+getpower.method2
+  Code: function(nSim = 500, N, duration = 24, scenario, lambda12,
+                 lambda23 = NULL, lambda13, HR = NULL, exp.prop, rateC,
+                 min.futime, min.postexp.futime, filename, simu.plot =
+                 FALSE)
+  Docs: function(nSim = 500, N, duration = 24, scenario, lambda12,
+                 lambda23 = NULL, lambda13, HR = NULL, exp.prop, rateC,
+                 min.fut, min.postexp.fut, filename, simu.plot = FALSE)
+  Argument names in code not in docs:
+    min.futime min.postexp.futime
+  Argument names in docs not in code:
+    min.fut min.postexp.fut
+  Mismatches in argument names:
+    Position: 11 Code: min.futime Docs: min.fut
+    Position: 12 Code: min.postexp.futime Docs: min.postexp.fut
+
+Codoc mismatches from documentation object 'plot_power':
+plot_power
+  Code: function(table_df, N, type, exp.prop, min.futime,
+                 min.postexp.futime, plot = FALSE, newplot = FALSE, col
+                 = NULL, lty = NULL, lwd = NULL, pch = NULL)
+  Docs: function(table_df, N, type, exp.prop, min.futime,
+                 min.postexp.futime, plot = TRUE, newplot, col, lty,
+                 lwd, pch)
+  Mismatches in argument default values (first 3):
+    Name: 'plot' Code: FALSE Docs: TRUE
+    Name: 'newplot' Code: FALSE Docs: 
+    Name: 'col' Code: NULL Docs: 
+
+* checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'getpower.method1'
+  ‘med.TimeToCensor’
+
+Undocumented arguments in documentation object 'getpower.method2'
+  ‘filename’ ‘simu.plot’
+
+Bad \usage lines found in documentation object 'tdSim.method2':
+  tdSim.method2 <-function(N,duration, lambda12, lambda23, lambda13, 
+  HR, exp.prop,rateC, min.futime = 0, min.postexp.futime = 0)
+
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See the chapter ‘Writing R documentation files’ in the ‘Writing R
+Extensions’ manual.
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... WARNING
+Warning: parse error in file 'SimHaz-Ex.R':
+230:73: unexpected symbol
+229: visualize1 <- plot_power(table_df = tb, N = 600, type = "td", exp.prop = 0.2,
+230: min.futime = 4, min.postexp.futime = 4, plot = TRUE, newplot = TRUE, co l
+                                                                             ^
+* checking examples ... ERROR
+Running examples in ‘SimHaz-Ex.R’ failed
+The error most likely occurred in:
+
+> ### Name: plot.incidence
+> ### Title: Make an incidence plot from simulated data.
+> ### Aliases: plot.incidence
+> ### Keywords: ~kwd1 ~kwd2
+> 
+> ### ** Examples
+> 
+> dat <- tdSim.method2(500, lambda12=1.36, lambda23=0.0389, lambda13=0.0288, exp.rate=0.2,rateC=0.05, filterA=4, filterB=4)
+Error in tdSim.method2(500, lambda12 = 1.36, lambda23 = 0.0389, lambda13 = 0.0288,  : 
+  unused arguments (exp.rate = 0.2, filterA = 4, filterB = 4)
+Execution halted
