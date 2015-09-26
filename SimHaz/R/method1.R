@@ -35,7 +35,7 @@ tdSim.method1<-function(N, duration=24,lambda, rho=1, beta, rateC,exp.prop,
                         prop.fullexp=0,maxrelexptime=1,min.futime=0, min.postexp.futime=0){
   data <- simulWeib(N, duration,lambda, rho, beta, rateC,exp.prop,min.futime)
   if(prop.fullexp==0){
-    data_tdexposed<-data[data$x==1,]
+    data_tdexposed<-data[data$x==1,] #####add comment
   }
   else{
     id_tdexposed<-sample(x = data[data$x==1,]$id,size = round(nrow(data[data$x==1,])*(1-prop.fullexp)))
@@ -67,8 +67,8 @@ tdSim.method1<-function(N, duration=24,lambda, rho=1, beta, rateC,exp.prop,
   return(full_data)
 }
 
-getpower.method1<-function(nSim, N,duration=24,med.TTE.Control=24,rho=1,med.TimeToCensor=14,b,exp.prop,type,scenario,
-                           prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,output.fn,incidence.plot=FALSE) 
+getpower.method1<-function(nSim, N,duration=24,med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta,exp.prop,type,scenario,
+                           prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,output.fn,simu.plot=FALSE) 
 { 
   lambda=log(2)/med.TTE.Control
   rateC=log(2)/med.TimeToCensor
@@ -77,14 +77,14 @@ getpower.method1<-function(nSim, N,duration=24,med.TTE.Control=24,rho=1,med.Time
   colnames(res)=c("N.eff","N.effexp.p","betahat","HR","signif","events",
                   "events_c","events_exp","medsurvt_c","medsurvt_exp")
   alpha=.05
-  if(incidence.plot){
+  if(simu.plot){
     set.seed(999)
     if(type == "fixed"){
-      dat <- simulWeib(N=N, duration=duration,lambda=lambda, rho=rho, beta=b, rateC=rateC,
+      dat <- simulWeib(N=N, duration=duration,lambda=lambda, rho=rho, beta=beta, rateC=rateC,
                        exp.prop=exp.prop,min.futime=min.futime)
     }
     else{
-      dat <- tdSim.method1(N=N, duration=duration,lambda=lambda, rho=rho, beta=b, rateC=rateC,
+      dat <- tdSim.method1(N=N, duration=duration,lambda=lambda, rho=rho, beta=beta, rateC=rateC,
                            exp.prop=exp.prop,prop.fullexp=prop.fullexp,maxrelexptime=maxrelexptime,
                            min.futime=min.futime,min.postexp.futime=min.postexp.futime)
     }
@@ -94,11 +94,11 @@ getpower.method1<-function(nSim, N,duration=24,med.TTE.Control=24,rho=1,med.Time
   for(k in 1:nSim)
   {
     if(type == "fixed"){
-      dat <- simulWeib(N=N, duration=duration,lambda=lambda, rho=rho, beta=b, rateC=rateC,
+      dat <- simulWeib(N=N, duration=duration,lambda=lambda, rho=rho, beta=beta, rateC=rateC,
                        exp.prop=exp.prop,min.futime=min.futime)
     }
     else{
-      dat <- tdSim.method1(N=N, duration=duration,lambda=lambda, rho=rho, beta=b, rateC=rateC,
+      dat <- tdSim.method1(N=N, duration=duration,lambda=lambda, rho=rho, beta=beta, rateC=rateC,
                            exp.prop=exp.prop,prop.fullexp=prop.fullexp,maxrelexptime=maxrelexptime,
                            min.futime=min.futime,min.postexp.futime=min.postexp.futime)     
     }
@@ -124,7 +124,7 @@ getpower.method1<-function(nSim, N,duration=24,med.TTE.Control=24,rho=1,med.Time
                 i_lambda=lambda,
                 i_rho=rho,
                 i_rateC=rateC,                       
-                i_beta=b,
+                i_beta=beta,
                 N_eff=mean(res[,"N.eff"]),
                 N_effexp_p=mean(res[,"N.effexp.p"]),
                 bhat=mean(res[,"betahat"]),

@@ -4,7 +4,7 @@ tdSim.method2 <-function(N, duration, lambda12, lambda23=NULL, lambda13, HR=NULL
   if(lambda23 == NULL & HR != NULL){
     lambda23 = lambda13 * HR
   }
-  expose<-rbinom(n=N,size=1,prob=exp.prop)
+  expose<-rbinom(n=N,size=1,prob=exp.rate)
   t12 <- rep(NA, N)
   t13 <- rep(NA, N)
   t23 <- rep(NA, N)
@@ -70,7 +70,7 @@ tdSim.method2 <-function(N, duration, lambda12, lambda23=NULL, lambda13, HR=NULL
 }
 
 getpower.method2=function(nSim=500, N, duration=24, scenario,lambda12, lambda23=NULL, lambda13, HR=NULL,exp.prop,rateC, 
-                          min.futime, min.postexp.futime,filename, simu.plot=FALSE) 
+                          min.fut, min.postexp.fut,filename, simu.plot=FALSE) 
 { set.seed(999)
   try(if(lambda23 == NULL & HR == NULL){stop("either lambda23 or HR(Hazard ratio) must be set")})
   if(lambda23 == NULL & HR != NULL){
@@ -82,12 +82,12 @@ getpower.method2=function(nSim=500, N, duration=24, scenario,lambda12, lambda23=
                   "events_c","events_exp","medsurvt_c","medsurvt_exp")
   alpha=.05
   if(simu.plot){
-    dat <- tdSim.method2(N, duration, lambda12=lambda12, lambda23=lambda23, lambda13=lambda, exp.prop=exp.prop,rateC=rateC, min.futime=min.futime, min.postexp.futime=min.postexp.futime)
+    dat <- tdSim.method2(N, duration, lambda12=lambda12, lambda23=lambda23, lambda13=lambda, exp.prop=exp.prop,rateC=rateC, min.fut=min.fut, min.postexp.fut=min.postexp.fut)
     plot_simuData(dat)
   }
   for(k in 1:nSim)
   {
-    dat <- tdSim.method2(N, duration, lambda12=lambda12, lambda23=lambda23, lambda13=lambda, exp.prop=exp.prop,rateC=rateC, min.futime=min.futime, min.postexp.futime=min.postexp.futime)    
+    dat <- tdSim.method2(N, duration, lambda12=lambda12, lambda23=lambda23, lambda13=lambda, exp.rate=exp.prop,rateC=rateC, min.fut=min.fut, min.postexp.fut=min.postexp.fut)    
     fit <- coxph(Surv(start,stop, status) ~ factor(x), data=dat)
     sfit <- survfit(Surv(start,stop, status) ~ factor(x), data=dat)
     res[k,"N.eff"] <- length(unique(dat$id))
@@ -103,9 +103,9 @@ getpower.method2=function(nSim=500, N, duration=24, scenario,lambda12, lambda23=
   }
   df=data.frame(i_scenario=scenario,
                 i_N=N,
-                i_min.futime.futime=min.futime,
-                i_min.postexp.futime=min.postexp.futime,
-                i_exp.prop=exp.prop,
+                i_min.postexp.fut=min.postexp.fut,
+                i_min.postexp.fut=min.postexp.fut,
+                i_exprate=er,
                 i_lambda12=lambda12,
                 i_lambda23=lambda23,
                 i_lambda13=lambda13,

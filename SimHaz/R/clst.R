@@ -84,7 +84,7 @@ tdSim.clst<-function(N,duration=24,lambda,rho=1,beta,rateC,df,
 
 # get.power function for clustering scenario
 getpower.clst<-function(nSim,N,duration=24,med.TTE.Control=24,rho=1,beta,med.TimeToCensor=14,df,type,scenario,
-                        prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,output.fn,incidence.plot=FALSE) 
+                        prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,output.fn,simu.plot=FALSE) 
 {
   lambda<-log(2)/med.TTE.Control
   rateC=log(2)/med.TimeToCensor
@@ -95,7 +95,7 @@ getpower.clst<-function(nSim,N,duration=24,med.TTE.Control=24,rho=1,beta,med.Tim
   N.eff<-matrix(0,nSim,length(df$cat_id))
   N.effexp.p<-matrix(0,nSim,length(df$cat_id))
   alpha=.05
-  if(incidence.plot){
+  if(simu.plot){
     set.seed(999)
     if(type == "fixed"){
       dat <- simulWeib.clst(N=N,duration=duration,lambda=lambda,rho=rho,beta=beta,rateC=rateC,
