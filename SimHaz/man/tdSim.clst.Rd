@@ -13,8 +13,7 @@ In particular, the output dataset has a column corresponding to the physician si
 }
 \usage{
 tdSim.clst(N, duration = 24, lambda, rho = 1, beta, rateC, df,
-    prop.fullexp = 0, maxrelexptime = 1, min.futime = 0, 
-	min.postexp.futime = 0)
+    prop.fullexp = 0, maxrelexptime = 1, min.futime = 0, min.postexp.futime = 0)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

@@ -14,9 +14,8 @@ plot_power(table_df, N, type, exp.prop, min.futime, min.postexp.futime,
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{table_df}{A data frame read from a .csv file of a format output from the
-  		getpower.method1 function
-		}
+  \item{table_df}{A data frame read from a .csv file of a format output from the getpower.method1 function
+  }
   \item{N}{
   Number of subjects needs to be screened
   }

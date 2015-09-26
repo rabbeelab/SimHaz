@@ -19,34 +19,38 @@ getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1,
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{nSim}{
-  Number of simulations
+  Number of simulations.
   }
   \item{N}{
-  Number of subjects needs to be screened
+  Number of subjects to be screened.
   }
   \item{duration}{
-  Length of the study in Months. The default value is 24 (months)
+  Length of the study in months; the default value is 24 (months).
   }
   \item{med.TTE.Control}{
-  Median time to event for control group. The default value is 24 (months)
+  Median time to event for control group; the default value is 24 (months).
   }
   \item{rho}{
-  Shape parameter of the Weibull distribution, which is defaulted as 1, as we generate survival times by using the exponential distribution. med.TimeToCensor	Median time to censoring for all subjects. The default value is 14 (months)
+  Shape parameter of the Weibull distribution. Default is 1, which will generate survival times by using the exponential distribution.
+  } 
+  \item{med.TimeToCensor}{
+  Median time to censoring for all subjects. The default value is 14 (months).
   }
   \itme{med.TimeToCensor}{
-  Median time to censoring for all subjects. The default value is 14 (months)
+  Median time to censoring for all subjects. The default value is 14 (months).
   }
   \item{b}{
-  A numeric value that represents the exposure effect, which is the regression coefficient (log hazard ratio) that represent the magnitude of the relationship between the exposure covariate and the risk of an event
+  A numeric value that represents the exposure effect, which is the regression coefficient (log hazard ratio) that represent the magnitude of the relationship between the exposure covariate and the risk of an event.
   }
   \item{exp.prop}{
-  A numeric value between 0 and 1 (not include 0 and 1) that represents the proportion of subjects that are assigned with an exposure
+  A numeric value between 0 and 1 (not include 0 and 1) that represents the proportion of subjects that are assigned with an exposure.
   }
   \item{type}{
-  A text string indicating the what type of dataset is of interest. Either one of "fixed" or "td" should be inputted
+  A text string indicating the what type of dataset is of interest. Either one of "fixed" or "td" should be inputted.
   }
   \item{scenario}{
-  Any text string inputted by the user as an option to name a scenario that is being simulated. The use can simply put " "  if he/she decide to not name the scenario}
+  Any text string inputted by the user as an option to name a scenario that is being simulated. The use can simply put " "  if he/she decide to not name the scenario.
+  }
   \item{prop.fullexp}{
   A numeric value in interval [0, 1) that represents the proportion of exposed subjects that are fully exposed from the beginning to the end of the study. The default value is 0, which means all exposed subjects have an exposure status transition at some point during the study
   }
@@ -60,16 +64,15 @@ getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1,
   A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure
   }
   \item{output.fn}{
-  A .csv filename to write in the output. If the filename does not exist, the function will create a new .csv file for the output}
+  A .csv filename to write in the output. If the filename does not exist, the function will create a new .csv file for the output
+  }
   \item{incidence.plot}{
-  A logical value indicating whether to output an incidence plot or not.The default value is FALSE
+  A logical value indicating whether or not to output an incidence plot. The default value is FALSE
   }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
-The user needs to install the survival package in order to use this function, as it
-calculates power based on the Cox regression model, which calls the coxph
-function from the survival library
+The user needs to install the survival package in order to use this function, as it calculates power based on the Cox regression model, which calls the coxph function from the survival library
 }
 \value{
 A data.frame object with columns corresponding to
@@ -87,7 +90,7 @@ A data.frame object with columns corresponding to
   }
   \item{i_min.postexp.futime}{
   Minimum post-exposure follow-up time to be considered, specified by the user
-}
+  }
   \item{i_exp.prop}{
   Exposure rate specified by the user
   }
@@ -134,7 +137,8 @@ time-dependent exposure
 }
 \references{
 %% ~put references to the literature/web site here ~
-Therneau T (2015). A Package for Survival Analysis in S. version 2.38, 
+Therneau T (2015). A Package for Survival Analysis in S. version 2.38,
+ 
 http://CRAN.R-project.org/package=survival
 }
 \author{

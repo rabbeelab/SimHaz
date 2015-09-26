@@ -6,7 +6,7 @@ Calculate power for the Cox proportional hazard model with
 time-dependent exposure using method 1 with clustering
 }
 \description{
-This functions runs nSim (number of simulations, specified by the user) Monte Carlo simulations on the Cox proportional model with the cluster option. At each simulation, the function calls tdSim.clst internally. The function returns a data frame of scenario-specific parameters (including statistical power) and appends the output to a file with file name specified in the input parameters list. The user also has an option to display an incidence plot.
+This functions runs nSim (number of simulations; specified by the user) Monte Carlo simulations on the Cox proportional model with a cluster option. At each simulation, the function calls tdSim.clst internally. The function returns a data frame of scenario-specific parameters (including statistical power) and appends the output to a file with file name specified in the input parameters list. The user also has an option to display an incidence plot.
 }
 \usage{
 getpower.clst(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1, beta,
@@ -18,51 +18,53 @@ getpower.clst(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1, beta,
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{nSim}{
-  Number of simulations
+  Number of simulations.
   }
   \item{N}{
-  Number of subjects needs to be screened
+  Number of subjects to be screened.
   }
   \item{duration}{
-  Length of the study in Months. The default value is 24 (months)
+  Length of the study in months; the default value is 24 (months).
   }
   \item{med.TTE.Control}{
-  Median time to event for control group. The default value is 24 (months)
+  Median time to event for control group; the default value is 24 (months).
   }
   \item{rho}{
-  Shape parameter of the Weibull distribution, which is defaulted as 1, as we generate survival times by using the exponential distribution.
+  Shape parameter of the Weibull distribution. Default is 1, which will generate survival times by using the exponential distribution.
   }
   \item{beta}{
-  A numeric value that represents the exposure effect, which is the regression coefficient (log hazard ratio) that represent the magnitude of the relationship between the exposure covariate and the risk of an event. 
+  A numeric value that represents the exposure effect, which is the regression coefficient (log hazard ratio) that represents the magnitude of the relationship between the exposure covariate and the risk of an event. 
   }
   \item{med.TimeToCensor}{
-  Median time to censoring for all subjects. The default value is 14 (months). See also at help document for tdSim.method1.
-}
+  Median time to censoring for all subjects. The default value is 14 (months). Also see help document for tdSim.method1.
+  }
   \item{df}{
-  A user-specified n (n 3) by 3 clustering data frame with columns corresponding to cat_id (category id, which is the physician site id. It can be either text strings or integers), cat_prop (category proportion, which is the proportion of subjects in corresponding a category id), and cat_exprate (category exposure rate, which is the exposure proportion corresponding to a category id). n rows corresponds to n different physician sites.
+  A user-specified n by 3 clustering data frame with columns corresponding to cat_id (category id, which is the physician site id. It can be either text strings or integers), cat_prop (category proportion, which is the proportion of subjects in corresponding a category id), and cat_exprate (category exposure rate, which is the exposure proportion corresponding to a category id). n rows corresponds to n different physician sites.
   }
   \item{type}{
-  A text string indicating the what type of dataset is of interest. Either one of "fixed" or "td" should be inputted
+  A text string indicating the what type of dataset is of interest. Either "fixed" or "td" should be inputted.
   }
   \item{scenario}{
-  Any text string inputted by the user as an option to name a scenario that is being simulated. The user can simply put " " if he/she decides to not name the scenario}
+  A text string to name a scenario that is being simulated. The user can simply put " " if he/she decides to not name the scenario.
+  }
   \item{prop.fullexp}{
-  A numeric value in interval [0, 1) that represents the proportion of exposed subjects that are fully exposed from the beginning to the end of the study. The default value is 0, which means all exposed subjects have an exposure status transition at some point during the study
+  A numeric value in interval [0, 1) that represents the proportion of exposed subjects that are fully exposed from the beginning to the end of the study. The default value is 0, which means all exposed subjects have an exposure status transition at some point during the study.
   }
  \item{maxrelexptime}{
- A numeric value in interval (0, 1] that represents the maximum relative exposure time. The default value is 1, which means all exposed subjects have an exposure status transition at some point during the study and possibly at the start or end
+ A numeric value in interval (0, 1] that represents the maximum relative exposure time. The default value is 1, which means all exposed subjects have an exposure status transition at some point during the study and possibly at the start or end.
  }
  \item{min.futime}{
- A numeric value that represents minimum follow-up time (in months). The default value is 0, which means no minimum follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study
+ A numeric value that represents minimum follow-up time (in months). The default value is 0, which means no minimum follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study.
  }
  \item{min.postexp.futime}{
- A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure
+ A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure.
   }
   \item{output.fn}{
-  A .csv filename to write in the output. If the filename does not exist, the function will create a new .csv file for the output
+  A .csv filename to write in the output. If the filename does not exist, the function will create a new .csv file for the output.
   }
   \item{incidence.plot}{
-  A logical value indicating whether to output an incidence plot or not.The default value is FALSE}
+  A logical value indicating whether or not to output an incidence plot.The default value is FALSE.
+  }
 }
 
 \details{
@@ -110,7 +112,9 @@ A data.frame object with 3 rows and columns corresponding to
   User-specified Value of the shape parameter of the Weibull distribution to generate survival times
   }
   \item{i_rateC}{
-  Rate of the exponential distribution to generate censoring times. Calculated from median time to censoring, which is specified by the user. i_beta  Input value of regression coefficient (log hazard ratio)
+  Rate of the exponential distribution to generate censoring times. Calculated from median time to censoring, which is specified by the user.
+  }
+  \item{i_beta}{Input value of regression coefficient (log hazard ratio)
   }
   \item{N_eff}{
   Simulated number of evaluable subjects, which is the resulting number of subjects with or without considering minimum follow-up time and/or minimum post-exposure follow-up time
@@ -143,8 +147,9 @@ A data.frame object with 3 rows and columns corresponding to
 }
 }
 \references{
-Savignoni et al.: Matching methods to create paired survival data based on an exposure occurring over time: a simulation study with application to breast
-cancer. BMC Medical Research Methodology 2014 14:83. 
+Savignoni et al.: Matching methods to create paired survival data based on an exposure occurring over time: a simulation study with application to breast cancer. 
+
+BMC Medical Research Methodology 2014 14:83. 
 }
 \author{
 %%  ~~who you are~~
