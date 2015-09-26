@@ -12,9 +12,9 @@ tdSim.method1 internally. The function returns a data frame of scenario-specific
 }
 \usage{
 getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1,
-    med.TimeToCensor = 14, b, exp.prop, type, scenario, prop.fullexp = 0,
+    med.TimeToCensor = 14, beta, exp.prop, type, scenario, prop.fullexp = 0,
     maxrelexptime = 1, min.futime = 0, min.postexp.futime = 0, output.fn, 
-    incidence.plot = FALSE)
+    simu.plot = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -39,7 +39,7 @@ getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1,
   \itme{med.TimeToCensor}{
   Median time to censoring for all subjects. The default value is 14 (months).
   }
-  \item{b}{
+  \item{beta}{
   A numeric value that represents the exposure effect, which is the regression coefficient (log hazard ratio) that represent the magnitude of the relationship between the exposure covariate and the risk of an event.
   }
   \item{exp.prop}{
@@ -66,7 +66,7 @@ getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1,
   \item{output.fn}{
   A .csv filename to write in the output. If the filename does not exist, the function will create a new .csv file for the output
   }
-  \item{incidence.plot}{
+  \item{simu.plot}{
   A logical value indicating whether or not to output an incidence plot. The default value is FALSE
   }
 }

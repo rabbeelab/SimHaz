@@ -1,5 +1,5 @@
-\name{plot.incidence}
-\alias{plot.incidence}
+\name{plot_simuData}
+\alias{plot_simuData}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Make an incidence plot from simulated data.
@@ -9,7 +9,7 @@ Make an incidence plot from simulated data.
 Create an incidence plot ordered by follow-up time from a survival data simulated.
 }
 \usage{
-plot.incidence(data, title="Sample Survival Data")
+plot_simuData(data, title="Sample Survival Data")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
