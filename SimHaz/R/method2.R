@@ -1,10 +1,10 @@
 tdSim.method2 <-function(N, duration, lambda12, lambda23=NULL, lambda13, HR=NULL, 
                          exp.prop,rateC, min.futime = 0, min.postexp.futime = 0){
-  try(if(lambda23 == NULL & HR == NULL){stop("either lambda23 or HR(Hazard ratio) must be set")})
-  if(lambda23 == NULL & HR != NULL){
+  try(if(is.null(lambda23) & is.null(HR)){stop("either lambda23 or HR(Hazard ratio) must be set")})
+  if(is.null(lambda23) & !is.null(HR)){
     lambda23 = lambda13 * HR
   }
-  expose<-rbinom(n=N,size=1,prob=exp.rate)
+  expose<-rbinom(n=N,size=1,prob=exp.prop)
   t12 <- rep(NA, N)
   t13 <- rep(NA, N)
   t23 <- rep(NA, N)
@@ -36,12 +36,10 @@ tdSim.method2 <-function(N, duration, lambda12, lambda23=NULL, lambda13, HR=NULL
     df[index, c(2,3)] <- data.frame(t12[index], t12[index]+t23[index])
     df[index, c(4,5)] <- cbind(rep(1,sum(index)),rep(1,sum(index)))}
   colnames(df) = c('id',"exp.time",'end','exp','status')
-  #  exp.rate = sum(df$exp == 1) / N
   if(min.futime>0){
     df <- df[df$end>min.futime,]
     df$id <- seq(nrow(df))
   }
-  #  print(paste("exp.rate = ", toString(exp.rate)))
   df_exp <- df[df$exp==1, ]
   if(min.postexp.futime>0){
     if(sum(df_exp$end-df_exp$exp.time > min.postexp.futime) == 0){
@@ -70,24 +68,24 @@ tdSim.method2 <-function(N, duration, lambda12, lambda23=NULL, lambda13, HR=NULL
 }
 
 getpower.method2=function(nSim=500, N, duration=24, scenario,lambda12, lambda23=NULL, lambda13, HR=NULL,exp.prop,rateC, 
-                          min.fut, min.postexp.fut,filename, simu.plot=FALSE) 
+                          min.futime, min.postexp.futime,filename, simu.plot=FALSE) 
 { set.seed(999)
-  try(if(lambda23 == NULL & HR == NULL){stop("either lambda23 or HR(Hazard ratio) must be set")})
-  if(lambda23 == NULL & HR != NULL){
+  try(if(is.null(lambda23) & is.null(HR)){stop("either lambda23 or HR(Hazard ratio) must be set")})
+  if(is.null(lambda23) & !is.null(HR)){
     lambda23 = lambda13 * HR
   }
   #N=400;duration=24;medTTEC=24;rho=1;medTTC=14;b=0.3;er=0.2;s1=1;s2=6;fA=4;fB=4
-  res=matrix(0,numsim,10)
+  res=matrix(0,nSim,10)
   colnames(res)=c("N.eff","N.effexp.p","betahat","HR","signif","events",
                   "events_c","events_exp","medsurvt_c","medsurvt_exp")
   alpha=.05
   if(simu.plot){
-    dat <- tdSim.method2(N, duration, lambda12=lambda12, lambda23=lambda23, lambda13=lambda, exp.prop=exp.prop,rateC=rateC, min.fut=min.fut, min.postexp.fut=min.postexp.fut)
+    dat <- tdSim.method2(N, duration, lambda12=lambda12, lambda23=lambda23, lambda13=lambda, exp.prop=exp.prop,rateC=rateC, min.futime=min.futime, min.postexp.futime=min.postexp.futime)
     plot_simuData(dat)
   }
   for(k in 1:nSim)
   {
-    dat <- tdSim.method2(N, duration, lambda12=lambda12, lambda23=lambda23, lambda13=lambda, exp.rate=exp.prop,rateC=rateC, min.fut=min.fut, min.postexp.fut=min.postexp.fut)    
+    dat <- tdSim.method2(N, duration, lambda12=lambda12, lambda23=lambda23, lambda13=lambda, exp.prop=exp.prop,rateC=rateC, min.futime=min.futime, min.postexp.futime=min.postexp.futime)    
     fit <- coxph(Surv(start,stop, status) ~ factor(x), data=dat)
     sfit <- survfit(Surv(start,stop, status) ~ factor(x), data=dat)
     res[k,"N.eff"] <- length(unique(dat$id))
@@ -103,7 +101,7 @@ getpower.method2=function(nSim=500, N, duration=24, scenario,lambda12, lambda23=
   }
   df=data.frame(i_scenario=scenario,
                 i_N=N,
-                i_min.postexp.fut=min.postexp.fut,
+                i_min.futime=min.futime,
                 i_min.postexp.fut=min.postexp.fut,
                 i_exprate=er,
                 i_lambda12=lambda12,

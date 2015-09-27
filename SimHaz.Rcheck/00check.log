@@ -49,30 +49,9 @@ packages’ of the ‘Writing R Extensions’ manual.
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
-getpower.method2: warning in tdSim.method2(N, duration, lambda12 =
-  lambda12, lambda23 = lambda23, lambda13 = lambda, exp.prop =
-  exp.prop, rateC = rateC, min.fut = min.fut, min.postexp.fut =
-  min.postexp.fut): partial argument match of 'min.fut' to 'min.futime'
-getpower.method2: warning in tdSim.method2(N, duration, lambda12 =
-  lambda12, lambda23 = lambda23, lambda13 = lambda, exp.prop =
-  exp.prop, rateC = rateC, min.fut = min.fut, min.postexp.fut =
-  min.postexp.fut): partial argument match of 'min.postexp.fut' to
-  'min.postexp.futime'
-getpower.method2: warning in tdSim.method2(N, duration, lambda12 =
-  lambda12, lambda23 = lambda23, lambda13 = lambda, exp.rate =
-  exp.prop, rateC = rateC, min.fut = min.fut, min.postexp.fut =
-  min.postexp.fut): partial argument match of 'min.fut' to 'min.futime'
-getpower.method2: warning in tdSim.method2(N, duration, lambda12 =
-  lambda12, lambda23 = lambda23, lambda13 = lambda, exp.rate =
-  exp.prop, rateC = rateC, min.fut = min.fut, min.postexp.fut =
-  min.postexp.fut): partial argument match of 'min.postexp.fut' to
-  'min.postexp.futime'
-getpower.method2: no visible binding for global variable ‘numsim’
 getpower.method2: no visible binding for global variable ‘lambda’
-getpower.method2: possible error in tdSim.method2(N, duration, lambda12
-  = lambda12, lambda23 = lambda23, lambda13 = lambda, exp.rate =
-  exp.prop, rateC = rateC, min.fut = min.fut, min.postexp.fut =
-  min.postexp.fut): unused argument (exp.rate = exp.prop)
+getpower.method2: no visible binding for global variable
+  ‘min.postexp.fut’
 getpower.method2: no visible binding for global variable ‘er’
 plot_power: no visible binding for global variable ‘i_N’
 plot_power: no visible binding for global variable ‘i_type’
@@ -85,7 +64,6 @@ plot_power: no visible binding for global variable ‘i_beta’
 plot_power: no visible binding for global variable ‘pow’
 tdSim.clst: no visible binding for global variable ‘t_exposed’
 tdSim.method1: no visible binding for global variable ‘t_exposed’
-tdSim.method2: no visible binding for global variable ‘exp.rate’
 * checking Rd files ... WARNING
 prepare_Rd: SimHaz-package.Rd:29: All text must be in a section
 prepare_Rd: SimHaz-package.Rd:30: All text must be in a section
@@ -121,23 +99,6 @@ All user-level objects in a package should have documentation entries.
 See the chapter ‘Writing R documentation files’ in the ‘Writing R
 Extensions’ manual.
 * checking for code/documentation mismatches ... WARNING
-Codoc mismatches from documentation object 'getpower.method2':
-getpower.method2
-  Code: function(nSim = 500, N, duration = 24, scenario, lambda12,
-                 lambda23 = NULL, lambda13, HR = NULL, exp.prop, rateC,
-                 min.fut, min.postexp.fut, filename, simu.plot = FALSE)
-  Docs: function(nSim = 500, N, duration = 24, scenario, lambda12,
-                 lambda23 = NULL, lambda13, HR = NULL, exp.prop, rateC,
-                 min.futime, min.postexp.futime, filename, simu.plot =
-                 FALSE)
-  Argument names in code not in docs:
-    min.fut min.postexp.fut
-  Argument names in docs not in code:
-    min.futime min.postexp.futime
-  Mismatches in argument names:
-    Position: 11 Code: min.fut Docs: min.futime
-    Position: 12 Code: min.postexp.fut Docs: min.postexp.futime
-
 Codoc mismatches from documentation object 'plot_power':
 plot_power
   Code: function(table_df, N, type, exp.prop, min.futime,
@@ -183,6 +144,7 @@ The error most likely occurred in:
 > ret <- getpower.method2(nSim=500, N=600, duration=24, scenario="test",
 +   lambda12=1.3, lambda23=0.04, lambda13=0.03, HR=NULL,exp.prop=0.2, rateC=0.05,
 +   min.futime=4, min.postexp.futime=4,filename="database.csv", simu.plot=FALSE) 
-Error in getpower.method2(nSim = 500, N = 600, duration = 24, scenario = "test",  : 
-  unused arguments (min.futime = 4, min.postexp.futime = 4)
+Error in rexp(n = N - sum(expose), rate = lambda13) : 
+  object 'lambda' not found
+Calls: getpower.method2 -> tdSim.method2 -> rexp
 Execution halted
