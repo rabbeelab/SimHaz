@@ -68,7 +68,7 @@ tdSim.method2 <-function(N, duration, lambda12, lambda23=NULL, lambda13, HR=NULL
 }
 
 getpower.method2=function(nSim=500, N, duration=24, scenario,lambda12, lambda23=NULL, lambda13, HR=NULL,exp.prop,rateC, 
-                          min.futime, min.postexp.futime,filename, simu.plot=FALSE) 
+                          min.futime, min.postexp.futime,output.fn, simu.plot=FALSE) 
 { set.seed(999)
   try(if(is.null(lambda23) & is.null(HR)){stop("either lambda23 or HR(Hazard ratio) must be set")})
   if(is.null(lambda23) & !is.null(HR)){
@@ -80,12 +80,12 @@ getpower.method2=function(nSim=500, N, duration=24, scenario,lambda12, lambda23=
                   "events_c","events_exp","medsurvt_c","medsurvt_exp")
   alpha=.05
   if(simu.plot){
-    dat <- tdSim.method2(N, duration, lambda12=lambda12, lambda23=lambda23, lambda13=lambda, exp.prop=exp.prop,rateC=rateC, min.futime=min.futime, min.postexp.futime=min.postexp.futime)
+    dat <- tdSim.method2(N, duration, lambda12=lambda12, lambda23=lambda23, lambda13=lambda13, exp.prop=exp.prop,rateC=rateC, min.futime=min.futime, min.postexp.futime=min.postexp.futime)
     plot_simuData(dat)
   }
   for(k in 1:nSim)
   {
-    dat <- tdSim.method2(N, duration, lambda12=lambda12, lambda23=lambda23, lambda13=lambda, exp.prop=exp.prop,rateC=rateC, min.futime=min.futime, min.postexp.futime=min.postexp.futime)    
+    dat <- tdSim.method2(N, duration, lambda12=lambda12, lambda23=lambda23, lambda13=lambda13, exp.prop=exp.prop,rateC=rateC, min.futime=min.futime, min.postexp.futime=min.postexp.futime)    
     fit <- coxph(Surv(start,stop, status) ~ factor(x), data=dat)
     sfit <- survfit(Surv(start,stop, status) ~ factor(x), data=dat)
     res[k,"N.eff"] <- length(unique(dat$id))
@@ -103,7 +103,7 @@ getpower.method2=function(nSim=500, N, duration=24, scenario,lambda12, lambda23=
                 i_N=N,
                 i_min.futime=min.futime,
                 i_min.postexp.futime=min.postexp.futime,
-                i_exprate=er,
+                i_exp.prop=exp.prop,
                 i_lambda12=lambda12,
                 i_lambda23=lambda23,
                 i_lambda13=lambda13,
@@ -119,11 +119,11 @@ getpower.method2=function(nSim=500, N, duration=24, scenario,lambda12, lambda23=
                 mst_exp=mean(na.omit(res[,"medsurvt_exp"])),
                 pow=mean(res[,"signif"])
   )
-  if(file.exists(filename)){
-    write.table(df,file=filename,row.names=FALSE,col.names=FALSE,append=TRUE,sep=",")
+  if(file.exists(output.fn)){
+    write.table(df,file=output.fn,row.names=FALSE,col.names=FALSE,append=TRUE,sep=",")
   }
   else{
-    write.table(df,file=filename,row.names=FALSE,col.names=TRUE,sep=",")
+    write.table(df,file=output.fn,row.names=FALSE,col.names=TRUE,sep=",")
   }
   return(df)
 }

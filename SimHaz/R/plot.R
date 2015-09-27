@@ -60,12 +60,12 @@ plot_simuData_jasa <- function(data){
 }
 
 # function to plot power curves
-plot_power<-function(table_df,N,type,exp.prop,min.futime,min.postexp.futime,plot=FALSE,newplot=FALSE,
+plot_power<-function(table_df,N,type,exp.prop,min.futime,min.postexp.futime,show.plot=FALSE,newplot=FALSE,
                      col=NULL,lty=NULL,lwd=NULL,pch=NULL){
   df<-subset(table_df,i_N==N & i_type==type & i_exp.prop == exp.prop & 
                i_min.futime==min.futime & i_min.postexp.futime==min.postexp.futime,
              select=c(i_N,N_eff,i_beta,pow))
-  if(plot){
+  if(show.plot){
     if(newplot){
       plot(unique(df$i_beta),df[seq(1,nrow(df),nrow(df)/length(unique(df$i_beta))),]$pow,main="Random censoring time",xlab=expression(beta),ylab="Statistical power",
            type="b",col=col,lty=lty,lwd=lwd,ylim=c(0,1),pch=pch)
@@ -76,4 +76,5 @@ plot_power<-function(table_df,N,type,exp.prop,min.futime,min.postexp.futime,plot
   }
   return(df)
 }
+
 

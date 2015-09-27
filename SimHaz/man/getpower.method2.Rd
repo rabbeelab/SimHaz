@@ -111,9 +111,9 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-ret <- getpower.method2(nSim=500, N=600, duration=24, scenario="test",
+ret <- getpower.method2(nSim=1, N=600, duration=24, scenario="test",
   lambda12=1.3, lambda23=0.04, lambda13=0.03, HR=NULL,exp.prop=0.2, rateC=0.05,
-  min.futime=4, min.postexp.futime=4,filename="database.csv", simu.plot=FALSE) 
+  min.futime=4, min.postexp.futime=4,output.fn="database.csv", simu.plot=FALSE) 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

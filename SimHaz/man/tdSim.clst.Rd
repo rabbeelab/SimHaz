@@ -113,7 +113,7 @@ input_df <- data.frame(cat_id = c('lo', 'med', 'hi'),
 # control group to be 24 months; exposure effect to be 0.3; median time to
 # censoring to be 14 months.
 
-df_tdclst <- tdSim.clust(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
+df_tdclst <- tdSim.clst(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
     beta = 0.3, rateC = log(2)/14, df = input_df, prop.fullexp = 0,
     maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4)
 }
