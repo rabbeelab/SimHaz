@@ -173,3 +173,5 @@ ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2,
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 }
+
+\keyword{Power_Calculation}

@@ -15,7 +15,8 @@ Type: \tab Package\cr
 Version: \tab 0.1 \cr
 Date: \tab 2015-07-22\cr
 License: \tab GPL-2 \cr
-Depends: R (>= 3.1.1), survival
+Depends: R (>= 3.1.1)
+Imports: survival
 }
 }
 \author{

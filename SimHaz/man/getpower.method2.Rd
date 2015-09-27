@@ -1,6 +1,6 @@
 \name{getpower.method2}
 \alias{getpower.method2}
-%- Also NEED an '\alias' for EACH other topic documented here.
+
 \title{
 Calculate power for the Cox proportional hazard model with
 time-dependent exposure using method 1
@@ -116,5 +116,5 @@ ret <- getpower.method2(nSim=1, N=600, duration=24, scenario="test",
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+
+\keyword{Power_Calculation}

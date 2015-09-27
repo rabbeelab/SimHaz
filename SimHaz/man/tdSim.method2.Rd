@@ -96,5 +96,5 @@ sim_data <- tdSim.method2(500, duration=24,lambda12=1.3,lambda23=0.04,
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{Simulation}
+

@@ -192,5 +192,4 @@ ret <- getpower.clst(nSim = 500, N = 600, beta = 0.3, df = input_df,
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{Power_Calculation}
