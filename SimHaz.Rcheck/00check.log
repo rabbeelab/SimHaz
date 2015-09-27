@@ -61,9 +61,9 @@ tdSim.method1: no visible binding for global variable ‘t_exposed’
 getpower.clst.Rd: non-ASCII input and no declared encoding
 getpower.method1.Rd: non-ASCII input and no declared encoding
 prepare_Rd: getpower.method2.Rd:62-64: Dropping empty section \details
-prepare_Rd: getpower.method2.Rd:104-106: Dropping empty section \note
+prepare_Rd: getpower.method2.Rd:103-105: Dropping empty section \note
 prepare_Rd: getpower.method2.Rd:94-96: Dropping empty section \references
-prepare_Rd: getpower.method2.Rd:110-112: Dropping empty section \seealso
+prepare_Rd: getpower.method2.Rd:109-111: Dropping empty section \seealso
 plot_power.Rd: non-ASCII input and no declared encoding
 prepare_Rd: plot_simuData.Rd:27-33: Dropping empty section \value
 prepare_Rd: plot_simuData.Rd:41-43: Dropping empty section \note
@@ -73,68 +73,22 @@ prepare_Rd: tdSim.clst.Rd:91-93: Dropping empty section \note
 prepare_Rd: tdSim.clst.Rd:97-99: Dropping empty section \seealso
 tdSim.method1.Rd: non-ASCII input and no declared encoding
 prepare_Rd: tdSim.method2.Rd:50-53: Dropping empty section \details
-prepare_Rd: tdSim.method2.Rd:85-87: Dropping empty section \note
+prepare_Rd: tdSim.method2.Rd:84-86: Dropping empty section \note
 prepare_Rd: tdSim.method2.Rd:77-79: Dropping empty section \references
-prepare_Rd: tdSim.method2.Rd:91-93: Dropping empty section \seealso
+prepare_Rd: tdSim.method2.Rd:90-92: Dropping empty section \seealso
 problems found in ‘getpower.clst.Rd’, ‘getpower.method1.Rd’, ‘plot_power.Rd’, ‘tdSim.method1.Rd’
 * checking Rd metadata ... OK
-* checking Rd cross-references ... WARNING
-Unknown package ‘<pkg>’ in Rd xrefs
+* checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
   ‘plot_simuData_jasa’ ‘simulWeib’ ‘simulWeib.clst’
 All user-level objects in a package should have documentation entries.
 See the chapter ‘Writing R documentation files’ in the ‘Writing R
 Extensions’ manual.
-* checking for code/documentation mismatches ... WARNING
-Codoc mismatches from documentation object 'getpower.method2':
-getpower.method2
-  Code: function(nSim = 500, N, duration = 24, scenario, lambda12,
-                 lambda23 = NULL, lambda13, HR = NULL, exp.prop, rateC,
-                 min.futime, min.postexp.futime, output.fn, simu.plot =
-                 FALSE)
-  Docs: function(nSim = 500, N, duration = 24, scenario, lambda12,
-                 lambda23 = NULL, lambda13, HR = NULL, exp.prop, rateC,
-                 min.futime, min.postexp.futime, filename, simu.plot =
-                 FALSE)
-  Argument names in code not in docs:
-    output.fn
-  Argument names in docs not in code:
-    filename
-  Mismatches in argument names:
-    Position: 13 Code: output.fn Docs: filename
-
-Codoc mismatches from documentation object 'plot_power':
-plot_power
-  Code: function(table_df, N, type, exp.prop, min.futime,
-                 min.postexp.futime, show.plot = FALSE, newplot =
-                 FALSE, col = NULL, lty = NULL, lwd = NULL, pch = NULL)
-  Docs: function(table_df, N, type, exp.prop, min.futime,
-                 min.postexp.futime, plot = TRUE, newplot, col, lty,
-                 lwd, pch)
-  Argument names in code not in docs:
-    show.plot
-  Argument names in docs not in code:
-    plot
-  Mismatches in argument names:
-    Position: 7 Code: show.plot Docs: plot
-  Mismatches in argument default values (first 3):
-    Name: 'newplot' Code: FALSE Docs: 
-    Name: 'col' Code: NULL Docs: 
-    Name: 'lty' Code: NULL Docs: 
-
+* checking for code/documentation mismatches ... OK
 * checking Rd \usage sections ... WARNING
-Duplicated \argument entries in documentation object 'getpower.method1':
-  ‘med.TimeToCensor’
-
-Undocumented arguments in documentation object 'getpower.method2'
-  ‘filename’
-Documented arguments not in \usage in documentation object 'getpower.method2':
-  ‘output.fn’
-
-Bad \usage lines found in documentation object 'tdSim.method2':
-  tdSim.method2 <-function(N,duration, lambda12, lambda23=NULL, lambda13, 
-      HR=NULL, exp.prop,rateC, min.futime = 0, min.postexp.futime = 0)
+Undocumented arguments in documentation object 'plot_power'
+  ‘show.plot’
 
 Functions with \usage entries need to have the appropriate \alias
 entries, and all their arguments documented.
@@ -143,35 +97,24 @@ See the chapter ‘Writing R documentation files’ in the ‘Writing R
 Extensions’ manual.
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
-* checking examples ... ERROR
-Running examples in ‘SimHaz-Ex.R’ failed
-The error most likely occurred in:
+* checking examples ... OK
+* checking PDF version of manual ... WARNING
+LaTeX errors when creating PDF version.
+This typically indicates Rd problems.
+LaTeX errors found:
+f88251d/Rd2.tex:256: Package inputenc Error: Unicode char \u8:⅙ not set up fo
+r use with LaTeX.
 
-> ### Name: tdSim.clst
-> ### Title: Simulate 1 dataframe (1 simulation) of time-dependent exposure
-> ###   under method 1 with a clustering data frame
-> ### Aliases: tdSim.clst
-> ### Keywords: ~kwd1 ~kwd2
-> 
-> ### ** Examples
-> 
-> # Create a clustering data frame as input with 3 categories and a 20% weighted
-> # exposure proportion.
->   
-> input_df <- data.frame(cat_id = c('lo', 'med', 'hi'), 
-+ 	cat_prop = c(0.65, 0.2, 0.15), cat_exp.prop = c(0.1, 0.3, 0.5))
-> 
-> # Simulate a dataset of 600 subjects with time-dependent exposure. Consider
-> # both minimum follow-up time (4 months) and minimum post-exposure follow-up
-> # time (4 months). Also consider a quick exposure after entering the study for
-> # each exposed subject. Set the maximum relative exposure time to be 1/6. 
-> 
-> # Set the duration of the study to be 24 months; the median time to event for
-> # control group to be 24 months; exposure effect to be 0.3; median time to
-> # censoring to be 14 months.
-> 
-> df_tdclst <- tdSim.clust(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
-+     beta = 0.3, rateC = log(2)/14, df = input_df, prop.fullexp = 0,
-+     maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4)
-Error: could not find function "tdSim.clust"
-Execution halted
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+f88251d/Rd2.tex:429: Package inputenc Error: Unicode char \u8:⅙ not set up fo
+r use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+f88251d/Rd2.tex:952: Package inputenc Error: Unicode char \u8:⅙ not set up fo
+r use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+* checking PDF version of manual without hyperrefs or index ... ERROR

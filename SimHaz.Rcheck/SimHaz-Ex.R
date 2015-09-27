@@ -26,9 +26,10 @@ df1 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
    beta = 0.3, rateC = log(2)/14, exp.prop = 0.2, 
    prop.fullexp  = 0, maxrelexptime = 1, min.futime = 0,
    min.postexp.futime = 0)
-ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2, type = "td", scenario = 
-" ", maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4,
-output.fn = "output.csv")
+   
+ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2, 
+	type = "td", scenario = " ", maxrelexptime = 1/6, min.futime = 4,
+	 min.postexp.futime = 4, output.fn = "output.csv")
 
 
 
@@ -163,7 +164,6 @@ min.futime = 4, min.postexp.futime = 0, show.plot = TRUE, newplot = FALSE, col =
 
 
 
-
 cleanEx()
 nameEx("plot_simuData")
 ### * plot_simuData
@@ -213,7 +213,7 @@ input_df <- data.frame(cat_id = c('lo', 'med', 'hi'),
 # control group to be 24 months; exposure effect to be 0.3; median time to
 # censoring to be 14 months.
 
-df_tdclst <- tdSim.clust(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
+df_tdclst <- tdSim.clst(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
     beta = 0.3, rateC = log(2)/14, df = input_df, prop.fullexp = 0,
     maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4)
 
@@ -240,8 +240,8 @@ flush(stderr()); flush(stdout())
 # to censoring to be 14 months; and exposure proportion to be 20%.
 
 df1 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1, 
-   beta = 0.3, rateC = log(2)/14, exprate = 0.2, fullyexp.p  = 0, 
-   maxrelexp.t = 1, min.fut = 0, min.postexp.fut = 0)
+   beta = 0.3, rateC = log(2)/14, exp.prop = 0.2, prop.fullexp  = 0, 
+   maxrelexptime = 1, min.fut = 0, min.postexp.fut = 0)
 
 # Simulate a dataset of 600 subjects with time-dependent exposure with
 # both minimum follow-up time (4 months) and minimum post-exposure
@@ -249,8 +249,8 @@ df1 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
 # in the first case.
 
 df2 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1, 
-   beta = 0.3, rateC = log(2)/14, exprate = 0.2, fullyexp.p  = 0, 
-   maxrelexp.t = 1, min.fut = 4, min.postexp.fut = 4)
+   beta = 0.3, rateC = log(2)/14, exp.prop = 0.2, prop.fullexp  = 0, 
+   maxrelexptime = 1, min.fut = 4, min.postexp.fut = 4)
 
 # Simulate a dataset of 600 subjects with time-dependent exposure with
 # both minimum follow-up time (4 months) and minimum post-exposure
@@ -259,8 +259,8 @@ df2 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
 # exposure time to be ⅙. Other parameters remain the same as in the first case.
 
 df3 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1, 
-   beta = 0.3, rateC = log(2)/14, exprate = 0.2, fullyexp.p  = 0,
-   maxrelexp.t = 1/6, min.fut = 4,min.postexp.fut = 4)
+   beta = 0.3, rateC = log(2)/14, exp.prop = 0.2, prop.fullexp  = 0,
+   maxrelexptime = 1/6, min.fut = 4,min.postexp.fut = 4)
 
 
 
