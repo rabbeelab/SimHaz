@@ -12,7 +12,7 @@ This functions runs nSim (Number of simulations, specified by the user) Monte Ca
 \usage{
 getpower.method2(nSim = 500, N, duration = 24, scenario, lambda12,
   lambda23 = NULL, lambda13, HR = NULL, exp.prop, rateC, min.futime, 
-  min.postexp.futime, filename, simu.plot = FALSE)
+  min.postexp.futime, output.fn, simu.plot = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -95,8 +95,7 @@ time-dependent exposure}
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
-Danyi Xiong, Teeranan Pokaprakarn, Nusrat Rabbee \cr
+Danyi Xiong, Teeranan Pokaprakarn, Hiroto Udagawa, Nusrat Rabbee \cr
 Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 }
 
@@ -113,7 +112,7 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 \examples{
 ret <- getpower.method2(nSim=500, N=600, duration=24, scenario="test",
   lambda12=1.3, lambda23=0.04, lambda13=0.03, HR=NULL,exp.prop=0.2, rateC=0.05,
-  min.futime=4, min.postexp.futime=4,filename="database.csv", simu.plot=FALSE) 
+  min.futime=4, min.postexp.futime=4,output.fn="database.csv", simu.plot=FALSE) 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

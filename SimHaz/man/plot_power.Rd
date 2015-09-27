@@ -10,7 +10,7 @@ frame that match the list of input parameters.
 }
 \usage{
 plot_power(table_df, N, type, exp.prop, min.futime, min.postexp.futime,
-	plot = FALSE, newplot = FALSE, col = NULL, lty, lwd, pch)
+	show.plot = FALSE, newplot = FALSE, col = NULL, lty, lwd, pch)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -66,7 +66,8 @@ The gist of this function is that the user can check the plot with the values in
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+Danyi Xiong, Teeranan Pokaprakarn, Hiroto Udagawa, Nusrat Rabbee \cr
+Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 }
 \note{
 %%  ~~further notes~~
@@ -85,13 +86,13 @@ The gist of this function is that the user can check the plot with the values in
 	# Visualize the subsetted data frame of interest and create a new plot
 
 visualize1 <- plot_power(table_df = tb, N = 600, type = "td", exp.prop = 0.2,
-    min.futime = 4, min.postexp.futime = 4, plot = TRUE, newplot = TRUE,
+    min.futime = 4, min.postexp.futime = 4, show.plot = TRUE, newplot = TRUE,
     col = "red", lty = 1, lwd = 2, pch = 16)
 
 # Add a different power curve to the previously created plot
 
 visualize2 <- plot_power(table_df = tb, N = 600, type = "td", exp.prop=0.2,
-    min.futime = 4, min.postexp.futime = 0, plot = TRUE, newplot = FALSE,
+    min.futime = 4, min.postexp.futime = 0, show.plot = TRUE, newplot = FALSE,
     col = "blue", lty = 1, lwd = 2, pch = 16)
 
 }

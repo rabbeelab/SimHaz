@@ -153,6 +153,8 @@ BMC Medical Research Methodology 2014 14:83.
 }
 \author{
 %%  ~~who you are~~
+Danyi Xiong, Teeranan Pokaprakarn, Hiroto Udagawa, Nusrat Rabbee \cr
+Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 }
 \note{
 %%  ~~further notes~~

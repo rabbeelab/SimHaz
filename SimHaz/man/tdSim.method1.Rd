@@ -86,8 +86,7 @@ Therneau and C. Crowson (2015). Using Time Dependent Covariates and Time Depende
 https://cran.r-project.org/web/packages/survival/vignettes/timedep.pdf
 }
 \author{
-%%  ~~who you are~~
-Danyi Xiong, Teeranan Pokaprakarn, Nusrat Rabbee \cr
+Danyi Xiong, Teeranan Pokaprakarn, Hiroto Udagawa, Nusrat Rabbee \cr
 Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 }
 \note{
