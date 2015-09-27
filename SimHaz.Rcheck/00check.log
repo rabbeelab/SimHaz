@@ -21,9 +21,6 @@ structure’ in the ‘Writing R Extensions’ manual.
 * checking whether package ‘SimHaz’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘survival’ was built under R version 3.1.3
-  Warning: /Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz/man/SimHaz-package.Rd:29: All text must be in a section
-  Warning: /Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz/man/SimHaz-package.Rd:30: All text must be in a section
-  Warning: /Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz/man/getpower.method1.Rd:39: unknown macro '\itme'
 See ‘/Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz.Rcheck/00install.out’ for details.
 * checking installed package size ... OK
 * checking package directory ... OK
@@ -50,8 +47,6 @@ packages’ of the ‘Writing R Extensions’ manual.
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
 getpower.method2: no visible binding for global variable ‘lambda’
-getpower.method2: no visible binding for global variable
-  ‘min.postexp.fut’
 getpower.method2: no visible binding for global variable ‘er’
 plot_power: no visible binding for global variable ‘i_N’
 plot_power: no visible binding for global variable ‘i_type’
@@ -65,8 +60,6 @@ plot_power: no visible binding for global variable ‘pow’
 tdSim.clst: no visible binding for global variable ‘t_exposed’
 tdSim.method1: no visible binding for global variable ‘t_exposed’
 * checking Rd files ... WARNING
-prepare_Rd: SimHaz-package.Rd:29: All text must be in a section
-prepare_Rd: SimHaz-package.Rd:30: All text must be in a section
 getpower.clst.Rd: non-ASCII input and no declared encoding
 getpower.method1.Rd: non-ASCII input and no declared encoding
 prepare_Rd: getpower.method2.Rd:62-64: Dropping empty section \details
@@ -98,21 +91,11 @@ Undocumented code objects:
 All user-level objects in a package should have documentation entries.
 See the chapter ‘Writing R documentation files’ in the ‘Writing R
 Extensions’ manual.
-* checking for code/documentation mismatches ... WARNING
-Codoc mismatches from documentation object 'plot_power':
-plot_power
-  Code: function(table_df, N, type, exp.prop, min.futime,
-                 min.postexp.futime, plot = FALSE, newplot = FALSE, col
-                 = NULL, lty = NULL, lwd = NULL, pch = NULL)
-  Docs: function(table_df, N, type, exp.prop, min.futime,
-                 min.postexp.futime, plot = TRUE, newplot, col, lty,
-                 lwd, pch)
-  Mismatches in argument default values (first 3):
-    Name: 'plot' Code: FALSE Docs: TRUE
-    Name: 'newplot' Code: FALSE Docs: 
-    Name: 'col' Code: NULL Docs: 
-
+* checking for code/documentation mismatches ... OK
 * checking Rd \usage sections ... WARNING
+Duplicated \argument entries in documentation object 'getpower.method1':
+  ‘med.TimeToCensor’
+
 Undocumented arguments in documentation object 'getpower.method2'
   ‘filename’
 Documented arguments not in \usage in documentation object 'getpower.method2':
