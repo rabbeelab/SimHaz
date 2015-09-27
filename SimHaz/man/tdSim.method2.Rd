@@ -11,7 +11,7 @@ This function simulate Survival Data. It generates a simulated dataset with time
 }
 \usage{
 
-tdSim.method2 <-function(N,duration, lambda12, lambda23=NULL, lambda13, 
+tdSim.method2(N,duration, lambda12, lambda23=NULL, lambda13, 
     HR=NULL, exp.prop,rateC, min.futime = 0, min.postexp.futime = 0)
 }
 
@@ -78,8 +78,7 @@ tdSim.method2 <-function(N,duration, lambda12, lambda23=NULL, lambda13,
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
-Danyi Xiong, Teeranan Pokaprakarn, Nusrat Rabbee \cr
+Danyi Xiong, Teeranan Pokaprakarn, Hiroto Udagawa, Nusrat Rabbee \cr
 Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 }
 \note{

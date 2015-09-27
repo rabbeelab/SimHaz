@@ -12,7 +12,7 @@ This functions runs nSim (Number of simulations, specified by the user) Monte Ca
 \usage{
 getpower.method2(nSim = 500, N, duration = 24, scenario, lambda12,
   lambda23 = NULL, lambda13, HR = NULL, exp.prop, rateC, min.futime, 
-  min.postexp.futime, filename, simu.plot = FALSE)
+  min.postexp.futime, output.fn, simu.plot = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -95,8 +95,7 @@ time-dependent exposure}
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
-Danyi Xiong, Teeranan Pokaprakarn, Nusrat Rabbee \cr
+Danyi Xiong, Teeranan Pokaprakarn, Hiroto Udagawa, Nusrat Rabbee \cr
 Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 }
 

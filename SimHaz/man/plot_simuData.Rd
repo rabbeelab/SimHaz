@@ -35,7 +35,7 @@ This makes the incidence plot of the survival data based on the input dataframe 
 %% ~put references to the literature/web site here ~
 }
 \author{
-Danyi Xiong, Teeranan Pokaprakarn, Nusrat Rabbee \cr
+Danyi Xiong, Teeranan Pokaprakarn, Hiroto Udagawa, Nusrat Rabbee \cr
 Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 }
 \note{

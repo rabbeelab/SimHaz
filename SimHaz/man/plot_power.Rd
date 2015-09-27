@@ -9,8 +9,8 @@ This function plots a power curve at each time and returns a subsetted data
 frame that match the list of input parameters.
 }
 \usage{
-plot_power(table_df, N, type, exp.prop, min.futime, min.postexp.futime, plot = TRUE,
-newplot, col, lty, lwd, pch)
+plot_power(table_df, N, type, exp.prop, min.futime, min.postexp.futime,
+	show.plot = FALSE, newplot = FALSE, col = NULL, lty, lwd, pch)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -72,7 +72,8 @@ time-dependent exposure}
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+Danyi Xiong, Teeranan Pokaprakarn, Hiroto Udagawa, Nusrat Rabbee \cr
+Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 }
 \note{
 %%  ~~further notes~~
@@ -103,7 +104,6 @@ min.futime = 4, min.postexp.futime = 4, show.plot = TRUE, newplot = TRUE, col = 
 
 visualize2 <- plot_power(table_df = tb, N = 600, type = "td", exp.prop=0.2,
 min.futime = 4, min.postexp.futime = 0, show.plot = TRUE, newplot = FALSE, col = "blue", lty = 1, lwd = 2, pch = 16)
-
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
