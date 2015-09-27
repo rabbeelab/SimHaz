@@ -1,3 +1,4 @@
+#' @export
 tdSim.method2 <-function(N, duration, lambda12, lambda23=NULL, lambda13, HR=NULL, 
                          exp.prop,rateC, min.futime = 0, min.postexp.futime = 0){
   try(if(is.null(lambda23) & is.null(HR)){stop("either lambda23 or HR(Hazard ratio) must be set")})
@@ -67,6 +68,7 @@ tdSim.method2 <-function(N, duration, lambda12, lambda23=NULL, lambda13, HR=NULL
   return(merged_df)
 }
 
+#' @export
 getpower.method2=function(nSim=500, N, duration=24, scenario,lambda12, lambda23=NULL, lambda13, HR=NULL,exp.prop,rateC, 
                           min.futime, min.postexp.futime,output.fn, simu.plot=FALSE) 
 { set.seed(999)

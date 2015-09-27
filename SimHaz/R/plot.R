@@ -3,6 +3,7 @@
 ###--------------------###
 
 # functions for incidence plot
+#' @export
 plot_simuData <- function(data, title="Sample Survival Data"){
   plot.new()
   plot.window(xlim=c(0,max(data$stop)), ylim=c(1,length(unique(data$id))))
@@ -60,6 +61,7 @@ plot_simuData_jasa <- function(data){
 }
 
 # function to plot power curves
+#' @export
 plot_power<-function(table_df,N,type,exp.prop,min.futime,min.postexp.futime,show.plot=FALSE,newplot=FALSE,
                      col=NULL,lty=NULL,lwd=NULL,pch=NULL){
   df<-subset(table_df,i_N==N & i_type==type & i_exp.prop == exp.prop & 
