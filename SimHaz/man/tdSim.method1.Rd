@@ -122,7 +122,7 @@ df2 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
 # both minimum follow-up time (4 months) and minimum post-exposure
 # follow-up time (4 months) imposed. Also consider a quick exposure after
 # entering the study for each exposed subject. Set the maximum relative
-# exposure time to be ⅙. Other parameters remain the same as in the first case.
+# exposure time to be 1/6. Other parameters remain the same as in the first case.
 
 df3 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1, 
    beta = 0.3, rateC = log(2)/14, exp.prop = 0.2, prop.fullexp  = 0,

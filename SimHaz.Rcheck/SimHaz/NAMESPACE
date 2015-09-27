@@ -8,3 +8,5 @@ export(plot_simuData)
 export(tdSim.clst)
 export(tdSim.method1)
 export(tdSim.method2)
+
+import('survival')

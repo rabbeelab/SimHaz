@@ -1,291 +1,436 @@
 Hmm ... looks like a package
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex)
+
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (./Rd2.tex
-LaTeX2e <2014/05/01>
-Babel <3.9k> and hyphenation patterns for 78 languages loaded.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/book.cls
-Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/bk10.clo))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/bk10.clo))
 (/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Rd.sty
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/longtable.sty)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/bm.sty)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/alltt.sty)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/verbatim.sty)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/textcomp.sty
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1enc.def))
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/fontenc.sty
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1enc.def))
-(/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/times.sty))
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/inputenc.sty
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/utf8.def
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1enc.dfu)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ot1enc.dfu)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/omsenc.dfu)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1enc.dfu))
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/latin1.def))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.def))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1enc.def))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.05, 2014/06/22 Text macros for Inconsolata (msharpe)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/hyperref.cfg))
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 366.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 366.
+
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1enc.dfu)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ot1enc.dfu)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omsenc.dfu)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.dfu))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/latin1.def))
+Writing index file Rd2.idx
 No file Rd2.aux.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/t1ptm.fd)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/t1pcr.fd)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/t1phv.fd)
-No file Rd2.toc.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/utf8.def) [1{/usr/local/texl
-ive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (20.58041pt too wide) in paragraph at lines 56--56
- []\T1/pcr/m/n/9 # considering minimum follow-up time or minimum post-exposure 
-follow-up time.[] 
-
-Overfull \hbox (42.18039pt too wide) in paragraph at lines 57--57
- []\T1/pcr/m/n/9 # Specifically, set the duration of the study to be 24 months;
- the median time to[] 
-
-Overfull \hbox (42.18039pt too wide) in paragraph at lines 58--58
- []\T1/pcr/m/n/9 # event for control group to be 24 months; exposure effect to 
-be 0.3; median time[] 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (48.78088pt too wide) in paragraph at lines 83--83
- []\T1/pcr/m/n/10 getpower.clst(nSim, N, duration = 24, med.TTE.Control = 24, r
-ho = 1, beta,[] 
-
-Overfull \hbox (42.78088pt too wide) in paragraph at lines 85--85
- []    \T1/pcr/m/n/10 maxrelexptime = 1, min.futime = 0, min.postexp.futime = 0
-, output.fn,[] 
-[2]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 132--133
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [1{/usr/local/texl
+ive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [2]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 135--136
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[3] [4]
-Overfull \hbox (25.98041pt too wide) in paragraph at lines 244--244
- []\T1/pcr/m/n/9 # Create a clustering data frame as input with 3 categories an
-d a 20% weighted[] 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ts1pcr.fd)
-Overfull \hbox (4.38043pt too wide) in paragraph at lines 252--252
- []\T1/pcr/m/n/9 # minimum post-exposure follow-up time (4 months) imposed. Als
-o consider a[] 
-
-Overfull \hbox (9.78043pt too wide) in paragraph at lines 253--253
- []\T1/pcr/m/n/9 # quick exposure after entering the study for each exposed sub
-ject. Set the[] 
-
-! Package inputenc Error: Unicode char \u8:⅙ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.254 # maximum relative exposure time to be ⅙.
-                                                 
-
-Overfull \hbox (20.58041pt too wide) in paragraph at lines 256--256
- []\T1/pcr/m/n/9 # Set the duration of the study to be 24 months; the median ti
-me to event for[] 
-
-Overfull \hbox (4.38043pt too wide) in paragraph at lines 257--257
- []\T1/pcr/m/n/9 # control group to be 24 months; exposure effect to be 0.3; me
-dian time to[] 
-
-Overfull \hbox (25.98041pt too wide) in paragraph at lines 261--261
- []    \T1/pcr/m/n/9 type = "td", scenario = "clustering", maxrelexptime = 1/6,
- min.futime = 4,[] 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (30.78088pt too wide) in paragraph at lines 276--276
- []\T1/pcr/m/n/10 getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24
-, rho = 1,[] 
-
-Overfull \hbox (60.78088pt too wide) in paragraph at lines 277--277
- []    \T1/pcr/m/n/10 med.TimeToCensor = 14, beta, exp.prop, type, scenario, pr
-op.fullexp = 0,[] 
-
-Overfull \hbox (42.78088pt too wide) in paragraph at lines 278--278
- []    \T1/pcr/m/n/10 maxrelexptime = 1, min.futime = 0, min.postexp.futime = 0
-, output.fn,[] 
-[5]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 325--326
+[3] [4] (/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [5]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 328--329
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[6]
-Overfull \hbox (4.38043pt too wide) in paragraph at lines 425--425
- []\T1/pcr/m/n/9 # minimum post-exposure follow-up time (4 months) imposed. Als
-o consider a[] 
-
-Overfull \hbox (9.78043pt too wide) in paragraph at lines 426--426
- []\T1/pcr/m/n/9 # quick exposure after entering the study for each exposed sub
-ject. Set the[] 
-
-! Package inputenc Error: Unicode char \u8:⅙ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.427 # maximum relative exposure time to be ⅙.
-                                                 
-
-Overfull \hbox (20.58041pt too wide) in paragraph at lines 429--429
- []\T1/pcr/m/n/9 # Set the duration of the study to be 24 months; the median ti
-me to event for[] 
-
-Overfull \hbox (4.38043pt too wide) in paragraph at lines 430--430
- []\T1/pcr/m/n/9 # control group to be 24 months; exposure effect to be 0.3; me
-dian time to[] 
-[7] (/usr/local/texlive/2014/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (0.78088pt too wide) in paragraph at lines 453--453
- []\T1/pcr/m/n/10 getpower.method2(nSim = 500, N, duration = 24, scenario, lamb
-da12,[] 
-
-Overfull \hbox (12.78088pt too wide) in paragraph at lines 454--454
- []  \T1/pcr/m/n/10 lambda23 = NULL, lambda13, HR = NULL, exp.prop, rateC, min.
-futime,[] 
-
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 495--496
+[6] [7] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 498--499
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[8]
-Overfull \hbox (31.3804pt too wide) in paragraph at lines 546--546
- []  \T1/pcr/m/n/9 lambda12=1.3, lambda23=0.04, lambda13=0.03, HR=NULL,exp.prop
-=0.2, rateC=0.05,[] 
-
-Overfull \hbox (31.3804pt too wide) in paragraph at lines 547--547
- []  \T1/pcr/m/n/9 min.futime=4, min.postexp.futime=4,output.fn="database.csv",
- simu.plot=FALSE)[] 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (30.78088pt too wide) in paragraph at lines 562--562
- []\T1/pcr/m/n/10 plot_power(table_df, N, type, exp.prop, min.futime, min.poste
-xp.futime,[] 
-[9]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 589--595
+[8] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [9]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 589--590
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
 [10]
-Overfull \hbox (106.98032pt too wide) in paragraph at lines 636--636
- []\T1/pcr/m/n/9 ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop
+Overfull \hbox (7.081pt too wide) in paragraph at lines 634--634
+ []\T1/zi4/m/n/9 ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop
  = 0.2, type = "td", scenario =[] 
 
-Overfull \hbox (112.38031pt too wide) in paragraph at lines 639--639
- []\T1/pcr/m/n/9 ret2 <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.pro
+Overfull \hbox (11.581pt too wide) in paragraph at lines 637--637
+ []\T1/zi4/m/n/9 ret2 <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.pro
 p = 0.2, type = "td", scenario =[] 
 
-Overfull \hbox (20.58041pt too wide) in paragraph at lines 648--648
- []\T1/pcr/m/n/9 visualize1 <- plot_power(table_df = tb, N = 600, type = "td", 
-exp.prop = 0.2,[] 
-
-Overfull \hbox (220.38019pt too wide) in paragraph at lines 649--649
- []\T1/pcr/m/n/9 min.futime = 4, min.postexp.futime = 4, show.plot = TRUE, newp
+Overfull \hbox (97.08102pt too wide) in paragraph at lines 647--647
+ []\T1/zi4/m/n/9 min.futime = 4, min.postexp.futime = 4, show.plot = TRUE, newp
 lot = TRUE, col = "red", lty = 1, lwd = 2, pch = 16)[] 
 
-Overfull \hbox (9.78043pt too wide) in paragraph at lines 653--653
- []\T1/pcr/m/n/9 visualize2 <- plot_power(table_df = tb, N = 600, type = "td", 
-exp.prop=0.2,[] 
-
-Overfull \hbox (231.18018pt too wide) in paragraph at lines 654--654
- []\T1/pcr/m/n/9 min.futime = 4, min.postexp.futime = 0, show.plot = TRUE, newp
+Overfull \hbox (106.08102pt too wide) in paragraph at lines 652--652
+ []\T1/zi4/m/n/9 min.futime = 4, min.postexp.futime = 0, show.plot = TRUE, newp
 lot = FALSE, col = "blue", lty = 1, lwd = 2, pch = 16)[] 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/utf8.def) [11]
-Overfull \hbox (31.3804pt too wide) in paragraph at lines 697--697
- []    \T1/pcr/m/n/9 lambda13=0.03, exp.prop=0.2,rateC=0.05, min.futime=4, min.
-postexp.futime=4)[] 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (84.78088pt too wide) in paragraph at lines 717--717
- []    \T1/pcr/m/n/10 prop.fullexp = 0, maxrelexptime = 1, min.futime = 0, min.
-postexp.futime = 0)[] 
-[12]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 755--756
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [11]
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [12]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 753--754
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[13]
-Overfull \hbox (25.98041pt too wide) in paragraph at lines 804--804
- []\T1/pcr/m/n/9 # Create a clustering data frame as input with 3 categories an
-d a 20% weighted[] 
-
-Overfull \hbox (9.78043pt too wide) in paragraph at lines 810--810
- []\T1/pcr/m/n/9 # Simulate a dataset of 600 subjects with time-dependent expos
-ure. Consider[] 
-
-Overfull \hbox (15.18042pt too wide) in paragraph at lines 811--811
- []\T1/pcr/m/n/9 # both minimum follow-up time (4 months) and minimum post-expo
-sure follow-up[] 
-
-Overfull \hbox (25.98041pt too wide) in paragraph at lines 812--812
- []\T1/pcr/m/n/9 # time (4 months). Also consider a quick exposure after enteri
-ng the study for[] 
-
-Overfull \hbox (20.58041pt too wide) in paragraph at lines 815--815
- []\T1/pcr/m/n/9 # Set the duration of the study to be 24 months; the median ti
-me to event for[] 
-
-Overfull \hbox (4.38043pt too wide) in paragraph at lines 816--816
- []\T1/pcr/m/n/9 # control group to be 24 months; exposure effect to be 0.3; me
-dian time to[] 
-
-Overfull \hbox (15.18042pt too wide) in paragraph at lines 819--819
- []\T1/pcr/m/n/9 df_tdclst <- tdSim.clst(N = 600, duration = 24, lambda = log(2
-)/24, rho = 1,[] 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (30.78088pt too wide) in paragraph at lines 837--837
- []\T1/pcr/m/n/10 tdSim.method1(N, duration = 24, lambda, rho = 1, beta, rateC,
- exp.prop,[] 
-
-Overfull \hbox (90.78088pt too wide) in paragraph at lines 838--838
- []    \T1/pcr/m/n/10 prop.fullexp  = 0, maxrelexptime = 1, min.futime = 0, min
-.postexp.futime = 0)[] 
-[14]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 875--876
+[13] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [14]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 873--874
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-
-Overfull \hbox (20.58041pt too wide) in paragraph at lines 928--928
- []\T1/pcr/m/n/9 # considering minimum follow-up time or minimum post-exposure 
-follow-up time.[] 
-
-Overfull \hbox (42.18039pt too wide) in paragraph at lines 929--929
- []\T1/pcr/m/n/9 # Specifically, set the duration of the study to be 24 months;
- the median time to[] 
-[15]
-Overfull \hbox (42.18039pt too wide) in paragraph at lines 930--930
- []\T1/pcr/m/n/9 # event for control group to be 24 months; exposure effect to 
-be 0.3; median time[] 
-
-! Package inputenc Error: Unicode char \u8:⅙ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.950 ...ers remain the same as in the first case.
-                                                  
-
-Overfull \hbox (25.98041pt too wide) in paragraph at lines 950--950
- []\T1/pcr/m/n/9 # exposure time to be . Other parameters remain the same as in
- the first case.[] 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (12.78088pt too wide) in paragraph at lines 971--971
- []    \T1/pcr/m/n/10 HR=NULL, exp.prop,rateC, min.futime = 0, min.postexp.futi
-me = 0)[] 
-[16]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 1005--1006
+[15] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [16]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 1003--1004
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
+No file Rd2.ind.
+[17] (./Rd2.aux)
 
-Overfull \hbox (31.3804pt too wide) in paragraph at lines 1044--1044
- []    \T1/pcr/m/n/9 lambda13=0.03, exp.prop=0.2,rateC=0.05, min.futime=4, min.
-postexp.futime=4)[] 
-[17] (./Rd2.aux) )
-(see the transcript file for additional information){/usr/local/texlive/2014/te
-xmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2014/texmf-dist/fonts/
-type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/ur
-w/helvetic/uhvr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times
-/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmr8a.pf
-b></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/lo
-cal/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (17 pages, 103255 bytes).
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information){/usr/local/texlive/2015/te
+xmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}{/usr/local/texlive/2015/texmf-
+dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/
+dvips/inconsolata/i4-t1-0.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
+/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times
+/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pf
+b></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (17 pages, 104173 bytes).
 Transcript written on Rd2.log.
-Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
-  unable to run 'pdflatex' on 'Rd2.tex'
-Error in running tools::texi2pdf()
-You may want to clean up by 'rm -rf /var/folders/b5/ydw15cx52vg6fjj478vq9m100000gn/T//RtmpvTyynK/Rd2pdfd7fe233ca317'
+This is makeindex, version 2.15 [TeX Live 2015] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (24 entries accepted, 0 rejected).
+Sorting entries....done (121 comparisons).
+Generating output file Rd2.ind....done (43 lines written, 0 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(./Rd2.tex
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/bk10.clo))
+(/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Rd.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.def))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1enc.def))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.05, 2014/06/22 Text macros for Inconsolata (msharpe)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/hyperref.cfg))
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 366.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 366.
+
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1enc.dfu)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ot1enc.dfu)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omsenc.dfu)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.dfu))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/latin1.def))
+Writing index file Rd2.idx
+(./Rd2.aux) (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+(./Rd2.out) (./Rd2.out)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd) (./Rd2.toc)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [1{/usr/local/texl
+ive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [2]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 135--136
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[3] [4] (/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [5]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 328--329
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[6] [7] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [8]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 498--499
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[9] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 589--590
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[10]
+Overfull \hbox (7.081pt too wide) in paragraph at lines 634--634
+ []\T1/zi4/m/n/9 ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop
+ = 0.2, type = "td", scenario =[] 
+
+Overfull \hbox (11.581pt too wide) in paragraph at lines 637--637
+ []\T1/zi4/m/n/9 ret2 <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.pro
+p = 0.2, type = "td", scenario =[] 
+
+Overfull \hbox (97.08102pt too wide) in paragraph at lines 647--647
+ []\T1/zi4/m/n/9 min.futime = 4, min.postexp.futime = 4, show.plot = TRUE, newp
+lot = TRUE, col = "red", lty = 1, lwd = 2, pch = 16)[] 
+
+Overfull \hbox (106.08102pt too wide) in paragraph at lines 652--652
+ []\T1/zi4/m/n/9 min.futime = 4, min.postexp.futime = 0, show.plot = TRUE, newp
+lot = FALSE, col = "blue", lty = 1, lwd = 2, pch = 16)[] 
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [11]
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [12]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 753--754
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[13] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [14]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 873--874
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[15] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [16]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 1003--1004
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+(./Rd2.ind [17]
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 33.
+
+[18]) (./Rd2.aux)
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information){/usr/local/texlive/2015/te
+xmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}{/usr/local/texlive/2015/texmf-
+dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/
+dvips/inconsolata/i4-t1-0.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
+urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/
+utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (18 pages, 114275 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.15 [TeX Live 2015] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (24 entries accepted, 0 rejected).
+Sorting entries....done (121 comparisons).
+Generating output file Rd2.ind....done (43 lines written, 0 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(./Rd2.tex
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/bk10.clo))
+(/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Rd.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.def))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1enc.def))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.05, 2014/06/22 Text macros for Inconsolata (msharpe)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/hyperref.cfg))
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 366.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 366.
+
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1enc.dfu)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ot1enc.dfu)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omsenc.dfu)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.dfu))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/latin1.def))
+Writing index file Rd2.idx
+(./Rd2.aux) (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+(./Rd2.out) (./Rd2.out)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd) (./Rd2.toc)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [1{/usr/local/texl
+ive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [2]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 135--136
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[3] [4] (/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [5]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 328--329
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[6] [7] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [8]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 498--499
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[9] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 589--590
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[10]
+Overfull \hbox (7.081pt too wide) in paragraph at lines 634--634
+ []\T1/zi4/m/n/9 ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop
+ = 0.2, type = "td", scenario =[] 
+
+Overfull \hbox (11.581pt too wide) in paragraph at lines 637--637
+ []\T1/zi4/m/n/9 ret2 <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.pro
+p = 0.2, type = "td", scenario =[] 
+
+Overfull \hbox (97.08102pt too wide) in paragraph at lines 647--647
+ []\T1/zi4/m/n/9 min.futime = 4, min.postexp.futime = 4, show.plot = TRUE, newp
+lot = TRUE, col = "red", lty = 1, lwd = 2, pch = 16)[] 
+
+Overfull \hbox (106.08102pt too wide) in paragraph at lines 652--652
+ []\T1/zi4/m/n/9 min.futime = 4, min.postexp.futime = 0, show.plot = TRUE, newp
+lot = FALSE, col = "blue", lty = 1, lwd = 2, pch = 16)[] 
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [11]
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [12]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 753--754
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[13] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [14]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 873--874
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[15] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [16]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 1003--1004
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+(./Rd2.ind [17]
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 33.
+
+[18]) (./Rd2.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information){/usr/local/texlive/2015/te
+xmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}{/usr/local/texlive/2015/texmf-
+dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/
+dvips/inconsolata/i4-t1-0.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
+urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/
+utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (18 pages, 114956 bytes).
+Transcript written on Rd2.log.
+Saving output to 'SimHaz-manual.pdf' ...
+Done
+You may want to clean up by 'rm -rf /var/folders/vw/gj_n0y6x53zcybshbzs1mg4m0000gn/T//Rtmp9fVH3Y/Rd2pdf2584191d311a'

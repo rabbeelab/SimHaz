@@ -12,8 +12,6 @@
 * checking for hidden files and directories ... NOTE
 Found the following hidden files and directories:
   .DS_Store
-  R/.DS_Store
-  man/.DS_Store
 These were most likely included in error. See section ‘Package
 structure’ in the ‘Writing R Extensions’ manual.
 * checking for portable file names ... OK
@@ -33,20 +31,11 @@ structure’ in the ‘Writing R Extensions’ manual.
 * checking whether the package can be unloaded cleanly ... OK
 * checking whether the namespace can be loaded with stated dependencies ... OK
 * checking whether the namespace can be unloaded cleanly ... OK
-* checking dependencies in R code ... NOTE
-Package in Depends field not imported from: ‘survival’
-  These packages need to be imported from (in the NAMESPACE file)
-  for when this namespace is loaded but not attached.
+* checking dependencies in R code ... OK
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
-getpower.clst: no visible global function definition for ‘coxph’
-getpower.clst: no visible global function definition for ‘survfit’
-getpower.method1: no visible global function definition for ‘coxph’
-getpower.method1: no visible global function definition for ‘survfit’
-getpower.method2: no visible global function definition for ‘coxph’
-getpower.method2: no visible global function definition for ‘survfit’
 plot_power: no visible binding for global variable ‘i_N’
 plot_power: no visible binding for global variable ‘i_type’
 plot_power: no visible binding for global variable ‘i_exp.prop’
@@ -58,73 +47,38 @@ plot_power: no visible binding for global variable ‘i_beta’
 plot_power: no visible binding for global variable ‘pow’
 tdSim.clst: no visible binding for global variable ‘t_exposed’
 tdSim.method1: no visible binding for global variable ‘t_exposed’
-* checking Rd files ... WARNING
-getpower.clst.Rd: non-ASCII input and no declared encoding
-getpower.method1.Rd: non-ASCII input and no declared encoding
+* checking Rd files ... NOTE
+prepare_Rd: getpower.clst.Rd:159-161: Dropping empty section \note
+prepare_Rd: getpower.clst.Rd:165-167: Dropping empty section \seealso
+prepare_Rd: getpower.method1.Rd:145-147: Dropping empty section \note
+prepare_Rd: getpower.method1.Rd:151-153: Dropping empty section \seealso
 prepare_Rd: getpower.method2.Rd:62-64: Dropping empty section \details
 prepare_Rd: getpower.method2.Rd:103-105: Dropping empty section \note
 prepare_Rd: getpower.method2.Rd:94-96: Dropping empty section \references
 prepare_Rd: getpower.method2.Rd:109-111: Dropping empty section \seealso
-plot_power.Rd: non-ASCII input and no declared encoding
+prepare_Rd: plot_power.Rd:73-75: Dropping empty section \note
+prepare_Rd: plot_power.Rd:66-68: Dropping empty section \references
+prepare_Rd: plot_power.Rd:79-81: Dropping empty section \seealso
 prepare_Rd: plot_simuData.Rd:27-33: Dropping empty section \value
 prepare_Rd: plot_simuData.Rd:41-43: Dropping empty section \note
 prepare_Rd: plot_simuData.Rd:34-36: Dropping empty section \references
 prepare_Rd: plot_simuData.Rd:47-49: Dropping empty section \seealso
 prepare_Rd: tdSim.clst.Rd:91-93: Dropping empty section \note
 prepare_Rd: tdSim.clst.Rd:97-99: Dropping empty section \seealso
-tdSim.method1.Rd: non-ASCII input and no declared encoding
+prepare_Rd: tdSim.method1.Rd:92-94: Dropping empty section \note
+prepare_Rd: tdSim.method1.Rd:98-100: Dropping empty section \seealso
 prepare_Rd: tdSim.method2.Rd:50-53: Dropping empty section \details
 prepare_Rd: tdSim.method2.Rd:84-86: Dropping empty section \note
 prepare_Rd: tdSim.method2.Rd:77-79: Dropping empty section \references
 prepare_Rd: tdSim.method2.Rd:90-92: Dropping empty section \seealso
-problems found in ‘getpower.clst.Rd’, ‘getpower.method1.Rd’, ‘plot_power.Rd’, ‘tdSim.method1.Rd’
 * checking Rd metadata ... OK
 * checking Rd cross-references ... OK
-<<<<<<< HEAD
-* checking for missing documentation entries ... WARNING
-Undocumented code objects:
-  ‘plot_simuData_jasa’ ‘simulWeib’ ‘simulWeib.clst’
-All user-level objects in a package should have documentation entries.
-See the chapter ‘Writing R documentation files’ in the ‘Writing R
-Extensions’ manual.
-* checking for code/documentation mismatches ... OK
-* checking Rd \usage sections ... WARNING
-Undocumented arguments in documentation object 'plot_power'
-  ‘show.plot’
-
-Functions with \usage entries need to have the appropriate \alias
-entries, and all their arguments documented.
-The \usage entries must correspond to syntactically valid R code.
-See the chapter ‘Writing R documentation files’ in the ‘Writing R
-Extensions’ manual.
-* checking Rd contents ... OK
-* checking for unstated dependencies in examples ... OK
-* checking examples ... OK
-* checking PDF version of manual ... WARNING
-LaTeX errors when creating PDF version.
-This typically indicates Rd problems.
-LaTeX errors found:
-f88251d/Rd2.tex:256: Package inputenc Error: Unicode char \u8:⅙ not set up fo
-r use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
-f88251d/Rd2.tex:429: Package inputenc Error: Unicode char \u8:⅙ not set up fo
-r use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
-f88251d/Rd2.tex:952: Package inputenc Error: Unicode char \u8:⅙ not set up fo
-r use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
-* checking PDF version of manual without hyperrefs or index ... ERROR
-=======
 * checking for missing documentation entries ... OK
 * checking for code/documentation mismatches ... OK
 * checking Rd \usage sections ... OK
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
-* checking examples ...
->>>>>>> fab00ff7ce8b53068832683f0aff64fb4ad2a8a4
+* checking examples ... OK
+* checking PDF version of manual ... OK
+* DONE
+Status: 3 NOTEs

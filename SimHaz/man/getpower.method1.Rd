@@ -160,7 +160,7 @@ library(survival)
 # time-dependent exposure with both minimum follow-up time (4 months) and
 # minimum post-exposure follow-up time (4 months) imposed. Also consider a
 # quick exposure after entering the study for each exposed subject. Set the
-# maximum relative exposure time to be ⅙. 
+# maximum relative exposure time to be 1/6. 
 
 # Set the duration of the study to be 24 months; the median time to event for
 # control group to be 24 months; exposure effect to be 0.3; median time to
