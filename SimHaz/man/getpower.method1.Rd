@@ -36,7 +36,7 @@ getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1,
   \item{med.TimeToCensor}{
   Median time to censoring for all subjects. The default value is 14 (months).
   }
-  \itme{med.TimeToCensor}{
+  \item{med.TimeToCensor}{
   Median time to censoring for all subjects. The default value is 14 (months).
   }
   \item{beta}{

@@ -102,7 +102,7 @@ getpower.method2=function(nSim=500, N, duration=24, scenario,lambda12, lambda23=
   df=data.frame(i_scenario=scenario,
                 i_N=N,
                 i_min.futime=min.futime,
-                i_min.postexp.fut=min.postexp.fut,
+                i_min.postexp.futime=min.postexp.futime,
                 i_exprate=er,
                 i_lambda12=lambda12,
                 i_lambda23=lambda23,

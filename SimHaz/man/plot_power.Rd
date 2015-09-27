@@ -10,7 +10,7 @@ frame that match the list of input parameters.
 }
 \usage{
 plot_power(table_df, N, type, exp.prop, min.futime, min.postexp.futime,
-	plot = TRUE, newplot, col, lty, lwd, pch)
+	plot = FALSE, newplot = FALSE, col = NULL, lty, lwd, pch)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
