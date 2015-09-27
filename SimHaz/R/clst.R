@@ -44,6 +44,7 @@ simulWeib.clst<-function(N,duration,lambda,rho,beta,rateC,df,min.futime)
 }
 
 # modified version to generate time-dependent dataset with clustering
+#' @export
 tdSim.clst<-function(N,duration=24,lambda,rho=1,beta,rateC,df,
                      prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0){
   data<-simulWeib.clst(N,duration,lambda,rho,beta,rateC,df,min.futime)
@@ -83,6 +84,7 @@ tdSim.clst<-function(N,duration=24,lambda,rho=1,beta,rateC,df,
 }
 
 # get.power function for clustering scenario
+#' @export
 getpower.clst<-function(nSim,N,duration=24,med.TTE.Control=24,rho=1,beta,med.TimeToCensor=14,df,type,scenario,
                         prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,output.fn,simu.plot=FALSE) 
 {
