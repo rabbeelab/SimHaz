@@ -9,9 +9,9 @@ getpower.method1        Calculate power for the Cox proportional hazard
 getpower.method2        Calculate power for the Cox proportional hazard
                         model with time-dependent exposure using method
                         1
-plot.incidence          Make an incidence plot from simulated data.
 plot_power              Plot power curves for survival analysis with
                         time-dependent exposure
+plot_simuData           Make an incidence plot from simulated data.
 tdSim.clst              Simulate 1 dataframe (1 simulation) of
                         time-dependent exposure under method 1 with a
                         clustering data frame
