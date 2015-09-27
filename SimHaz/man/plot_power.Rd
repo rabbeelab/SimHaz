@@ -41,7 +41,7 @@ follow-up time (in months). The default value is 0, which
 			exclude subjects that only spend a short amount of time in
 			the study after their exposure
 }
-  \item{plot}{
+  \item{show.plot}{
 A logical value indicating whether to output a power curve or not. The
   default value is TRUE
 }
