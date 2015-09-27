@@ -1,6 +1,6 @@
-* using log directory ‘/Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz.Rcheck’
-* using R version 3.1.1 (2014-07-10)
-* using platform: x86_64-apple-darwin13.1.0 (64-bit)
+* using log directory ‘/Users/hiroto/GitHub/SimHaz/SimHaz.Rcheck’
+* using R version 3.2.2 (2015-08-14)
+* using platform: x86_64-apple-darwin13.4.0 (64-bit)
 * using session charset: UTF-8
 * checking for file ‘SimHaz/DESCRIPTION’ ... OK
 * this is package ‘SimHaz’ version ‘0.1’
@@ -18,10 +18,7 @@ These were most likely included in error. See section ‘Package
 structure’ in the ‘Writing R Extensions’ manual.
 * checking for portable file names ... OK
 * checking for sufficient/correct file permissions ... OK
-* checking whether package ‘SimHaz’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘survival’ was built under R version 3.1.3
-See ‘/Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz.Rcheck/00install.out’ for details.
+* checking whether package ‘SimHaz’ can be installed ... OK
 * checking installed package size ... OK
 * checking package directory ... OK
 * checking DESCRIPTION meta-information ... OK
@@ -40,12 +37,16 @@ See ‘/Users/BEN/Documents/research/stat154/rabbeelab/SimHaz/SimHaz.Rcheck/00in
 Package in Depends field not imported from: ‘survival’
   These packages need to be imported from (in the NAMESPACE file)
   for when this namespace is loaded but not attached.
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
+getpower.clst: no visible global function definition for ‘coxph’
+getpower.clst: no visible global function definition for ‘survfit’
+getpower.method1: no visible global function definition for ‘coxph’
+getpower.method1: no visible global function definition for ‘survfit’
+getpower.method2: no visible global function definition for ‘coxph’
+getpower.method2: no visible global function definition for ‘survfit’
 plot_power: no visible binding for global variable ‘i_N’
 plot_power: no visible binding for global variable ‘i_type’
 plot_power: no visible binding for global variable ‘i_exp.prop’
@@ -79,6 +80,7 @@ prepare_Rd: tdSim.method2.Rd:90-92: Dropping empty section \seealso
 problems found in ‘getpower.clst.Rd’, ‘getpower.method1.Rd’, ‘plot_power.Rd’, ‘tdSim.method1.Rd’
 * checking Rd metadata ... OK
 * checking Rd cross-references ... OK
+<<<<<<< HEAD
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
   ‘plot_simuData_jasa’ ‘simulWeib’ ‘simulWeib.clst’
@@ -118,3 +120,11 @@ r use with LaTeX.
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
 * checking PDF version of manual without hyperrefs or index ... ERROR
+=======
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking examples ...
+>>>>>>> fab00ff7ce8b53068832683f0aff64fb4ad2a8a4

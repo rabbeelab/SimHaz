@@ -31,6 +31,7 @@ simulWeib <- function(N, duration, lambda, rho, beta, rateC,exp.prop, min.futime
 # fullyexp.p: fully exposed proportion, the default value is 0, can take values in [0, 1)
 # maxrelexp.t: maximum relative exposuret time, the default value is 1, can take values in (0, 1]
 # min.postexp.fut: minimum post-exposure follow-up time
+#' @export
 tdSim.method1<-function(N, duration=24,lambda, rho=1, beta, rateC,exp.prop,
                         prop.fullexp=0,maxrelexptime=1,min.futime=0, min.postexp.futime=0){
   data <- simulWeib(N, duration,lambda, rho, beta, rateC,exp.prop,min.futime)
@@ -67,6 +68,7 @@ tdSim.method1<-function(N, duration=24,lambda, rho=1, beta, rateC,exp.prop,
   return(full_data)
 }
 
+#' @export
 getpower.method1<-function(nSim, N,duration=24,med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta,exp.prop,type,scenario,
                            prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,output.fn,simu.plot=FALSE) 
 { 
