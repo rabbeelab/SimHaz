@@ -94,16 +94,16 @@ A data.frame object with 3 rows and columns corresponding to
   Minimum post-exposure follow-up time to be considered, specified by the user
   }
   \item{i_cat}{
-  Category id specified in user’s input data frame
+  Category id specified in user's input data frame
   }
   \item{i_cat_prop}{
-  Category proportion specified in user’s input data frame
+  Category proportion specified in user's input data frame
   }
   \item{i_cat_exp.prop}{
-  Category exposure proportion specified in user’s input dataframe
+  Category exposure proportion specified in user's input dataframe
   }
   \item{i_exp.prop}{
-  Weighted exposure proportion calculated from user’s input dataframe
+  Weighted exposure proportion calculated from user's input dataframe
   }
   \item{i_lambda}{
   Value of the scale parameter of the Weibull distribution to generate survival times. Calculated from median time to event for control group, which is specified by the user

@@ -14,7 +14,7 @@ This function simulate Survival Data. It generates a simulated dataset with time
 tdSim.method2 <-function(N,duration, lambda12, lambda23=NULL, lambda13, 
     HR=NULL, exp.prop,rateC, min.futime = 0, min.postexp.futime = 0)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{N}{
   Number of subjects
