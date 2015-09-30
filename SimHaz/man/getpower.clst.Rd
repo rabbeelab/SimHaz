@@ -51,7 +51,7 @@ getpower.clst(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1, beta,
   A numeric value in interval [0, 1) that represents the proportion of exposed subjects that are fully exposed from the beginning to the end of the study. The default value is 0, which means all exposed subjects have an exposure status transition at some point during the study.
   }
  \item{maxrelexptime}{
- A numeric value in interval (0, 1] that represents the maximum relative exposure time. The default value is 1, which means all exposed subjects have an exposure status transition at some point during the study and possibly at the start or end.
+A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure
  }
  \item{min.futime}{
  A numeric value that represents minimum follow-up time (in months). The default value is 0, which means no minimum follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study.
