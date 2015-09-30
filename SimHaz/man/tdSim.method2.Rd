@@ -49,7 +49,7 @@ tdSim.method2(N,duration, lambda12, lambda23=NULL, lambda13,
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
-
+Simulata a Survival dataset using a modified version of illness-death model controlled by lambda12, lambda23, lambda13
 }
 \value{
 %%  ~Describe the value returned

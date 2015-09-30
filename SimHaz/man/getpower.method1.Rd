@@ -69,7 +69,7 @@ getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1,
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
-The user needs to install the survival package in order to use this function, as it calculates power based on the Cox regression model, which calls the coxph function from the survival library.
+The function calculates power based on the Cox regression model, which calls the coxph function from the survival library using the the simulated data from tdSim.method1.
 }
 \value{
 A data.frame object with columns corresponding to

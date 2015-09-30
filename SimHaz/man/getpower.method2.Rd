@@ -3,7 +3,7 @@
 
 \title{
 Calculate power for the Cox proportional hazard model with
-time-dependent exposure using method 1
+time-dependent exposure using method 2
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
@@ -60,7 +60,7 @@ getpower.method2(nSim = 500, N, duration = 24, scenario, lambda12,
   }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+The function calculates power based on the Cox regression model, which calls the coxph function from the survival library using the the simulated data from tdSim.method2.
 }
 \value{
 A data.frame object with columns corresponding to
@@ -110,7 +110,9 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-ret <- getpower.method2(nSim=1, N=600, duration=24, scenario="test",
+# Run 500 simulations. Each time simulate a dataset of 600 subjects
+
+ret <- getpower.method2(nSim=500, N=600, duration=24, scenario="test",
   lambda12=1.3, lambda23=0.04, lambda13=0.03, HR=NULL,exp.prop=0.2, rateC=0.05,
   min.futime=4, min.postexp.futime=4,output.fn="database.csv", simu.plot=FALSE) 
 }

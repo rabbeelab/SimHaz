@@ -68,7 +68,7 @@ A numeric value that represents minimum post-exposure follow-up time (in months)
 }
 
 \details{
-The user needs to install the survival package in order to use this function, as it calculates power based on the Cox regression model, which calls the coxph function from the survival library.
+The function calculates power based on the Cox regression model, which calls the coxph function from the survival library using the the simulated data from tdSim.clst
 }
 \value{
 %%  ~Describe the value returned
