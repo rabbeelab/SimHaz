@@ -6,7 +6,7 @@
 Simulated Survival and Hazard Analysis for time-dependent
 }
 \description{
-The package generates power for the Cox proportional hazards model by simulating survival events data with time dependent exposure status for subjects. A dichotomous exposure variable is considered with a single transition from unexposed to exposed status during the subject time's in the study.
+This package generates power for the Cox proportional hazards model by simulating survival events data with time dependent exposure status for subjects. A dichotomous exposure variable is considered with a single transition from unexposed to exposed status during the subject time's in the study.
 }
 \details{
 \tabular{ll}{
