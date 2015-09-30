@@ -7,7 +7,7 @@ time-dependent exposure using method 1
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-This functions runs nSim (Number of simulations, specified by the user) Monte Carlo simulations, each time it calls tdSim.method2 internally. The function returns a data frame of scenario-specific input parameters- and it also output statistical power. The user has the option to append the output to a file with file name specified in the input parameters list.
+This functions runs nSim (Number of simulations, specified by the user) Monte Carlo simulations, each time calling tdSim.method2 internally. The function returns a data frame of scenario-specific input parameters- and also output statistical power. The user has the option to append the output to a file with file name specified in the input parameters list.
 }
 \usage{
 getpower.method2(nSim = 500, N, duration = 24, scenario, lambda12,

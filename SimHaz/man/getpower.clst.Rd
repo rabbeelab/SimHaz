@@ -50,14 +50,14 @@ getpower.clst(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1, beta,
   \item{prop.fullexp}{
   A numeric value in interval [0, 1) that represents the proportion of exposed subjects that are fully exposed from the beginning to the end of the study. The default value is 0, which means all exposed subjects have an exposure status transition at some point during the study.
   }
- \item{maxrelexptime}{
-A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure
- }
- \item{min.futime}{
- A numeric value that represents minimum follow-up time (in months). The default value is 0, which means no minimum follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study.
- }
- \item{min.postexp.futime}{
- A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure.
+  \item{maxrelexptime}{
+  A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure.
+  }
+  \item{min.futime}{
+  A numeric value that represents minimum follow-up time (in months). The default value is 0, which means no minimum follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study.
+  }
+  \item{min.postexp.futime}{
+  A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure.
   }
   \item{output.fn}{
   A .csv filename to write in the output. If the filename does not exist, the function will create a new .csv file for the output.
@@ -79,71 +79,71 @@ The user needs to install the survival package in order to use this function, as
 A data.frame object with 3 rows and columns corresponding to
 
   \item{i_scenario}{
-  Scenario name specified by the user
+  Scenario name specified by the user.
   }
   \item{i_type}{
-  Dataset type specified by the user
+  Dataset type specified by the user.
   }
   \item{i_N}{
-  Number of subjects needs to be screened, specified by the user
+  Number of subjects to be screened, specified by the user.
   }
   \item{i_min.futime}{
-  Minimum follow-up time to be considered, specified by the user
+  Minimum follow-up time to be considered, specified by the user.
   }
   \item{i_min.postexp.futime}{
-  Minimum post-exposure follow-up time to be considered, specified by the user
+  Minimum post-exposure follow-up time to be considered, specified by the user.
   }
   \item{i_cat}{
-  Category id specified in user's input data frame
+  Category id specified in user's input data frame.
   }
   \item{i_cat_prop}{
-  Category proportion specified in user's input data frame
+  Category proportion specified in user's input data frame.
   }
   \item{i_cat_exp.prop}{
-  Category exposure proportion specified in user's input dataframe
+  Category exposure proportion specified in user's input dataframe.
   }
   \item{i_exp.prop}{
-  Weighted exposure proportion calculated from user's input dataframe
+  Weighted exposure proportion calculated from user's input dataframe.
   }
   \item{i_lambda}{
-  Value of the scale parameter of the Weibull distribution to generate survival times. Calculated from median time to event for control group, which is specified by the user
+  Value of the scale parameter of the Weibull distribution to generate survival times. Calculated from median time to event for control group, which is specified by the user.
   }
   \item{i_rho}{
-  User-specified Value of the shape parameter of the Weibull distribution to generate survival times
+  User-specified Value of the shape parameter of the Weibull distribution to generate survival times.
   }
   \item{i_rateC}{
   Rate of the exponential distribution to generate censoring times. Calculated from median time to censoring, which is specified by the user.
   }
-  \item{i_beta}{Input value of regression coefficient (log hazard ratio)
+  \item{i_beta}{Input value of regression coefficient (log hazard ratio).
   }
   \item{N_eff}{
-  Simulated number of evaluable subjects, which is the resulting number of subjects with or without considering minimum follow-up time and/or minimum post-exposure follow-up time
+  Simulated number of evaluable subjects, which is the resulting number of subjects with or without considering minimum follow-up time and/or minimum post-exposure follow-up time.
   }
   \item{N_effexp_p}{
-  Simulated proportion of exposed subjects with or without considering minimum follow-up time and/or minimum post-exposure follow-up time
+  Simulated proportion of exposed subjects with or without considering minimum follow-up time and/or minimum post-exposure follow-up time.
   }
   \item{bhat}{
-  Simulated value of regression coefficient (log hazard ratio)
+  Simulated value of regression coefficient (log hazard ratio).
   }
   \item{HR}{
-  Simulated value of hazard ratio
+  Simulated value of hazard ratio.
   }
   \item{d}{
-  Simulated number of events in total
+  Simulated number of events in total.
   }
   \item{d_c}{
-  Simulated number of events in control group
+  Simulated number of events in control group.
   }
   \item{d_exp}{
-  Simulated number of events in exposed group
+  Simulated number of events in exposed group.
   }
   \item{mst_c}{
-  Simulated median survival time in control group
+  Simulated median survival time in control group.
   }
   \item{mst_exp}{
-  Simulated median survival time in exposed group
+  Simulated median survival time in exposed group.
   }
-  \item{pow}{Simulated statistical power from the Cox regression model on data with time-dependent exposure
+  \item{pow}{Simulated statistical power from the Cox regression model on data with time-dependent exposure.
 }
 }
 \references{

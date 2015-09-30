@@ -7,8 +7,7 @@ time-dependent exposure using method 1
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-This functions runs nSim (Number of simulations, specified by the user) Monte Carlo simulations, each time it calls
-tdSim.method1 internally. The function returns a data frame of scenario-specific parameters (including statistical power) and appends the output to a file with file name specified in the input parameters list. The user also have an option whether to plot an incidence plot or not.
+This functions runs nSim (Number of simulations, specified by the user) Monte Carlo simulations, each time it calling tdSim.method1 internally. The function returns a data frame of scenario-specific parameters (including statistical power) and appends the output to a file with file name specified in the input parameters list. The user also have an option whether to plot an incidence plot or not.
 }
 \usage{
 getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1,
@@ -49,22 +48,22 @@ getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1,
   Any text string inputted by the user as an option to name a scenario that is being simulated. The use can simply put " "  if he/she decide to not name the scenario.
   }
   \item{prop.fullexp}{
-  A numeric value in interval [0, 1) that represents the proportion of exposed subjects that are fully exposed from the beginning to the end of the study. The default value is 0, which means all exposed subjects have an exposure status transition at some point during the study
+  A numeric value in interval [0, 1) that represents the proportion of exposed subjects that are fully exposed from the beginning to the end of the study. The default value is 0, which means all exposed subjects have an exposure status transition at some point during the study.
   }
   \item{maxrelexptime}{
   A numeric value in interval (0, 1] that represents the maximum relative exposure time. Suppose this value is p, the exposure time for each subject is then uniformly distributed from 0 to p*subject's time in the study. The default value is 1, which means all exposed subjects have an exposure status transition at any point during the time in study.
   }
   \item{min.futime}{
-  A numeric value that represents minimum follow-up time (in months). The default value is 0, which means no minimum follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study
+  A numeric value that represents minimum follow-up time (in months). The default value is 0, which means no minimum follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study.
   }
   \item{min.postexp.futime}{
-  A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure
+  A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure.
   }
   \item{output.fn}{
-  A .csv filename to write in the output. If the filename does not exist, the function will create a new .csv file for the output
+  A .csv filename to write in the output. If the filename does not exist, the function will create a new .csv file for the output.
   }
   \item{simu.plot}{
-  A logical value indicating whether or not to output an incidence plot. The default value is FALSE
+  A logical value indicating whether or not to output an incidence plot. The default value is FALSE.
   }
 }
 \details{
@@ -80,7 +79,7 @@ A data.frame object with columns corresponding to
   Dataset type specified by the user
   }
   \item{i_N}{
-  Number of subjects needs to be screened, specified by the user
+  Number of subjects to be screened, specified by the user
   }
   \item{i_min.futime}{
   Minimum follow-up time to be considered, specified by the user
@@ -92,19 +91,19 @@ A data.frame object with columns corresponding to
   Exposure rate specified by the user
   }
   \item{i_lambda}{
-  Value of the scale parameter of the Weibull distribution to generate survival times. Calculated from median time to event for control group, which is specified by the user
+  Value of the scale parameter of the Weibull distribution to generate survival times. Calculated from median time to event for control group, which is specified by the user.
   }
   \item{i_rho}{
-  User-specified Value of the shape parameter of the Weibull distribution to generate survival times
+  User-specified value of the shape parameter of the Weibull distribution to generate survival times
   }
   \item{i_rateC}{
-  Rate of the exponential distribution to generate censoring times. Calculated from median time to censoring, which is specified by the user. i_beta  Input value of regression coefficient (log hazard ratio)
+  Rate of the exponential distribution to generate censoring times. Calculated from median time to censoring, which is specified by the user. i_beta  Input value of regression coefficient (log hazard ratio).
   }
   \item{N_eff}{
-  Simulated number of evaluable subjects, which is the resulting number of subjects with or without considering minimum follow-up time and/or minimum post-exposure follow-up time
+  Simulated number of evaluable subjects, which is the resulting number of subjects with or without considering minimum follow-up time and/or minimum post-exposure follow-up time.
   }
   \item{N_effexp_p}{
-  Simulated proportion of exposed subjects with or without considering minimum follow-up time and/or minimum post-exposure follow-up time
+  Simulated proportion of exposed subjects with or without considering minimum follow-up time and/or minimum post-exposure follow-up time.
   }
   \item{bhat}{
   Simulated value of regression coefficient (log hazard ratio)

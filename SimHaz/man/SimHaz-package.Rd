@@ -6,14 +6,14 @@
 Simulated Survival and Hazard Analysis for time-dependent
 }
 \description{
-SimHaz package in R generates power for the Cox proportional hazards model by simulating survival events data with time dependent exposure status for subjects. A dichotomous exposure variable is considered with a single transition from unexposed to exposed status during the subject time's in the study.
+The package generates power for the Cox proportional hazards model by simulating survival events data with time dependent exposure status for subjects. A dichotomous exposure variable is considered with a single transition from unexposed to exposed status during the subject time's in the study.
 }
 \details{
 \tabular{ll}{
 Package: \tab SimHaz\cr
 Type: \tab Package\cr
 Version: \tab 0.1 \cr
-Date: \tab 2015-07-22\cr
+Date: \tab 2015-09-29\cr
 License: \tab GPL-2 \cr
 Depends: R (>= 3.1.1)
 Imports: survival
@@ -38,6 +38,6 @@ df1 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
    
 ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2, 
 	type = "td", scenario = " ", maxrelexptime = 1/6, min.futime = 4,
-	 min.postexp.futime = 4, output.fn = "output.csv")
+	min.postexp.futime = 4, output.fn = "output.csv")
 
 }
