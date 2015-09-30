@@ -9,11 +9,7 @@
 * checking if this is a source package ... OK
 * checking if there is a namespace ... OK
 * checking for executable files ... OK
-* checking for hidden files and directories ... NOTE
-Found the following hidden files and directories:
-  .DS_Store
-These were most likely included in error. See section ‘Package
-structure’ in the ‘Writing R Extensions’ manual.
+* checking for hidden files and directories ... OK
 * checking for portable file names ... OK
 * checking for sufficient/correct file permissions ... OK
 * checking whether package ‘SimHaz’ can be installed ... OK
@@ -47,30 +43,7 @@ plot_power: no visible binding for global variable ‘i_beta’
 plot_power: no visible binding for global variable ‘pow’
 tdSim.clst: no visible binding for global variable ‘t_exposed’
 tdSim.method1: no visible binding for global variable ‘t_exposed’
-* checking Rd files ... NOTE
-prepare_Rd: getpower.clst.Rd:159-161: Dropping empty section \note
-prepare_Rd: getpower.clst.Rd:165-167: Dropping empty section \seealso
-prepare_Rd: getpower.method1.Rd:145-147: Dropping empty section \note
-prepare_Rd: getpower.method1.Rd:151-153: Dropping empty section \seealso
-prepare_Rd: getpower.method2.Rd:62-64: Dropping empty section \details
-prepare_Rd: getpower.method2.Rd:103-105: Dropping empty section \note
-prepare_Rd: getpower.method2.Rd:94-96: Dropping empty section \references
-prepare_Rd: getpower.method2.Rd:109-111: Dropping empty section \seealso
-prepare_Rd: plot_power.Rd:73-75: Dropping empty section \note
-prepare_Rd: plot_power.Rd:66-68: Dropping empty section \references
-prepare_Rd: plot_power.Rd:79-81: Dropping empty section \seealso
-prepare_Rd: plot_simuData.Rd:27-33: Dropping empty section \value
-prepare_Rd: plot_simuData.Rd:41-43: Dropping empty section \note
-prepare_Rd: plot_simuData.Rd:34-36: Dropping empty section \references
-prepare_Rd: plot_simuData.Rd:47-49: Dropping empty section \seealso
-prepare_Rd: tdSim.clst.Rd:91-93: Dropping empty section \note
-prepare_Rd: tdSim.clst.Rd:97-99: Dropping empty section \seealso
-prepare_Rd: tdSim.method1.Rd:92-94: Dropping empty section \note
-prepare_Rd: tdSim.method1.Rd:98-100: Dropping empty section \seealso
-prepare_Rd: tdSim.method2.Rd:50-53: Dropping empty section \details
-prepare_Rd: tdSim.method2.Rd:84-86: Dropping empty section \note
-prepare_Rd: tdSim.method2.Rd:77-79: Dropping empty section \references
-prepare_Rd: tdSim.method2.Rd:90-92: Dropping empty section \seealso
+* checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... OK
@@ -81,4 +54,4 @@ prepare_Rd: tdSim.method2.Rd:90-92: Dropping empty section \seealso
 * checking examples ... OK
 * checking PDF version of manual ... OK
 * DONE
-Status: 3 NOTEs
+Status: 1 NOTE

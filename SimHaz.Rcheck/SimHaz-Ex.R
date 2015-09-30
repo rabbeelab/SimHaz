@@ -29,7 +29,7 @@ df1 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
    
 ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2, 
 	type = "td", scenario = " ", maxrelexptime = 1/6, min.futime = 4,
-	 min.postexp.futime = 4, output.fn = "output.csv")
+	min.postexp.futime = 4, output.fn = "output.csv")
 
 
 
@@ -44,7 +44,7 @@ flush(stderr()); flush(stdout())
 ### Title: Calculate power for the Cox proportional hazard model with
 ###   time-dependent exposure using method 1 with clustering
 ### Aliases: getpower.clst
-### Keywords: ~kwd1 ~kwd2
+### Keywords: Power_Calculation
 
 ### ** Examples
 
@@ -84,6 +84,7 @@ flush(stderr()); flush(stdout())
 ### Title: Calculate power for the Cox proportional hazard model with
 ###   time-dependent exposure using method 1
 ### Aliases: getpower.method1
+### Keywords: Power_Calculation
 
 ### ** Examples
 
@@ -116,13 +117,15 @@ flush(stderr()); flush(stdout())
 
 ### Name: getpower.method2
 ### Title: Calculate power for the Cox proportional hazard model with
-###   time-dependent exposure using method 1
+###   time-dependent exposure using method 2
 ### Aliases: getpower.method2
-### Keywords: ~kwd1 ~kwd2
+### Keywords: Power_Calculation
 
 ### ** Examples
 
-ret <- getpower.method2(nSim=1, N=600, duration=24, scenario="test",
+# Run 500 simulations. Each time simulate a dataset of 600 subjects
+
+ret <- getpower.method2(nSim=500, N=600, duration=24, scenario="test",
   lambda12=1.3, lambda23=0.04, lambda13=0.03, HR=NULL,exp.prop=0.2, rateC=0.05,
   min.futime=4, min.postexp.futime=4,output.fn="database.csv", simu.plot=FALSE) 
 
@@ -138,29 +141,33 @@ flush(stderr()); flush(stdout())
 ### Title: Plot power curves for survival analysis with time-dependent
 ###   exposure
 ### Aliases: plot_power
-### Keywords: ~kwd1 ~kwd2
+### Keywords: Plot
 
 ### ** Examples
 
-ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2, type = "td", scenario = 
-" ", maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4,
-output.fn = "output.csv")
-ret2 <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2, type = "td", scenario = 
-" ", maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 0,
-output.fn = "output.csv")
+ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2, 
+    type = "td", scenario =  " ", maxrelexptime = 1/6, min.futime = 4, 
+    min.postexp.futime = 4, output.fn = "output.csv")
+	
+ret2 <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2, 
+    type = "td", scenario = " ", maxrelexptime = 1/6, min.futime = 4, 
+    min.postexp.futime = 0, output.fn ="output.csv")
+	
 # Read in .csv file as a data frame
 
-  tb <-  read.csv("output.csv", header = TRUE, sep = ",")
+tb <-  read.csv("output.csv", header = TRUE, sep = ",")
 
 	# Visualize the subsetted data frame of interest and create a new plot
 
 visualize1 <- plot_power(table_df = tb, N = 600, type = "td", exp.prop = 0.2,
-min.futime = 4, min.postexp.futime = 4, show.plot = TRUE, newplot = TRUE, col = "red", lty = 1, lwd = 2, pch = 16)
+    min.futime = 4, min.postexp.futime = 4, show.plot = TRUE, newplot = TRUE,
+    col = "red", lty = 1, lwd = 2, pch = 16)
 
 # Add a different power curve to the previously created plot
 
-visualize2 <- plot_power(table_df = tb, N = 600, type = "td", exp.prop=0.2,
-min.futime = 4, min.postexp.futime = 0, show.plot = TRUE, newplot = FALSE, col = "blue", lty = 1, lwd = 2, pch = 16)
+visualize2 <- plot_power(table_df = tb, N = 600, type = "td", exp.prop=0.2, 
+    min.futime = 4, min.postexp.futime = 0, show.plot = TRUE, newplot = FALSE,
+    col = "blue", lty = 1, lwd = 2, pch = 16)
 
 
 
@@ -173,7 +180,7 @@ flush(stderr()); flush(stdout())
 ### Name: plot_simuData
 ### Title: Make an incidence plot from simulated data.
 ### Aliases: plot_simuData
-### Keywords: ~kwd1 ~kwd2
+### Keywords: Plot
 
 ### ** Examples
 
@@ -194,7 +201,7 @@ flush(stderr()); flush(stdout())
 ### Title: Simulate 1 dataframe (1 simulation) of time-dependent exposure
 ###   under method 1 with a clustering data frame
 ### Aliases: tdSim.clst
-### Keywords: ~kwd1 ~kwd2
+### Keywords: Simulation
 
 ### ** Examples
 
@@ -229,7 +236,7 @@ flush(stderr()); flush(stdout())
 ### Title: Simulate 1 dataframe (1 simulation) of time-dep exposure under
 ###   method 1
 ### Aliases: tdSim.method1
-### Keywords: ~kwd1 ~kwd2
+### Keywords: Simulation
 
 ### ** Examples
 
@@ -274,7 +281,7 @@ flush(stderr()); flush(stdout())
 ### Title: Simulate 1 dataframe (1 simulation) of time-dep exposure under
 ###   method 2
 ### Aliases: tdSim.method2
-### Keywords: ~kwd1 ~kwd2
+### Keywords: Simulation
 
 ### ** Examples
 

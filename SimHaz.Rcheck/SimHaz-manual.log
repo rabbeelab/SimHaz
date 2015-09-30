@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 SEP 2015 19:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  29 SEP 2015 18:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -687,15 +687,15 @@ LaTeX Font Info:    Try loading font information for T1+zi4 on input line 21.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2014/06/22 T1/zi4 (Inconsolata)
 )
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 25.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 24.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 27.
+(Font)              <7> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 27.
+(Font)              <5> on input line 26.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 30.
 LaTeX Font Info:    Try loading font information for T1+phv on input line 30.
@@ -716,6 +716,12 @@ File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
 ) [2]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 129--130
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+ []
+
+
 Overfull \hbox (2.17802pt too wide) in paragraph at lines 135--136
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
@@ -729,96 +735,72 @@ File: ts1zi4.fd 2014/06/22 Fontinst v1.933 font definitions for TS1/zi4.
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
-) [5]
+) [5] [6]
 Overfull \hbox (2.17802pt too wide) in paragraph at lines 328--329
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
  []
 
-[6] [7] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
+[7] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
 ) [8]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 498--499
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 497--498
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
  []
 
 [9] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
-)
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 589--590
+) [10]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 593--594
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
  []
 
-[10]
-Overfull \hbox (7.081pt too wide) in paragraph at lines 634--634
- []\T1/zi4/m/n/9 ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop
- = 0.2, type = "td", scenario =[] 
- []
-
-
-Overfull \hbox (11.581pt too wide) in paragraph at lines 637--637
- []\T1/zi4/m/n/9 ret2 <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.pro
-p = 0.2, type = "td", scenario =[] 
- []
-
-
-Overfull \hbox (97.08102pt too wide) in paragraph at lines 647--647
- []\T1/zi4/m/n/9 min.futime = 4, min.postexp.futime = 4, show.plot = TRUE, newp
-lot = TRUE, col = "red", lty = 1, lwd = 2, pch = 16)[] 
- []
-
-
-Overfull \hbox (106.08102pt too wide) in paragraph at lines 652--652
- []\T1/zi4/m/n/9 min.futime = 4, min.postexp.futime = 0, show.plot = TRUE, newp
-lot = FALSE, col = "blue", lty = 1, lwd = 2, pch = 16)[] 
- []
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
-) [11]
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
+[11] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
 ) [12]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 753--754
-\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
-exposure follow-
- []
-
-[13] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
-) [14]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 873--874
+) [13]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 758--759
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
  []
 
-[15] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
+[14] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
-) [16]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 1003--1004
+)
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 877--878
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
  []
 
-(./Rd2.ind [17]
+[15] [16] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
+)
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 1006--1007
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+ []
+
+[17] (./Rd2.ind [18]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 3.
 
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 33.
+(Font)              using `T1/zi4/m/n' instead on input line 28.
 
-[18
+[19
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1046.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1046.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1054.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1054.
  (./Rd2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1046.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1046.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1054.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1054.
 
 Package rerunfilecheck Info: File `Rd2.out' has not changed.
 (rerunfilecheck)             Checksum: BF4FABF98316F0B2F3EEB9B584730739;583.
@@ -826,16 +808,16 @@ Package rerunfilecheck Info: File `Rd2.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1046.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1054.
  ) 
 Here is how much of TeX's memory you used:
- 6470 strings out of 493089
- 93116 string characters out of 6134842
+ 6473 strings out of 493089
+ 93145 string characters out of 6134842
  173105 words of memory out of 5000000
  9734 multiletter control sequences out of 15000+600000
  41277 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,6n,27p,475b,592s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,5n,27p,475b,592s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}{/
 usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texli
 ve/2015/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}</usr/local/texlive/
@@ -846,10 +828,10 @@ texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive
 f-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fon
 ts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/u
 rw/times/utmri8a.pfb>
-Output written on Rd2.pdf (18 pages, 114956 bytes).
+Output written on Rd2.pdf (19 pages, 116120 bytes).
 PDF statistics:
  292 PDF objects out of 1000 (max. 8388607)
- 262 compressed objects within 3 object streams
- 103 named destinations out of 1000 (max. 500000)
+ 261 compressed objects within 3 object streams
+ 106 named destinations out of 1000 (max. 500000)
  81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
