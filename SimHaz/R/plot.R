@@ -62,6 +62,8 @@ plot_simuData_jasa <- function(data){
 
 # function to plot power curves
 #' @export
+globalVariables(c("i_N", "i_type", 'i_exp.prop','i_min.futime','i_min.postexp.futime','N_eff','i_beta','pow','t_exposed'))
+
 plot_power<-function(table_df,N,type,exp.prop,min.futime,min.postexp.futime,show.plot=FALSE,newplot=FALSE,
                      col=NULL,lty=NULL,lwd=NULL,pch=NULL){
   df<-subset(table_df,i_N==N & i_type==type & i_exp.prop == exp.prop & 

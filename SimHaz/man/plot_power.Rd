@@ -71,11 +71,11 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 }
 
 \examples{
-ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2, 
+ret <- getpower.method1(nSim = 10, N = 600, b = 0.3, exp.prop = 0.2, 
     type = "td", scenario =  " ", maxrelexptime = 1/6, min.futime = 4, 
     min.postexp.futime = 4, output.fn = "output.csv")
 	
-ret2 <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2, 
+ret2 <- getpower.method1(nSim = 10, N = 600, b = 0.3, exp.prop = 0.2, 
     type = "td", scenario = " ", maxrelexptime = 1/6, min.futime = 4, 
     min.postexp.futime = 0, output.fn ="output.csv")
 	

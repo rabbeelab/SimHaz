@@ -31,18 +31,7 @@
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
-* checking R code for possible problems ... NOTE
-plot_power: no visible binding for global variable ‘i_N’
-plot_power: no visible binding for global variable ‘i_type’
-plot_power: no visible binding for global variable ‘i_exp.prop’
-plot_power: no visible binding for global variable ‘i_min.futime’
-plot_power: no visible binding for global variable
-  ‘i_min.postexp.futime’
-plot_power: no visible binding for global variable ‘N_eff’
-plot_power: no visible binding for global variable ‘i_beta’
-plot_power: no visible binding for global variable ‘pow’
-tdSim.clst: no visible binding for global variable ‘t_exposed’
-tdSim.method1: no visible binding for global variable ‘t_exposed’
+* checking R code for possible problems ... OK
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd cross-references ... OK
@@ -54,4 +43,4 @@ tdSim.method1: no visible binding for global variable ‘t_exposed’
 * checking examples ... OK
 * checking PDF version of manual ... OK
 * DONE
-Status: 1 NOTE
+Status: OK

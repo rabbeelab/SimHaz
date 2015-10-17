@@ -68,7 +68,7 @@ input_df <- data.frame(cat_id = c('lo', 'med', 'hi'),
 # control group to be 24 months; exposure effect to be 0.3; median time to
 # censoring to be 14 months.
 
-ret <- getpower.clst(nSim = 500, N = 600, beta = 0.3, df = input_df,
+ret <- getpower.clst(nSim = 10, N = 600, beta = 0.3, df = input_df,
     type = "td", scenario = "clustering", maxrelexptime = 1/6, min.futime = 4,
     min.postexp.futime = 4, output.fn = "output_clst.csv",) 
 
@@ -102,7 +102,7 @@ library(survival)
 # control group to be 24 months; exposure effect to be 0.3; median time to
 # censoring to be 14 months; and exposure proportion to be 20%.
 
-ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2,
+ret <- getpower.method1(nSim = 10, N = 600, b = 0.3, exp.prop = 0.2,
     type = "td", scenario = " ", maxrelexptime = 1/6, min.futime = 4,
     min.postexp.futime = 4, output.fn = "output.csv")
 
@@ -125,7 +125,7 @@ flush(stderr()); flush(stdout())
 
 # Run 500 simulations. Each time simulate a dataset of 600 subjects
 
-ret <- getpower.method2(nSim=500, N=600, duration=24, scenario="test",
+ret <- getpower.method2(nSim=10, N=600, duration=24, scenario="test",
   lambda12=1.3, lambda23=0.04, lambda13=0.03, HR=NULL,exp.prop=0.2, rateC=0.05,
   min.futime=4, min.postexp.futime=4,output.fn="database.csv", simu.plot=FALSE) 
 
@@ -145,11 +145,11 @@ flush(stderr()); flush(stdout())
 
 ### ** Examples
 
-ret <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2, 
+ret <- getpower.method1(nSim = 10, N = 600, b = 0.3, exp.prop = 0.2, 
     type = "td", scenario =  " ", maxrelexptime = 1/6, min.futime = 4, 
     min.postexp.futime = 4, output.fn = "output.csv")
 	
-ret2 <- getpower.method1(nSim = 500, N = 600, b = 0.3, exp.prop = 0.2, 
+ret2 <- getpower.method1(nSim = 10, N = 600, b = 0.3, exp.prop = 0.2, 
     type = "td", scenario = " ", maxrelexptime = 1/6, min.futime = 4, 
     min.postexp.futime = 0, output.fn ="output.csv")
 	

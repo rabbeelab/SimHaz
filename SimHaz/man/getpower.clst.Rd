@@ -178,7 +178,7 @@ input_df <- data.frame(cat_id = c('lo', 'med', 'hi'),
 # control group to be 24 months; exposure effect to be 0.3; median time to
 # censoring to be 14 months.
 
-ret <- getpower.clst(nSim = 500, N = 600, beta = 0.3, df = input_df,
+ret <- getpower.clst(nSim = 10, N = 600, beta = 0.3, df = input_df,
     type = "td", scenario = "clustering", maxrelexptime = 1/6, min.futime = 4,
     min.postexp.futime = 4, output.fn = "output_clst.csv",) 
 }
