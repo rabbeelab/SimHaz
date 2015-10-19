@@ -10,3 +10,8 @@ export(tdSim.method1)
 export(tdSim.method2)
 
 import('survival')
+
+importFrom("graphics", "axis", "lines", "plot", "plot.new",
+             "plot.window", "points", "segments", "title")
+importFrom("stats", "na.omit", "rbinom", "rexp", "rmultinom", "runif")
+importFrom("utils", "write.table")

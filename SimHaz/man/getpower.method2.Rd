@@ -99,7 +99,10 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 
 
 \examples{
-# Run 500 simulations. Each time simulate a dataset of 600 subjects
+# We recommend setting nSim to at least 500. It is set to 10 in the example to
+# reduce run time for CRAN submission.
+
+# Run 10 simulations. Each time simulate a dataset of 600 subjects
 
 ret <- getpower.method2(nSim=10, N=600, duration=24, scenario="test",
   lambda12=1.3, lambda23=0.04, lambda13=0.03, HR=NULL,exp.prop=0.2, rateC=0.05,

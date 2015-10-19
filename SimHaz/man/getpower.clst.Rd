@@ -168,7 +168,10 @@ library(survival)
 input_df <- data.frame(cat_id = c('lo', 'med', 'hi'),
 	cat_prop = c(0.65, 0.2, 0.15), cat_exp.prop = c(0.1, 0.3, 0.5))
 
-# Run 500 simulations. Each time simulate a dataset of 600 subjects with
+# We recommend setting nSim to at least 500. It is set to 10 in the example to
+# reduce run time for CRAN submission.
+
+# Run 10 simulations. Each time simulate a dataset of 600 subjects with
 # time-dependent exposure with both minimum follow-up time (4 months) and
 # minimum post-exposure follow-up time (4 months) imposed. Also consider a
 # quick exposure after entering the study for each exposed subject. Set the

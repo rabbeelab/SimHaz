@@ -63,7 +63,8 @@ tdSim.method1<-function(N, duration=24,lambda, rho=1, beta, rateC,exp.prop,
   new_data2$stop<-data_tdexposed$stop 
   new_data2$x<-1
   new_data2$status<-data_tdexposed$status      
-  merged_tdexposed<-subset(na.omit(merge(new_data1,new_data2,all.x=TRUE,all.y=TRUE)),select=-c(t_exposed)) 
+  merged_tdexposed<-subset(na.omit(merge(new_data1,new_data2,all.x=TRUE,all.y=TRUE))) 
+  merged_tdexposed$t_exposed<-NULL
   full_data<-merge(merged_tdexposed,data[data$x==0,],all.x=TRUE,all.y=TRUE)
   return(full_data)
 }
