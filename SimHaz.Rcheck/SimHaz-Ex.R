@@ -38,15 +38,15 @@ ret <- getpower.method1(nSim = 10, N = 600, b = 0.3, exp.prop = 0.2,
 
 
 cleanEx()
-nameEx("getpower.clst")
-### * getpower.clst
+nameEx("getpower.matching1")
+### * getpower.matching1
 
 flush(stderr()); flush(stdout())
 
-### Name: getpower.clst
+### Name: getpower.matching1
 ### Title: Calculate power for the Cox proportional hazard model with
-###   time-dependent exposure using method 1 with clustering
-### Aliases: getpower.clst
+###   time-dependent exposure using method 1
+### Aliases: getpower.matching1
 ### Keywords: Power_Calculation
 
 ### ** Examples
@@ -54,12 +54,6 @@ flush(stderr()); flush(stdout())
 # Install the survival package if needed.
 
 library(survival)
-
-# Create a clustering data frame as input with 3 categories and a 20% weighted
-# exposure proportion.
-  
-input_df <- data.frame(cat_id = c('lo', 'med', 'hi'),
-	cat_prop = c(0.65, 0.2, 0.15), cat_exp.prop = c(0.1, 0.3, 0.5))
 
 # We recommend setting nSim to at least 500. It is set to 10 in the example to
 # reduce run time for CRAN submission.
@@ -72,11 +66,13 @@ input_df <- data.frame(cat_id = c('lo', 'med', 'hi'),
 
 # Set the duration of the study to be 24 months; the median time to event for
 # control group to be 24 months; exposure effect to be 0.3; median time to
-# censoring to be 14 months.
+# censoring to be 14 months; and exposure proportion to be 20%.
 
-ret <- getpower.clst(nSim = 10, N = 600, beta = 0.3, df = input_df,
-    type = "td", scenario = "clustering", maxrelexptime = 1/6, min.futime = 4,
-    min.postexp.futime = 4, output.fn = "output_clst.csv",) 
+
+ret <- getpower.method1(nSim = 10, N = 600, b = 0.3, exp.prop = 0.2,
+    type = "td", scenario = " ", maxrelexptime = 1/6, min.futime = 4,
+    min.postexp.futime = 4, output.fn = "output.csv")
+
 
 
 
@@ -145,6 +141,38 @@ ret <- getpower.method2(nSim=10, N=600, duration=24, scenario="test",
 
 
 cleanEx()
+nameEx("getpower.multicenter")
+### * getpower.multicenter
+
+flush(stderr()); flush(stdout())
+
+### Name: getpower.multicenter
+### Title: Calculate power for the Cox proportional hazard model with
+###   time-dependent exposure and multiple centers using method1
+### Aliases: getpower.multicenter
+### Keywords: Power_Calculation
+
+### ** Examples
+
+# We recommend setting nSim to at least 500. It is set to 10 in the example to
+# reduce run time for CRAN submission.
+
+# Run 10 simulations. Each time simulate a dataset of 300 subjects
+
+input_df1 <- data.frame(cat_id = c("low","med","high"), center.size = rep(100,3), 
+                        cat_exp.prop = rep(1/3, 3),
+                        med.TTE.Control=c(14,20,31))
+
+df_strat <- getpower.multicenter(nSim = 10, N = 300, beta = 0.7, 
+								 df = input_df1,method="strata",  type = "td", 
+								 scenario = "strata", maxrelexptime = 1/6, 
+								 min.futime = 4, min.postexp.futime = 4, 
+								 output.fn = "output_mult1.csv")
+	
+
+
+
+cleanEx()
 nameEx("plot_power")
 ### * plot_power
 
@@ -208,41 +236,6 @@ plot_simuData(dat, title='method2_filter')
 
 
 cleanEx()
-nameEx("tdSim.clst")
-### * tdSim.clst
-
-flush(stderr()); flush(stdout())
-
-### Name: tdSim.clst
-### Title: Simulate 1 dataframe (1 simulation) of time-dependent exposure
-###   under method 1 with a clustering data frame
-### Aliases: tdSim.clst
-### Keywords: Simulation
-
-### ** Examples
-
-# Create a clustering data frame as input with 3 categories and a 20% weighted
-# exposure proportion.
-  
-input_df <- data.frame(cat_id = c('lo', 'med', 'hi'), 
-	cat_prop = c(0.65, 0.2, 0.15), cat_exp.prop = c(0.1, 0.3, 0.5))
-
-# Simulate a dataset of 600 subjects with time-dependent exposure. Consider
-# both minimum follow-up time (4 months) and minimum post-exposure follow-up
-# time (4 months). Also consider a quick exposure after entering the study for
-# each exposed subject. Set the maximum relative exposure time to be 1/6. 
-
-# Set the duration of the study to be 24 months; the median time to event for
-# control group to be 24 months; exposure effect to be 0.3; median time to
-# censoring to be 14 months.
-
-df_tdclst <- tdSim.clst(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
-    beta = 0.3, rateC = log(2)/14, df = input_df, prop.fullexp = 0,
-    maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4)
-
-
-
-cleanEx()
 nameEx("tdSim.method1")
 ### * tdSim.method1
 
@@ -288,6 +281,25 @@ df3 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
 
 
 cleanEx()
+nameEx("tdSim.method2 copy")
+### * tdSim.method2 copy
+
+flush(stderr()); flush(stdout())
+
+### Name: tdSim.exposure.matching1
+### Title: Simulate 1 dataframe (1 simulation) of time-dep exposure under
+###   method 2
+### Aliases: tdSim.exposure.matching1
+### Keywords: Simulation
+
+### ** Examples
+
+sim_data <- tdSim.method2(500, duration=24,lambda12=1.3,lambda23=0.04, 
+    lambda13=0.03, exp.prop=0.2,rateC=0.05, min.futime=4, min.postexp.futime=4)
+
+
+
+cleanEx()
 nameEx("tdSim.method2")
 ### * tdSim.method2
 
@@ -303,6 +315,43 @@ flush(stderr()); flush(stdout())
 
 sim_data <- tdSim.method2(500, duration=24,lambda12=1.3,lambda23=0.04, 
     lambda13=0.03, exp.prop=0.2,rateC=0.05, min.futime=4, min.postexp.futime=4)
+
+
+
+cleanEx()
+nameEx("tdSim.multicenter")
+### * tdSim.multicenter
+
+flush(stderr()); flush(stdout())
+
+### Name: tdSim.multicenter
+### Title: Simulate 1 dataframe (1 simulation) of time-dependent exposure
+###   with multiple centers
+### Aliases: tdSim.multicenter
+### Keywords: Simulation
+
+### ** Examples
+
+# Create a clustering data frame as input with 3 categories and a 20% weighted
+# exposure proportion.
+  
+input_df1 <- data.frame(cat_id = c("low","med","high"), 
+						center.size = rep(100,3),  
+						cat_exp.prop = rep(1/3, 3), 
+						med.TTE.Control=c(14,20,31))
+
+# Simulate a dataset of 600 subjects with time-dependent exposure. Consider
+# both minimum follow-up time (4 months) and minimum post-exposure follow-up
+# time (4 months). Also consider a quick exposure after entering the study for
+# each exposed subject. Set the maximum relative exposure time to be 1/6. 
+
+# Set the duration of the study to be 24 months; the median time to event for
+# control group to be 24 months; exposure effect to be 0.3; median time to
+# censoring to be 14 months.
+
+df_strat <- tdSim.multicenter(N = 300, duration =24, rateC = log(2)/14, beta = 0.7, 
+	df = input_df1, maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4)
+
 
 
 

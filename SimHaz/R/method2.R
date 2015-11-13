@@ -70,7 +70,7 @@ tdSim.method2 <-function(N, duration, lambda12, lambda23=NULL, lambda13, HR=NULL
 
 #' @export
 getpower.method2=function(nSim=500, N, duration=24, scenario,lambda12, lambda23=NULL, lambda13, HR=NULL,exp.prop,rateC, 
-                          min.futime, min.postexp.futime,output.fn, simu.plot=FALSE) 
+                          min.futime, min.postexp.futime,output.fn=NULL, simu.plot=FALSE) 
 { set.seed(999)
   try(if(is.null(lambda23) & is.null(HR)){stop("either lambda23 or HR(Hazard ratio) must be set")})
   if(is.null(lambda23) & !is.null(HR)){
@@ -121,11 +121,16 @@ getpower.method2=function(nSim=500, N, duration=24, scenario,lambda12, lambda23=
                 mst_exp=mean(na.omit(res[,"medsurvt_exp"])),
                 pow=mean(res[,"signif"])
   )
-  if(file.exists(output.fn)){
-    write.table(df,file=output.fn,row.names=FALSE,col.names=FALSE,append=TRUE,sep=",")
+  if(is.null(output.fn)){
+	  return(df)
   }
   else{
-    write.table(df,file=output.fn,row.names=FALSE,col.names=TRUE,sep=",")
-  }
-  return(df)
+  	if(file.exists(output.fn)){
+    	write.table(df,file=output.fn,row.names=FALSE,col.names=FALSE,append=TRUE,sep=",")
+  	}
+  	else{
+    	write.table(df,file=output.fn,row.names=FALSE,col.names=TRUE,sep=",")
+ 	 }
+ 	 return(df)
+ }
 }

@@ -1,21 +1,26 @@
 SimHaz-package          Simulated Survival and Hazard Analysis for
                         time-dependent
-getpower.clst           Calculate power for the Cox proportional hazard
+getpower.matching1      Calculate power for the Cox proportional hazard
                         model with time-dependent exposure using method
-                        1 with clustering
+                        1
 getpower.method1        Calculate power for the Cox proportional hazard
                         model with time-dependent exposure using method
                         1
 getpower.method2        Calculate power for the Cox proportional hazard
                         model with time-dependent exposure using method
                         2
+getpower.multicenter    Calculate power for the Cox proportional hazard
+                        model with time-dependent exposure and multiple
+                        centers using method1
 plot_power              Plot power curves for survival analysis with
                         time-dependent exposure
 plot_simuData           Make an incidence plot from simulated data.
-tdSim.clst              Simulate 1 dataframe (1 simulation) of
-                        time-dependent exposure under method 1 with a
-                        clustering data frame
+tdSim.exposure.matching1
+                        Simulate 1 dataframe (1 simulation) of time-dep
+                        exposure under method 2
 tdSim.method1           Simulate 1 dataframe (1 simulation) of time-dep
                         exposure under method 1
 tdSim.method2           Simulate 1 dataframe (1 simulation) of time-dep
                         exposure under method 2
+tdSim.multicenter       Simulate 1 dataframe (1 simulation) of
+                        time-dependent exposure with multiple centers

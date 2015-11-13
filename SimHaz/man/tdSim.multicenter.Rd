@@ -1,30 +1,26 @@
-\name{tdSim.clst}
-\alias{tdSim.clst}
-%- Also NEED an '\alias' for EACH other topic documented here.
+\name{tdSim.multicenter}
+\alias{tdSim.multicenter}
+
 \title{
-Simulate 1 dataframe (1 simulation) of time-dependent exposure
-under method 1 with a clustering data frame
+Simulate 1 dataframe (1 simulation) of time-dependent exposure with multiple centers
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
-This function allows the user to input a data frame with clustering
+This function allows the user to input a data frame with multi-center
 parameters and generates a simulated dataset with time-dependent exposure.
-In particular, the output dataset has a column corresponding to the physician site id, which will be used as a clustering variable in the Cox regression model in power calculation.
+In particular, the output dataset has a column corresponding to the center id, which will be used as a clustering variable in the Cox regression model in power calculation.
 }
 \usage{
-tdSim.clst(N, duration = 24, lambda, rho = 1, beta, rateC, df,
-    prop.fullexp = 0, maxrelexptime = 1, min.futime = 0, min.postexp.futime = 0)
+
+tdSim.multicenter(N,duration=24,rho=1,beta,rateC,df,
+                     prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0, dist=NULL)  
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{N}{
   Number of subjects needs to be screened
   }
   \item{duration}{
   Length of the study in Months. The default value is 24 (months)
-  }
-  \item{lambda}{
-  Scale parameter of the Weibull distribution, which is calculated as log(2) / median time to event for control group
   }
   \item{rho}{
   Shape parameter of the Weibull distribution, which is defaulted as 1, as we generate survival times by using the exponential distribution
@@ -38,7 +34,7 @@ the relationship between the exposure covariate and the risk of an event
   Rate of the exponential distribution to generate censoring times, which is calculated as log(2) / median time to censoring
   }
   \item{df}{
-  A user-specified n (n 3) by 3 clustering data frame with columns corresponding to cat_id (category id, which is the physician site id. It can be either text strings or integers), cat_prop (category proportion, which is the proportion of subjects in corresponding a category id), and cat_exprate (category exposure rate, which is the exposure proportion corresponding to a category id). n rows corresponds to n different physician sites
+  A user-specified n by 4 clustering data frame with columns corresponding to cat_id (category id, which is the physician site id. It can be either text strings or integers), center.size (number of subjects within each center), cat_exp.prop (proportion of exposed subjects in each center), and med.TTE.Control (median time to control event for each center). n rows corresponds to n different centers
   }
   \item{prop.fullexp}{
   A numeric value in interval [0, 1) that represents the proportion of exposed subjects that are fully exposed from the beginning to the end of the study. The default value is 0, which means all exposed subjects have an exposure status transition at some point during the study
@@ -50,13 +46,18 @@ the relationship between the exposure covariate and the risk of an event
   }
   \item{min.postexp.futime}{A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure
   }
+  \item{dist}{
+  
+  }
 }
+
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 The current version of this function allows the user to input a data frame with at
 least 3 categories of physician sites, because the function uses a multinomial
 distribution to assign subjects into each category according to the corresponding category proportion
 }
+
 \value{
   A data.frame object with columns corresponding to
   \item{id}{
@@ -92,8 +93,10 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 # Create a clustering data frame as input with 3 categories and a 20% weighted
 # exposure proportion.
   
-input_df <- data.frame(cat_id = c('lo', 'med', 'hi'), 
-	cat_prop = c(0.65, 0.2, 0.15), cat_exp.prop = c(0.1, 0.3, 0.5))
+input_df1 <- data.frame(cat_id = c("low","med","high"), 
+						center.size = rep(100,3),  
+						cat_exp.prop = rep(1/3, 3), 
+						med.TTE.Control=c(14,20,31))
 
 # Simulate a dataset of 600 subjects with time-dependent exposure. Consider
 # both minimum follow-up time (4 months) and minimum post-exposure follow-up
@@ -104,9 +107,9 @@ input_df <- data.frame(cat_id = c('lo', 'med', 'hi'),
 # control group to be 24 months; exposure effect to be 0.3; median time to
 # censoring to be 14 months.
 
-df_tdclst <- tdSim.clst(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
-    beta = 0.3, rateC = log(2)/14, df = input_df, prop.fullexp = 0,
-    maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4)
+df_strat <- tdSim.multicenter(N = 300, duration =24, rateC = log(2)/14, beta = 0.7, 
+	df = input_df1, maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4)
+
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

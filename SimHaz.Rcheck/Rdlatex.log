@@ -72,42 +72,50 @@ No file Rd2.aux.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [1{/usr/local/texl
 ive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [2]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 133--134
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 140--141
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 139--140
+[3] [4] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [5]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 320--321
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[3] [4] (/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [5]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 335--336
+[6] [7] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 493--494
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[6] [7] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [8]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 508--509
+[8] [9] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [10]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 623--624
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[9] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 607--608
-\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
-exposure follow-
-[10] [11] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [12]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 775--776
+[11] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [12]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 764--765
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
 [13] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [14]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 894--895
+(/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [15]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 928--929
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[15] [16] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 1023--1024
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [16]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 1025--1026
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[17]
+[17] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [18]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 1154--1155
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [19]
+Overfull \hbox (67.78088pt too wide) in paragraph at lines 1215--1215
+ []                     \T1/zi4/m/n/10 prop.fullexp=0,maxrelexptime=1,min.futim
+e=0,min.postexp.futime=0, dist=NULL)[] 
+
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 1249--1250
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[20] [21]
 No file Rd2.ind.
-[18] (./Rd2.aux)
+[22] (./Rd2.aux)
 
 Package rerunfilecheck Warning: File `Rd2.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
@@ -123,12 +131,12 @@ s/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pf
 b></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (18 pages, 105688 bytes).
+Output written on Rd2.pdf (22 pages, 113706 bytes).
 Transcript written on Rd2.log.
 This is makeindex, version 2.15 [TeX Live 2015] (kpathsea + Thai support).
-Scanning input file Rd2.idx....done (18 entries accepted, 0 rejected).
-Sorting entries....done (77 comparisons).
-Generating output file Rd2.ind....done (38 lines written, 0 warnings).
+Scanning input file Rd2.idx....done (22 entries accepted, 0 rejected).
+Sorting entries....done (101 comparisons).
+Generating output file Rd2.ind....done (42 lines written, 0 warnings).
 Output written in Rd2.ind.
 Transcript written in Rd2.ilg.
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex)
@@ -203,45 +211,53 @@ Writing index file Rd2.idx
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [1{/usr/local/texl
 ive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [2]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 133--134
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 140--141
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 139--140
+[3] [4] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [5]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 320--321
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[3] [4] (/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [5] [6]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 335--336
-\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
-exposure follow-
-[7] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [8]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 508--509
+[6] [7] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [8]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 493--494
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
 [9] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [10]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 607--608
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 623--624
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[11] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [12]
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [13]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 775--776
+[11] [12] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 764--765
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[14] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [15]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 894--895
+[13] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [14]
+(/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [15]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 928--929
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[16] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 1023--1024
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [16]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 1025--1026
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[17] (./Rd2.ind [18]
+[17] [18] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 1154--1155
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[19] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (67.78088pt too wide) in paragraph at lines 1215--1215
+ []                     \T1/zi4/m/n/10 prop.fullexp=0,maxrelexptime=1,min.futim
+e=0,min.postexp.futime=0, dist=NULL)[] 
+[20]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 1249--1250
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[21] (./Rd2.ind [22]
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 28.
+(Font)              using `T1/zi4/m/n' instead on input line 31.
 
-[19]) (./Rd2.aux)
+[23]) (./Rd2.aux)
 
 Package rerunfilecheck Warning: File `Rd2.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
@@ -261,12 +277,12 @@ s/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts
 urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/
 utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (19 pages, 116129 bytes).
+Output written on Rd2.pdf (23 pages, 124131 bytes).
 Transcript written on Rd2.log.
 This is makeindex, version 2.15 [TeX Live 2015] (kpathsea + Thai support).
-Scanning input file Rd2.idx....done (18 entries accepted, 0 rejected).
-Sorting entries....done (77 comparisons).
-Generating output file Rd2.ind....done (38 lines written, 0 warnings).
+Scanning input file Rd2.idx....done (22 entries accepted, 0 rejected).
+Sorting entries....done (101 comparisons).
+Generating output file Rd2.ind....done (42 lines written, 0 warnings).
 Output written in Rd2.ind.
 Transcript written in Rd2.ilg.
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex)
@@ -341,45 +357,53 @@ Writing index file Rd2.idx
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [1{/usr/local/texl
 ive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [2]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 133--134
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 140--141
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 139--140
+[3] [4] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [5]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 320--321
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[3] [4] (/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [5] [6]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 335--336
-\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
-exposure follow-
-[7] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [8]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 508--509
+[6] [7] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [8]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 493--494
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
 [9] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [10]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 607--608
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 623--624
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[11] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [12]
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [13]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 775--776
+[11] [12] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 764--765
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[14] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [15]
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 894--895
+[13] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [14]
+(/usr/local/texlive/2015/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [15]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 928--929
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[16] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (2.17802pt too wide) in paragraph at lines 1023--1024
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def) [16]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 1025--1026
 \T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
 exposure follow-
-[17] (./Rd2.ind [18]
+[17] [18] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 1154--1155
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[19] (/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (67.78088pt too wide) in paragraph at lines 1215--1215
+ []                     \T1/zi4/m/n/10 prop.fullexp=0,maxrelexptime=1,min.futim
+e=0,min.postexp.futime=0, dist=NULL)[] 
+[20]
+Overfull \hbox (2.17802pt too wide) in paragraph at lines 1249--1250
+\T1/ptm/m/n/10 months). The de-fault value is 0, which means no min-i-mum post-
+exposure follow-
+[21] (./Rd2.ind [22]
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 28.
+(Font)              using `T1/zi4/m/n' instead on input line 31.
 
-[19]) (./Rd2.aux)
+[23]) (./Rd2.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -394,8 +418,8 @@ s/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts
 urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/
 utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (19 pages, 116558 bytes).
+Output written on Rd2.pdf (23 pages, 124865 bytes).
 Transcript written on Rd2.log.
 Saving output to 'SimHaz-manual.pdf' ...
 Done
-You may want to clean up by 'rm -rf /var/folders/vw/gj_n0y6x53zcybshbzs1mg4m0000gn/T//Rtmp8lSSB9/Rd2pdf98a5df58f0a'
+You may want to clean up by 'rm -rf /var/folders/vw/gj_n0y6x53zcybshbzs1mg4m0000gn/T//Rtmp9MBoAd/Rd2pdf3bd7cea724a'
