@@ -10,17 +10,17 @@ time-dependent exposure using method 1
 This functions runs nSim (Number of simulations, specified by the user) Monte Carlo simulations, each time it calling tdSim.method1 internally. The function returns a data frame of scenario-specific parameters (including statistical power) and appends the output to a file with file name specified in the input parameters list. The user also have an option whether to plot an incidence plot or not.
 }
 \usage{
-getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1,
-    med.TimeToCensor = 14, beta, exp.prop, type, scenario, prop.fullexp = 0,
-    maxrelexptime = 1, min.futime = 0, min.postexp.futime = 0, output.fn, 
-    simu.plot = FALSE)
+getpower.matching1(nSim, N_match, duration = 24, med.TTE.Control = 24, rho = 1,
+    med.TimeToCensor = 14, beta, matching.ratio, type, scenario, method,
+	prop.fullexp = 0,maxrelexptime = 1, min.futime = 0,
+	min.postexp.futime = 0, output.fn, simu.plot = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{nSim}{
   Number of simulations.
   }
-  \item{N}{
+  \item{N_match}{
   Number of subjects to be screened.
   }
   \item{duration}{
@@ -38,18 +38,21 @@ getpower.method1(nSim, N, duration = 24, med.TTE.Control = 24, rho = 1,
   \item{beta}{
   A numeric value that represents the exposure effect, which is the regression coefficient (log hazard ratio) that represent the magnitude of the relationship between the exposure covariate and the risk of an event.
   }
-  \item{exp.prop}{
-  A numeric value between 0 and 1 (not include 0 and 1) that represents the proportion of subjects that are assigned with an exposure.
+  \item{matching.ratio}{
+
   }
   \item{type}{
   A text string indicating the what type of dataset is of interest. Either one of "fixed" or "td" should be inputted.
+  }
+  \item{method}{
+
   }
   \item{scenario}{
   Any text string inputted by the user as an option to name a scenario that is being simulated. The use can simply put " "  if he/she decide to not name the scenario.
   }
   \item{prop.fullexp}{
-  A numeric value in interval [0, 1) that represents the proportion of exposed subjects that are fully exposed from the beginning to the end of the study. The default value is 0, which means all exposed subjects have an exposure status transition at some point during the study.
-  }
+  A numeric value in interval [0, 1) that represents the proportion of exposed subjects that are fully exposed from the beginning to the end of the study. The default value is 0, which means all exposed subjects have an exposure status transition at some point during the study. Only applies when type is "td". When type is "td", the value is automatically 1.
+   }
   \item{maxrelexptime}{
   A numeric value in interval (0, 1] that represents the maximum relative exposure time. Suppose this value is p, the exposure time for each subject is then uniformly distributed from 0 to p*subject's time in the study. The default value is 1, which means all exposed subjects have an exposure status transition at any point during the time in study.
   }
@@ -159,14 +162,13 @@ library(survival)
 # Set the duration of the study to be 24 months; the median time to event for
 # control group to be 24 months; exposure effect to be 0.3; median time to
 # censoring to be 14 months; and exposure proportion to be 20%.
+marginal = getpower.matching1(nSim=10, N_match=100,duration=24,
+	med.TTE.Control=24,rho=1, med.TimeToCensor=14, beta=0.7,
+	matching.ratio=3,type="td", scenario="exposure_matching",  
+	method="marginal", prop.fullexp=0,maxrelexptime=1,
+	min.futime=0, min.postexp.futime=0, output.fn="result_matching",
+	simu.plot=FALSE)
 
-
-ret <- getpower.method1(nSim = 10, N = 600, b = 0.3, exp.prop = 0.2,
-    type = "td", scenario = " ", maxrelexptime = 1/6, min.futime = 4,
-    min.postexp.futime = 4, output.fn = "output.csv")
-
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 }
 
 \keyword{Power_Calculation}

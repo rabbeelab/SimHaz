@@ -2,6 +2,8 @@
 
 export(getpower.multicenter)
 export(getpower.matching1)
+export(getpower.matching1)
+export(getpower.matching_opt)
 export(getpower.method1)
 export(getpower.method2)
 export(plot_power)

@@ -1,0 +1,383 @@
+---
+title: "Power Calculations for Time Dependent Exposure"
+author: Teeranan Pokaprakarn; Hiroto Udagawa; Danyi Xiong; Nusrat Rabbee (rabbee@berkeley.edu) 
+date: Department of Statistics, University of California, Berkeley, CA
+output: pdf_document
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF8}
+---
+
+```{r, echo=F}
+library(knitr)
+library(xtable)
+library(SimHaz)
+```
+
+#1. Introduction
+
+We discuss power and sample size calculations for studies with the primary objective of investigating the association between time to event and exposure or treatment factor. In particular, when subjects transition from one exposure state to another. All of our simulations are based on the survival package and methods produced by Terry M Therneau where he extends the survival model to handle time-dependent exposures [2]. We investigate two distinct methods for generating data and evaluate the performance of the Cox proportional hazards model [1] when applied to the simulated data. We evaluate the power of the cox model applied to the Stanford Heart Transplant data set. 
+
+#2. Background
+
+Power simulations for survival analysis with time dependent exposure is limited in literature
+
+* PermAlgo Package - why we didn’t use it
+    + While power simulations involving time-dependent covariates do not yet exist in literature, there are packages developed for datasets generation containing time-dependent covariates. For example, the “permalgorithm” function available in the “PermAlgo” package generates a dataset where event and censoring times are conditional on an user-specified list of covariates, some or all of which are time-dependent. Event times and censoring times also follow user-specified distributions [3]. The package uses one to one matching. The package uses one to one matching. However, there is no built in functions to calculate power with this function. In our package, we generate follow-up times and covariates for each subject at a time.
+    
+* There are numerous packages to do power simulations for fully exposed vs unexposed subjects. We define fixed case where exposed subjects remain exposed for the duration of their time in the study. We define time-dependent case (td) where subjects can transition from unexposed to exposed during their time in the study.
+
+We evaluated the two following packages for motivating our work:
+
+* SurvSim is an example of an existing R package that simulated complex survival data is “survsim” which allows users to simulate survival data covering single-event survival as well as multiple and recurrent events. However, the package does not include time-dependent exposure and power calculations using Cox proportional-hazards model based on the simulated survival data. 
+
+* powerSurvEpi is another existing R package that performs power calculations in survival analysis. This package allows the users to perform power calculation in the context of the comparison of two survival curve between two groups under the Cox proportional hazards model. This calculation only applies to the fixed exposure case and parameter for the calculation is estimated from a pilot dataset. The purpose of our package is to specifically perform power calculation on the time-variate exposure case and also allow the users some flexibility in terms of how the survival data are simulated in order to suit their needs.
+
+In our package, we have built two methods of generating data
+
+* Method 1
+
+    + The data generation process is implemented by two different methods. The first method generates survival and censoring times using the exponential distribution. Exposure times for exposure status transition (unexposed to exposed) can also be input as a parametric distribution. More details of this procedure is described in Section 3.
+
+* Method 2 
+
+    + Method 2 is loosely based on the illness death model [4]. We generated two times: time to exposure and time to event from exposure for the subjects in the exposed group. For the unexposed (control) group, only time to event is generated.
+
+#3. Method 1 - Generating survival times to simulate Cox proportional hazards with time-dependent exposure
+
+In section 3.1, we describe data generation scheme under Method of generating survival times to simulate Cox proportional hazards with time-dependent exposures using the Weibull distribution. In section 3.2, we discuss three different scenarios comparing power simulations with Cox regression model on time-fixed and time-dependent exposure. 
+
+## 3.1 Dichotomous time-varying exposure with at most one change from unexposed to exposed
+
+We use the Weibull distribution with scale parameter $\lambda>0$ and shape parameter $\rho>0$  to generate survival times, as it is one of the distributions that share the assumption of proportional hazards with the Cox model. Survival times are simulated by $T = (-\frac{-\log{v}}{\lambda exp(\beta x)})^{1/\rho}$ where $v$ has Uniform distribution from 0 to 1, $x$ is the exposure variable (1 if exposed, 0 if unexposed), and $\beta$ is the exposure effect. We set $\rho=1$ in our simulation, so the Weibull distribution is equivalent to an exponential distribution with rate $\lambda$ which is taken as  $\frac{\log(2)}{24}$ where $24$ is the median time to event for the control (unexposed) group. 
+
+Censoring times C are generated by exponential distribution with a censoring rate equals $\frac{\log(2)}{24}$ where $14$ is the median time to censoring. We need to make sure that censoring time is not longer than duration of the study, which is 24 months. Follow-up times are then generated as $Y = min(T,C)$. The event status is 1 if $T \leq C$ and 0 otherwise. 
+
+For fixed (not time-dependent) exposure, subjects are exposed from the beginning of the study (time 0) to their last follow-up times. For time-dependent exposure, there is at most 1 transition from unexposed to exposed. We randomly selected exposure time from a uniform U(0, last follow-up time/6) distribution for each exposed subject. Each exposed subject will have 2 rows, where the first row contains the subject’s records from start to the time of exposure with no event and unexposed status; the second row contains the subject’s records from the time of exposure to his/her last follow-up time with an outcome (event or no event) and exposed status. 
+
+##3.2 Method 1 - Scenarios for simulation
+
+In this section, we conduct power simulations involving both fixed (not time-dependent) and time-dependent exposures under three scenarios. In each of the four scenarios, we considered a 2-year study and all subjects enter the study at time 0. We assumed the median time to event in the unexposed group to be 24 months and the median time to censoring to be 14 months. 
+
+###3.2.1 Scenario 1: Time-dependent exposure and survival data generation 
+In this scenario, we compare estimates of parameters and statistical powers for Cox regression model on two types of simulated data: one with a time-fixed exposure, and the other with a time-dependent exposure. For each type, we generated samples of N = 600, 800, and 1000 subjects with a 20% exposure rate. We allowed the treatment effect (log hazard ratio) to vary from 0.1 to 0.7 in increments of 0.1. We considered a random censoring time for each subject. 
+
+Data Generation: For fixed (not time-dependent) exposure case, subjects are exposed from the beginning of the study to their last follow-up times. For time-dependent exposure, we randomly selected exposure time from a uniform U(0, last follow-up time/6) distribution for each exposed subject. Each exposed subject will have 2 rows, where the first row contains the subject’s records from start to the time of exposure with no event and unexposed status; the second row contains the subject’s records from the time of exposure to his/her last follow-up time with an outcome (event or no event) and exposed status. 
+
+Monte Carlo Simulations: We repeatedly simulated the data of each of the three sample sizes 500 times, and for each of the fixed and time-varying cases. Thus, we have in total 6 different sub-scenarios. We make the following two observations:
+
+* The Cox regression model on sub-scenarios with time-dependent exposure largely overestimates $\beta$ by approximately 37%. The hazard ratio is hence higher. So is statistical power, which is overly optimistic, higher than the time-fixed type by more than 20% for each sample size.
+
+* The inaccurate $\hat{\beta}$ results from not considering (i) minimum follow-up times from the beginning of study and (ii) minimum follow-up times after the exposure time. On one hand, subjects without an exposure stay in the study for only a short amount of time (no minimum follow up time criteria imposed) and have an event will weaken the exposure effect, hence it may result in an underestimated $\hat{\beta}$. On the other hand, subjects with a short exposure and have an event shortly thereafter will exaggerate the exposure effect, hence results in an overestimated $\hat{\beta}$. This situation is addressed in three different approaches and will be discussed in later scenarios.
+
+A partial output is displayed in Table 1 along with a sample call of the 'getpower.method1' function. We compare simulation results when the effect of treatment $\beta$ is fixed at 0.3. Similar situation remains for the whole selected range of $\beta$ from 0.1 to 0.7, with increments 0.1, as graphically summarized in Figure 1.
+
+```{r,eval=F}
+getpower.method1(nSim = 500, N = 600, beta = 0.3,type="td", 
+                 scenario='time dependent example' ,exp.prop=0.2,
+                 maxrelexptime=1/6, min.futime = 4)
+```
+
+```{r, cache=T, echo=F, warning=F}
+betas=seq(.1,.7,.1)
+SS=c(600,800,1000)
+
+final = NULL
+for (l in 1:length(betas))
+{ 
+  for(s in 1:length(SS)){
+    ret<- getpower.method1(nSim = 500, N=SS[s],beta=betas[l],type="td",scenario=paste('td', s),exp.prop=0.2,maxrelexptime=1/6, min.futime = 4)
+    final = rbind(final,ret)
+  }
+}
+
+for (l in 1:length(betas))
+{ 
+  for(s in 1:length(SS)){
+    ret<- getpower.method1(nSim = 500, N=SS[s],beta=betas[l],type="fixed",scenario=paste('fixed', s),exp.prop=0.2,maxrelexptime=1/6, min.futime = 0)
+    final = rbind(final,ret)
+  }
+}
+```
+```{r, echo=F}
+final_table = final[final$i_beta=='0.3',]
+kable(final_table[c(4,1,5,2,6,3),c(2,3,13,14,18,19,20)],caption="Simulation results for scenario 1 - exposure time generated from Uniform(0, follow-up time/6), no minimum follow-up time is considered",row.names = F, col.names = c('Type','Sample Size',"Beta hat",'Hazard ratio','Median Survival-Unexposed','Median Survival-Exposed','Power'), align = 'c', digits = c(1,3,3,3,3,3,3))
+```
+```{r, eval=F}
+#Time Dependent Plots
+plot_power(final, 600, type='td', exp.prop=0.2, min.futime=4, min.postexp.futime=0,
+           show.plot=TRUE, newplot=TRUE, col='orange', lty=2, lwd=2, pch=16)
+plot_power(final, 800, type='td', exp.prop=0.2, min.futime=4, min.postexp.futime=0,
+           show.plot=TRUE, newplot=FALSE, col='purple', lty=2, lwd=2, pch=16)
+plot_power(final, 1000, type='td', exp.prop=0.2, min.futime=4, min.postexp.futime=0,
+           show.plot=TRUE, newplot=FALSE, col='red', lty=2, lwd=2,pch=16)
+
+#Time Fixed Plots
+plot_power(final,600, type='fixed', exp.prop=0.2, min.futime=0, min.postexp.futime=0,
+           show.plot=TRUE, newplot=FALSE, col='orange', lty=1, lwd=2, pch=16)
+plot_power(final, 800, type='fixed', exp.prop=0.2, min.futime=0, min.postexp.futime=0,
+           show.plot=TRUE, newplot=FALSE, col='purple', lty=1, lwd=2 ,pch=16)
+plot_power(final, 1000, type='fixed', exp.prop=0.2, min.futime=0, min.postexp.futime=0,
+           show.plot=TRUE, newplot=FALSE, col='red', lty=1, lwd=2, pch=16)
+
+```
+
+```{r, fig.height=6, fig.width=8, echo=F}
+temp = plot_power(final,600,type='td',exp.prop=0.2,min.futime=4,min.postexp.futime=0,show.plot=TRUE,newplot=TRUE,
+                         col='orange',lty=2,lwd=2,pch=16)
+temp = plot_power(final,800,type='td',exp.prop=0.2,min.futime=4,min.postexp.futime=0,show.plot=TRUE,newplot=FALSE,
+               col='purple',lty=2,lwd=2,pch=16)
+temp = plot_power(final,1000,type='td',exp.prop=0.2,min.futime=4,min.postexp.futime=0,show.plot=TRUE,newplot=FALSE,
+               col='red',lty=2,lwd=2,pch=16)
+
+temp = plot_power(final,600,type='fixed',exp.prop=0.2,min.futime=0,min.postexp.futime=0,show.plot=TRUE,newplot=FALSE,
+                  col='orange',lty=1,lwd=2,pch=16)
+
+temp = plot_power(final,800,type='fixed',exp.prop=0.2,min.futime=0,min.postexp.futime=0,show.plot=TRUE,newplot=FALSE,
+                  col='purple',lty=1,lwd=2,pch=16)
+temp = plot_power(final,1000,type='fixed',exp.prop=0.2,min.futime=0,min.postexp.futime=0,show.plot=TRUE,newplot=FALSE,
+                  col='red',lty=1,lwd=2,pch=16)
+
+
+abline(h=0.8, lty=3)
+legend("bottomright",cex=0.9,legend=c('Sample Size 1000, time-fixed exposure', 'Sample Size 1000, time-dependent exposure','Sample Size 800, time-fixed exposure','Sample Size 800, time-dependent exposure','Sample Size 600, time-fixed exposure', 'Sample Size 600, time-dependent exposure'),lwd= rep(1,6),lty = c(1,3,1,3,1,3),col=c("red","red","orange","orange","purple","purple"))
+
+```
+
+The above figure shows that statistical powers from the Cox regression model on time-dependent exposure (broken lines) are lower than the model on time-fixed exposure (solid lines) for each sample size $N = 600, 800, and 1000$ respectively. The difference of powers between these two cases are especially when the exposure effect is small $(\beta = 0.1,0.2,0.3,0.4)$. 
+
+###3.2.2 Scenario 2: Time-dependent exposure data generation with filter to control minimum follow-up time and minimum post-exposure follow-up time 
+
+In this scenario, the only difference from the previous one is that we take minimum follow-up time into account, in purpose of addressing the inflated power issue. Subjects without an exposure stay in the study for only a short amount of time and subjects with a short exposure have an event exaggerating the exposure effect are excluded from the study. We set the minimum follow-up time to be 4 months. That is, we kept subjects spending more than 4 months in the study. If a subject is exposed, we keep him/her only when he/she has been followed up by more than 4 months after exposure.
+By considering minimum follow-up time, we observe:
+
+* $\hat{\beta}$ is close to the true exposure effect (not biased upward anymore) in both time-fixed and time-dependent cases. Statistical power from the Cox regression model with time-dependent exposure is close to the time-fixed situation
+
+* The estimate of and pis more accurate under scenario 2, because we have addressed issues (i) and (ii) that may underestimate or overestimateas $\hat{\beta}$ as described in section 4.1. 
+
+Our observation and motivation for using filters also corresponds with one of the pitfalls mentioned in (ref paper) with regard to analyzing time-dependent exposures in cox proportional hazard model. Specifically, in our case, we choose a step function as the form of our time-dependent exposure (dichotomous, unidirectional exposure variable). The author in the paper illustrates that in the Cavender et al(1) study on the effect of smoking on survival where step function is also used on smoking status, the estimated effect of smoking on survival was surprisingly positive. Upon further examination on the dataset, this turns out to be due to the fact that most of the subjects who died were smokers but stopped smoking at the last follow-up visit before their death. These short intervals of exposure transitions leading to events thus cause overestimation of the effect of the exposure variable (smoking) on survival. In our simulation, we hence try to avoid simulating such dataset by giving the users the option to implement filter whereby the users can choose to exclude these problematic subjects from the analysis when confronted with a similar situation as in the smoking effect case.
+
+A partial output is displayed in Table 2 to compare simulation results when the effect of treatment $\beta$ is fixed at 0.3. Figure 2 shows power curves for the whole selected range of from 0.1 to 0.7, with increments 0.1.
+
+```{r, eval=F}
+getpower.method1(nSim = 500, N=600, beta=0.3,type="td", scenario='time dependent', 
+                 exp.prop=0.2, maxrelexptime=1/6, min.futime = 4,
+                 min.postexp.futime = 4)
+```
+
+```{r, cache=T, echo=F, warning=F}
+betas=seq(.1,.7,.1)
+SS=c(600,800,1000)
+
+final = NULL
+for (l in 1:length(betas))
+{ 
+  for(s in 1:length(SS)){
+    ret<- getpower.method1(nSim = 500, N=SS[s],beta=betas[l],type="td",scenario=paste('td', s),exp.prop=0.2,maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4)
+    final = rbind(final,ret)
+  }
+}
+
+for (l in 1:length(betas))
+{ 
+  for(s in 1:length(SS)){
+    ret<- getpower.method1(nSim = 500, N=SS[s],beta=betas[l],type="fixed",scenario=paste('fixed', s),exp.prop=0.2,maxrelexptime=1/6, min.futime = 4)
+    final = rbind(final,ret)
+  }
+}
+```
+```{r,echo=F}
+final_table = final[final$i_beta=='0.3',]
+
+kable(final_table[c(4,1,5,2,6,3),c(2,3,13,14,18,19,20)],caption="Simulation results for scenario 2 - exposure time generated from Uniform(0, follow-up time/6), minimum follow-up time and minimum follow-up time after exposure are considered",row.names = F, col.names = c('Type','Sample Size',"Beta hat",'Hazard ratio','Median Survival-Unexposed','Median Survival-Exposed','Power'), align = 'c', digits = c(1,3,3,3,3,3,3))
+```
+
+
+Compared to Table 1, Table 2 shows a much lower power for each sample size N = 600, 800, and 1000, respectively. For example, when $N = 1000$, Table 1 gives a power of 0.608 for time-fixed case and a power of 0.852 for time-dependent case. Whereas Table 2 gives a power of 0.464 for time-fixed case and a power of 0.422 for time-dependent case, which is even lower. Notably, we need to screen about 1400 subjects in order to achieve approximately 1000 evaluable ones.  
+
+
+```{r, fig.height=6, fig.width=8, echo=F}
+
+# plot(betas,final$pow[seq(1,21,3)],col="orange",main="Figure 2. Time Dependent Exposure with Minimum Followup Time",xlab=expression(beta),
+#      ylab="Statistical power",ylim=c(0,1), type='b', cex=0.75, lty=1, lwd=2)
+# lines(betas,final$pow[seq(2,21,3)],col="purple",lty=1,lwd=2,type='b', cex=0.75)
+# lines(betas,final$pow[seq(3,21,3)],col="red",lty=1,lwd=2)
+# lines(betas,final$pow[seq(22,42,3)],col="orange",lty=3,lwd=2,type='b', cex=0.75, pch=16)
+# lines(betas,final$pow[seq(23,42,3)],col="purple",lty=3,lwd=2,type='b', cex=0.75, pch=16)
+# lines(betas,final$pow[seq(24,42,3)],col="red",lty=3,lwd=2,type='b', cex=0.75, pch=16)
+
+
+temp = plot_power(final,600,type='td',exp.prop=0.2,min.futime=4,min.postexp.futime=4,show.plot=TRUE,newplot=TRUE,
+                         col='orange',lty=2,lwd=2,pch=16)
+temp = plot_power(final,800,type='td',exp.prop=0.2,min.futime=4,min.postexp.futime=4,show.plot=TRUE,newplot=FALSE,
+               col='purple',lty=2,lwd=2,pch=16)
+temp = plot_power(final,1000,type='td',exp.prop=0.2,min.futime=4,min.postexp.futime=4,show.plot=TRUE,newplot=FALSE,
+               col='red',lty=2,lwd=2,pch=16)
+
+temp = plot_power(final,600,type='fixed',exp.prop=0.2,min.futime=4,min.postexp.futime=0,show.plot=TRUE,newplot=FALSE,
+                  col='orange',lty=1,lwd=2,pch=16)
+
+temp = plot_power(final,800,type='fixed',exp.prop=0.2,min.futime=4,min.postexp.futime=0,show.plot=TRUE,newplot=FALSE,
+                  col='purple',lty=1,lwd=2,pch=16)
+temp = plot_power(final,1000,type='fixed',exp.prop=0.2,min.futime=4,min.postexp.futime=0,show.plot=TRUE,newplot=FALSE,
+                  col='red',lty=1,lwd=2,pch=16)
+
+
+abline(h=0.8, lty=3)
+legend("bottomright",cex=0.9,
+       legend=c('Sample Size 1000, time-fixed exposure', 'Sample Size 1000, time-dependent exposure','Sample Size 800, time-fixed exposure','Sample Size 800, time-dependent exposure','Sample Size 600, time-fixed exposure', 'Sample Size 600, time-dependent exposure'),
+       lwd= rep(1,6),lty = c(3,1,3,1,3,1),col=c("red","red","purple","purple","orange","orange"))
+```
+
+Figure 2 shows a significant difference from Figure 1 as the powers of fixed and time-dependent cases are flipped: Cox regression model on time-dependent exposure results in lower power than does on the time-fixed exposure. This matches closer to what we expected. In general, the time-dependent case is close to the fixed case.
+
+###3.2.3 Scenario 3: Time fixed exposure data generation with minimum follow-up time and minimum post-exposure follow-up time (Oph Vignette)
+
+While this vignette outlines how to evalualte power calculations for time-dependent exposures, our package also has built-in functions to run power calulations on fixed exposure data. As mentioned earlier, we define fixed case where exposed subjects remain exposed for the duration of their time in the study.
+
+Please refer to the Oph Fixed Time Vignette for an outline of this procedure. 
+
+#4. Method 2 - Simulations using illness-death model
+
+In this section, we explore another method to generate time-variant exposure survival data based on the illness-death model. 
+
+In the Illness-death model, three transition intensities are needed: $lambda_{12}$, $lamb_{23}$, $lambda_{13}$. $lambda_{ij}$ controls the transition from state $i$ to state $j$. All subjects are assumed to be at state 1 which is the initial state (healthy or unexposed). Some subjects may transition into state 2 (exposed or diseased) before state 3 (dead or event) if transition time to state 2 happens before transition time to state 3. For these subjects, the time to event after exposure is then modeled by the transition from state 2 to state 3 which is controlled by transition intensity $lambda_{23}$. Other subjects might not undergo the transition into the intermediate state 2 before state 3. For them, their time to event is only modeled by the transition intensity $lambda_{13}$.
+
+Our method 2 function is different from the illness-death model as described in Ref[2,3] in the following way: the user input for the three transition intensities are the same as the referenced paper. However, our approach simplifies the procedure such that we separate the subjects into two groups, exposed and unexposed, according to the user specified exposure rate. The parameter, $lambda_{12}$ then controls the time to exposure for the subjects in the exposed group; the parameter, $lambda_{23}$ controls the time to event after exposure. For the unexposed group, the parameter $lambda_{13}$ is needed for the transition from the initial state to the final state (event).
+
+##4.1 Method 2 Survival Data simulation
+
+The main function to use to simulate survival data using method 2 is tdSim_new. A function call to this function might look like
+
+```{r,eval=F}
+tdSim.method2(N, HR, lambda12, lambda23, lambda13, 
+              exp.rate,rateC, min.futime, min.postexp.futime)
+```
+
+
+This function generates N sample subjects. Subjects are first separated into two groups: exposed and unexposed according to the user’s input exposure rate. Time to exposure (t12) is then generated for the exposed subject according to the exponential distribution with rate lambda12. After exposure, time to event (t23) is generated for the exposed subjects according to the exponential distribution with rate lambda23. For the unexposed subjects, time to event (t13) is generated from exponential distribution with rate lambda13. In addition, right censoring is controlled by the input parameter rateC. 
+
+```{r,echo=F}
+lambda=log(2)/24
+rateC=log(2)/14
+#lambda12 = rateC * 10
+lambda23 = lambda*exp(0.3)
+lambda12 = lambda23 * 35
+par(mfrow=c(1,2),oma=c(0,0,2,0))
+
+dat <- tdSim.method2(500, duration=24, lambda12=lambda12, lambda23=lambda23, lambda13=lambda,rateC=rateC,exp.prop=0.2, min.futime = 4, min.postexp.futime = 4)
+plot_simuData(dat, title='method2_filter')
+
+dat <- tdSim.method1(500, duration=24,lambda, rho=1, beta=0.6, rateC=rateC,exp.prop=0.2,maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4)
+plot_simuData(dat, title='method1_filter')
+
+title("Figure 3. Incidence Plot of method 1 vs method 2", outer=T, cex.main=1)
+
+```
+
+In the figure above, note that in method 1 the time of exposure is dependent on the follow-up time whereas in method 2, the time of exposure is independent.
+
+
+##4.2 Method 2 Survival Power Curve
+
+In this section, we demonstrate how the power curve can be obtained using method 2 survival data simulation.
+
+```{r two_tables,echo=F,results='asis'}
+betas = seq(0.1,0.6,0.1)
+lambda23 = lambda*exp(betas)
+lambda12 = lambda23 * 45
+
+table1 = data.frame(lambda = rep(lambda,6), rho = rep(1,6), beta = betas,rateC = rep(rateC,6), exp.prop = rep(0.2,6))
+table2 = data.frame(lambda12 =lambda12, lambda23 = lambda23,
+                    lambda13 = rep(lambda,6),rateC = rep(rateC,6), exp.prop = rep(0.2,6))
+
+kable(table1,caption="Method 1 Input")
+kable(table2,caption="Method 2 Input")
+
+```
+
+The input parameter to method 2 are set as follow: 
+
+1. $lambda_{13}=lambda$, since $lambda_{13}$ controls the time to event in the control group.
+2. $lambda_{23}=lambda_{13} * \exp(\beta)$. This is because hazard ratio ($exp(\beta)$) corresponds to the ratio $lambda_{23} / lambda_{13}$
+3. $lambda_{12}=lambda_{23} * 45$. We want the time of exposure to happen early in the follow-up time. The multiplicative factor 45 is set so that the survival data looks similar and is comparable to the data generated using method 1 with the above parameter. scenario?
+
+```{r,echo=F}
+
+par(mfrow=c(1,2),oma=c(0,0,2,0))
+dat <- tdSim.method2(600, duration =24, lambda12=lambda12, lambda23=lambda23, lambda13=lambda, exp.prop=0.2,rateC=rateC, min.futime = 4, min.postexp.futime = 4)
+plot_simuData(dat, title='method2_filter, beta=0.3')
+
+
+dat <- tdSim.method1(600, duration=24,lambda, rho=1, beta=0.3, rateC=rateC,exp.prop=0.2,maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4)
+plot_simuData(dat, title='method1_filter, beta=0.3')
+
+title("Figure 4. Incidence plots of the two method for beta = 0.3", outer=T, cex.main=1)
+
+```
+
+Figure 7 shows the incidence plots when using the two methods and setting the parameters for method 2 as discussed above. Observe that, the two survival data looks similar which is our purpose in this section where we compare the two methods of data generation. Nonetheless, the distribution of the time of exposure in method 2 is different due to the fact that it is independent of follow-up time.
+
+```{r,echo=F, cache=T, warning=F}
+
+final = data.frame()
+
+for (b in seq(0.1,0.6,0.1)){
+  final = rbind(final,getpower.method1(nSim=500, N=600, med.TTE.Control =24, beta=b, exp.prop=0.2, type='td', scenario='method1_filter', maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4),
+        
+  getpower.method1(nSim=500, N=800, med.TTE.Control=24, beta=b, exp.prop=0.2, type='td', scenario='method1_filter', maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4),
+  
+  getpower.method1(nSim=500, N=1000, med.TTE.Control=24, beta=b, exp.prop=0.2, type='td', scenario='method1_filter', maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4))
+}
+
+
+final2 = data.frame()
+for (b in seq(0.1,0.6,0.1)){
+    lambda23 = lambda*exp(b)
+    lambda12 = lambda23*45
+  final2 = rbind(final2, getpower.method2(nSim=500, N=600, duration=24, exp.prop=0.2, rateC=rateC, scenario='method2_filter', lambda12=lambda12, lambda23=lambda23, lambda13=lambda, min.futime=4,min.postexp.futime = 4),
+                getpower.method2(nSim=500, N=800, duration=24, exp.prop=0.2, rateC=rateC, scenario='method2_filter', lambda12=lambda12, lambda23=lambda23, lambda13=lambda, min.futime=4,min.postexp.futime = 4),
+                getpower.method2(nSim=500,N=1000, duration=24, exp.prop=0.2, rateC=rateC, scenario='method2_filter', lambda12=lambda12, lambda23=lambda23, lambda13=lambda, min.futime=4,min.postexp.futime = 4))
+  }
+```
+```{r echo=F}
+final2$i_beta = c(rep(0.1,3),rep(0.2,3),rep(0.3,3),rep(0.4,3),rep(0.5,3),rep(0.6,3))
+final2$i_type = 'td'
+par(mfrow=c(1,1))
+
+temp = plot_power(final,600,type='td',exp.prop=0.2,min.futime=4,min.postexp.futime=4,show.plot=TRUE,newplot=TRUE,
+                        col='orange',lty=1,lwd=2,pch=16)
+temp = plot_power(final,800,type='td',exp.prop=0.2,min.futime=4,min.postexp.futime=4,show.plot=TRUE,newplot=FALSE,
+              col='purple',lty=1,lwd=2,pch=16)
+temp = plot_power(final,1000,type='td',exp.prop=0.2,min.futime=4,min.postexp.futime=4,show.plot=TRUE,newplot=FALSE,
+              col='red',lty=1,lwd=2,pch=16)
+temp = plot_power(final2,600,type='td',exp.prop=0.2,min.futime=4,min.postexp.futime=4,show.plot=TRUE,newplot=FALSE, col='orange',lty=2,lwd=2,pch=16)
+temp = plot_power(final2,800,type='td',exp.prop=0.2,min.futime=4,min.postexp.futime=4,show.plot=TRUE,newplot=FALSE, col='purple',lty=2,lwd=2,pch=16)
+temp = plot_power(final2,1000,type='td',exp.prop=0.2,min.futime=4,min.postexp.futime=4,show.plot=TRUE,newplot=FALSE, col='red',lty=2,lwd=2,pch=16)
+
+abline(h=0.8,lty=2,lwd=1)
+legend("bottomright",cex=0.5,
+       legend=c("Sample size 1000, method 1","Sample size 1000, method 2",
+                "Sample size 800, method 1","Sample size 800, method 2",
+                "Sample size 600, method 1","Sample size 600, method 2"),
+       lty=c(1,3,1,3,1,3),lwd=c(2,2,2,2,2,2),col=c("red","red","purple","purple","orange","orange"))
+
+```
+
+The final graph shows that the two methods when setting the input parameters as shown in the parameter table Figure 6 leads to similar power. This means that the two methods can be used to generate comparable survival data when the input parameter are set accordingly. Users can choose between method 1 and method 2 to generate their survival data according to their circumstance. For instance, which set of input parameter is easier to estimate from pilot dataset or which method simulated data which is closer to the pilot dataset.
+
+
+##References
+
+[1]	J. Crowley and M. Hu. Covariance analysis of heart transplant survival data. J. Amer Stat Assoc., 72:27-36, 1977.
+
+[2]	Therneau T (2015). A Package for Survival Analysis in S. version 2.38, http://CRAN.R-project.org/package=survival.
+
+[3] Sylvestre M (2015). PermAlgo: Permutational Algorithm to Simulate Survival Data. version 1.1, https://cran.r-project.org/web/packages/PermAlgo/
+
+[4] Meira-Machado, Roca-Pardin as:p3state.msm: Analyzing Survival Data from an Illness-Death Model. Journal of Statistical Software January 2011, Volume 38, Issue 3. 
+
+
+
+

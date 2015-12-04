@@ -36,7 +36,7 @@ tdSim.exposure.matching1<-function(N_match, duration=24,lambda, rho=1, beta, rat
     to_merge <- data[data$x==0,]
   }
   else{
-    id_tdexposed<-sample(x = data[data$x==1,]$id,size = round(nrow(data[data$x==1,])*(1-prop.fullexp)))
+    id_tdexposed<-sample(x = data[data$x==1,]$id,size = floor(nrow(data[data$x==1,])*(1-prop.fullexp)))
     data_tdexposed<-data[data$id %in% id_tdexposed,]
     data_fullexposed <- data[(!(data$id %in% id_tdexposed)) & data$x==1,]
     to_merge <- rbind(data[data$x==0,], data_fullexposed)
@@ -155,7 +155,7 @@ getpower.matching_opt<-function(nSim, N,duration=24,med.TTE.Control=24,rho=1,med
                              prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,
                              output.fn,simu.plot=FALSE) 
 { 
-  N_population = 100*N
+  N_population = 100000
   lambda=log(2)/med.TTE.Control
   rateC=log(2)/med.TimeToCensor
   #numsim=500
@@ -194,16 +194,27 @@ getpower.matching_opt<-function(nSim, N,duration=24,med.TTE.Control=24,rho=1,med
     fit <- coxph(Surv(start,stop, status) ~ factor(x), data=population)
     real_betahat <- summary(fit)$coef[,"coef"]
   }
+  ratios = c(1,1/9,0.25,0.333,0.5,2:5, 9,19)
   result <- NULL
-  for (ratio in 1:20){
+  for (ratio in ratios){
+  print(ratio)
   for(k in 1:nSim)
   {
-    sampled_ids <- sample(population[population$x==1,"id"],size=round(N/(ratio+1)))
+    if (ratio >= 1){
+    sampled_ids <- sample(population[population$x==1,"id"],size=floor(N/(ratio+1)))
     exposed <- population[population$id %in% sampled_ids,]
     exposed$match_id <- exposed$id
-    unexposed_ids <- sample(setdiff(unique(population$id),population[population$x==1,"id"]), size= ratio*round(N/(ratio+1)))
+    unexposed_ids <- sample(setdiff(unique(population$id),population[population$x==1,"id"]), size= ratio * floor(N/(ratio+1)))
     unexposed <- population[population$id %in% unexposed_ids,]
     unexposed$match_id <- rep(sampled_ids, each=ratio)
+    }else{
+      unexposed_ids <- sample(setdiff(unique(population$id),population[population$x==1,"id"]), size= floor((ratio*N)/(ratio+1)))
+      unexposed <- population[population$id %in% unexposed_ids,]
+      unexposed$match_id <- unexposed$id
+      sampled_ids <- sample(population[population$x==1,"id"],size=floor(1 / ratio) * floor((ratio*N)/(ratio+1)))
+      exposed <- population[population$id %in% sampled_ids,]
+      exposed$match_id <- rep(unexposed$match_id, each= floor(1 / ratio))
+    }
     dat<-rbind(exposed, unexposed)
     if(method == "marginal"){
       fit <- coxph(Surv(start,stop, status) ~ factor(x)+cluster(match_id), data=dat)

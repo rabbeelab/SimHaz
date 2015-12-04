@@ -12,7 +12,8 @@ In particular, the output dataset has a column corresponding to the center id, w
 \usage{
 
 tdSim.multicenter(N,duration=24,rho=1,beta,rateC,df,
-                     prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0, dist=NULL)  
+              prop.fullexp=0,maxrelexptime=1,min.futime=0,
+			  min.postexp.futime=0, dist=NULL)  
 }
 
 \arguments{

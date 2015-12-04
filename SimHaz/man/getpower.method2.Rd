@@ -50,7 +50,7 @@ getpower.method2(nSim = 500, N, duration = 24, scenario, lambda12,
   A numeric value that represents minimum follow-up time (in months). The default value is 0, which means no minimum follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study.
   }
   \item{min.postexp.futime}{
- A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure.
+  A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure.
   }
   \item{output.fn}{
   A .csv filename to write in the output. If the filename does not exist, the function will create a new .csv file for the output.

@@ -11,35 +11,46 @@ This function simulate Survival Data. It generates a simulated dataset with time
 }
 \usage{
 
-tdSim.method2(N,duration, lambda12, lambda23=NULL, lambda13, 
-    HR=NULL, exp.prop,rateC, min.futime = 0, min.postexp.futime = 0)
+tdSim.exposure.matching1(N_match,duration, lambda, rho, beta, rateC,
+	 matching.ratio, prop.fullexp, maxrelexptime,  
+	 min.futime = 0, min.postexp.futime = 0)
 }
 
 \arguments{
-  \item{N}{
+  \item{N_match}{
   Number of subjects
   }
   \item{duration}{
   Duration of the study. This is used in censoring
   }
-  \item{lambda12}{
-  Lambda12 parameter to control time to exposure
+  \item{lambda}{
+  
   }
-  \item{lambda23}{
-  Lambda23 parameter to control time to event after exposure
+  
+  \item{rho}{
+ 
   }
-  \item{lambda13}{
-  Lambda13 parameter to control time to event in the control group
+  
+  \item{beta}{
+ 
   }
-  \item{HR}{
-  Hazard Ratio. This input is optional. If HR is set and lambda23 is not set, lambda23 = lambda13*HR
-  }
-  \item{exp.prop}{
-  A numeric value between 0 and 1 (not include 0 and 1) that represents the proportion of subjects that are assigned with an exposure
-  }
+
   \item{rateC}{
   Rate of the exponential distribution to generate censoring times
   }
+  
+  \item{matching.ratio}{
+ 
+  }
+  
+  \item{prop.fullexp}{
+ 
+  }
+  
+  \item{maxrelexptime}{
+ 
+  }
+  
   \item{min.futime}{
   A numeric value that represents minimum follow-up time (in months). The default value is 0, which means no minimum follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study
   }
@@ -81,10 +92,9 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 }
 
 \examples{
-sim_data <- tdSim.method2(500, duration=24,lambda12=1.3,lambda23=0.04, 
-    lambda13=0.03, exp.prop=0.2,rateC=0.05, min.futime=4, min.postexp.futime=4)
-}
+
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
+}
 \keyword{Simulation}
 
