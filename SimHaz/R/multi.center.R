@@ -85,7 +85,8 @@ tdSim.multicenter<-function(N,duration=24,rho=1,beta,rateC,df,
     new_data2$status<-data_tdexposed$status
     new_data2$x<-1
     new_data2$clst_id<-data_tdexposed$clst_id
-    merged_tdexposed<-subset(na.omit(merge(new_data1,new_data2,all.x=TRUE,all.y=TRUE)),select=-c(t_exposed))
+    merged_tdexposed<-subset(na.omit(merge(new_data1,new_data2,all.x=TRUE,all.y=TRUE)))
+    merged_tdexposed$t_exposed<-NULL
     full_data<-merge(merged_tdexposed,data[data$x==0,],all.x=TRUE,all.y=TRUE)
     return(full_data)
   }

@@ -10,5 +10,5 @@ Description: Generate power for the Cox proportional hazards model by simulating
 License: GPL (>= 2)
 URL: http://www.stat.berkeley.edu/~rabbee/research_webpage.htm
 BugReports: https://github.com/rabbeelab/SimHaz/issues
-Suggests: knitr, rmarkdown
-VignetteBuilder: knitr
+Suggests: knitr, rmarkdown, xtable
+VignetteBuilder: knitr, rmarkdown

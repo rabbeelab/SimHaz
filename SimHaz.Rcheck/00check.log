@@ -12,52 +12,9 @@
 * checking for hidden files and directories ... NOTE
 Found the following hidden files and directories:
   .DS_Store
-  R/.DS_Store
-  R/.Rhistory
-  man/.DS_Store
-  man/.Rapp.history
-  vignettes/.DS_Store
-  vignettes/Multicenter/.DS_Store
 These were most likely included in error. See section ‘Package
 structure’ in the ‘Writing R Extensions’ manual.
-* checking for portable file names ... WARNING
-Found the following file with a non-portable file name:
-  man/tdSim.method2 copy.Rd
-These are not fully portable file names.
-See section ‘Package structure’ in the ‘Writing R Extensions’ manual.
-Found the following non-portable file paths:
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-11_186e0eeade47965ac64587dfd60e5ec1.RData
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-11_186e0eeade47965ac64587dfd60e5ec1.rdb
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-11_186e0eeade47965ac64587dfd60e5ec1.rdx
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-12_a421be448e6f0a3ad621cf9d9d8292e7.RData
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-12_a421be448e6f0a3ad621cf9d9d8292e7.rdb
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-12_a421be448e6f0a3ad621cf9d9d8292e7.rdx
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-13_6f376e4e91f664ad5509a387e496f49b.RData
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-13_6f376e4e91f664ad5509a387e496f49b.rdb
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-13_6f376e4e91f664ad5509a387e496f49b.rdx
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-15_0fbb3fb7f261cf5db0ff375b57119613.RData
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-15_0fbb3fb7f261cf5db0ff375b57119613.rdb
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-15_0fbb3fb7f261cf5db0ff375b57119613.rdx
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-16_75f303a1beaf9fe9ad3379ebb855d34b.RData
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-16_75f303a1beaf9fe9ad3379ebb855d34b.rdb
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-16_75f303a1beaf9fe9ad3379ebb855d34b.rdx
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-5_71776a159ed83fda98787c57081594f9.RData
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-5_71776a159ed83fda98787c57081594f9.rdb
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-5_71776a159ed83fda98787c57081594f9.rdx
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-6_1ff1a495192f0248fae4bf8fd14d6b2b.RData
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-6_1ff1a495192f0248fae4bf8fd14d6b2b.rdb
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-6_1ff1a495192f0248fae4bf8fd14d6b2b.rdx
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-8_d1440d771c4c59924a985389c449a87f.RData
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-8_d1440d771c4c59924a985389c449a87f.rdb
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-8_d1440d771c4c59924a985389c449a87f.rdx
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-9_47aa6b36bb88046dd4c077e58955a575.RData
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-9_47aa6b36bb88046dd4c077e58955a575.rdb
-  SimHaz/vignettes/Multicenter/Multicenter_Vignette_cache/latex/unnamed-chunk-9_47aa6b36bb88046dd4c077e58955a575.rdx
-
-Tarballs are only required to store paths of up to 100 bytes and cannot
-store those of more than 256 bytes, with restrictions including to 100
-bytes for the final component.
-See section ‘Package structure’ in the ‘Writing R Extensions’ manual.
+* checking for portable file names ... OK
 * checking for sufficient/correct file permissions ... OK
 * checking whether package ‘SimHaz’ can be installed ... OK
 * checking installed package size ... OK
@@ -78,29 +35,18 @@ See section ‘Package structure’ in the ‘Writing R Extensions’ manual.
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
-* checking R code for possible problems ... NOTE
-tdSim.multicenter: no visible binding for global variable ‘t_exposed’
+* checking R code for possible problems ... OK
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... OK
 * checking for code/documentation mismatches ... OK
-* checking Rd \usage sections ... WARNING
-Objects in \usage without \alias in documentation object 'getpower.matching1':
-  ‘getpower.method1’
-
-Objects in \usage without \alias in documentation object 'tdSim.exposure.matching1':
-  ‘tdSim.method2’
-
-Functions with \usage entries need to have the appropriate \alias
-entries, and all their arguments documented.
-The \usage entries must correspond to syntactically valid R code.
-See chapter ‘Writing R documentation files’ in the ‘Writing R
-Extensions’ manual.
+* checking Rd \usage sections ... OK
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
-* checking files in ‘vignettes’ ... OK
+* checking sizes of PDF files under ‘inst/doc’ ... OK
+* checking installed files from ‘inst/doc’ ... OK
 * checking examples ... OK
 * checking PDF version of manual ... OK
 * DONE
-Status: 2 WARNINGs, 2 NOTEs
+Status: 1 NOTE

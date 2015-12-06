@@ -38,15 +38,15 @@ ret <- getpower.method1(nSim = 10, N = 600, b = 0.3, exp.prop = 0.2,
 
 
 cleanEx()
-nameEx("getpower.matching1")
-### * getpower.matching1
+nameEx("getpower.exp.matching")
+### * getpower.exp.matching
 
 flush(stderr()); flush(stdout())
 
-### Name: getpower.matching1
+### Name: getpower.exp.matching
 ### Title: Calculate power for the Cox proportional hazard model with
 ###   time-dependent exposure using method 1
-### Aliases: getpower.matching1
+### Aliases: getpower.exp.matching
 ### Keywords: Power_Calculation
 
 ### ** Examples
@@ -68,10 +68,51 @@ library(survival)
 # control group to be 24 months; exposure effect to be 0.3; median time to
 # censoring to be 14 months; and exposure proportion to be 20%.
 
+marginal = getpower.exp.matching(nSim=10, N_match=100,duration=24,
+	med.TTE.Control=24,rho=1, med.TimeToCensor=14, beta=0.7,
+	matching.ratio=3,type="td", scenario="exposure_matching",  
+	method="marginal", prop.fullexp=0,maxrelexptime=1,
+	min.futime=0, min.postexp.futime=0, output.fn="result_matching",
+	simu.plot=FALSE)
 
-ret <- getpower.method1(nSim = 10, N = 600, b = 0.3, exp.prop = 0.2,
-    type = "td", scenario = " ", maxrelexptime = 1/6, min.futime = 4,
-    min.postexp.futime = 4, output.fn = "output.csv")
+
+
+
+cleanEx()
+nameEx("getpower.exp.matching.opt")
+### * getpower.exp.matching.opt
+
+flush(stderr()); flush(stdout())
+
+### Name: getpower.exp.matching.opt
+### Title: Calculate power for the Cox proportional hazard model with
+###   time-dependent exposure using method 1
+### Aliases: getpower.exp.matching.opt
+### Keywords: Power_Calculation
+
+### ** Examples
+
+# Install the survival package if needed.
+
+library(survival)
+
+# We recommend setting nSim to at least 500. It is set to 10 in the example to
+# reduce run time for CRAN submission.
+
+# Run 10 simulations. Each time simulate a dataset of 600 subjects with
+# time-dependent exposure with both minimum follow-up time (4 months) and
+# minimum post-exposure follow-up time (4 months) imposed. Also consider a
+# quick exposure after entering the study for each exposed subject. Set the
+# maximum relative exposure time to be 1/6. 
+
+# Set the duration of the study to be 24 months; the median time to event for
+# control group to be 24 months; exposure effect to be 0.3; median time to
+# censoring to be 14 months; and exposure proportion to be 20%.
+
+marginal = getpower.exp.matching.opt(nSim=50, N=400, duration=24, med.TTE.Control=24, rho=1,med.TimeToCensor=14,beta=0.5,
+exp.prop=0.3, type="td",scenario="opt_exp_matching", method="marginal",
+prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,
+                                output.fn="opt_matching",simu.plot=FALSE)
 
 
 
@@ -236,6 +277,29 @@ plot_simuData(dat, title='method2_filter')
 
 
 cleanEx()
+nameEx("tdSim.exp.matching")
+### * tdSim.exp.matching
+
+flush(stderr()); flush(stdout())
+
+### Name: tdSim.exp.matching
+### Title: Simulate 1 dataframe (1 simulation) of time-dep exposure under
+###   method 2
+### Aliases: tdSim.exp.matching
+### Keywords: Simulation
+
+### ** Examples
+
+
+
+df1 = tdSim.exp.matching<-function(N_match, duration=24,lambda, rho=1, 
+	beta, rateC,matching.ratio=3,  prop.fullexp=0,maxrelexptime=1,min.futime=0,
+	min.postexp.futime=0)
+
+
+
+
+cleanEx()
 nameEx("tdSim.method1")
 ### * tdSim.method1
 
@@ -277,25 +341,6 @@ df2 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
 df3 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1, 
    beta = 0.3, rateC = log(2)/14, exp.prop = 0.2, prop.fullexp  = 0,
    maxrelexptime = 1/6, min.fut = 4,min.postexp.fut = 4)
-
-
-
-cleanEx()
-nameEx("tdSim.method2 copy")
-### * tdSim.method2 copy
-
-flush(stderr()); flush(stdout())
-
-### Name: tdSim.exposure.matching1
-### Title: Simulate 1 dataframe (1 simulation) of time-dep exposure under
-###   method 2
-### Aliases: tdSim.exposure.matching1
-### Keywords: Simulation
-
-### ** Examples
-
-sim_data <- tdSim.method2(500, duration=24,lambda12=1.3,lambda23=0.04, 
-    lambda13=0.03, exp.prop=0.2,rateC=0.05, min.futime=4, min.postexp.futime=4)
 
 
 

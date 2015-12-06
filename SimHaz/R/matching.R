@@ -27,7 +27,7 @@ simulWeib_matching <- function(N_match, duration, lambda, rho, beta, rateC,match
 # maxrelexp.t: maximum relative exposuret time, the default value is 1, can take values in (0, 1]
 # min.postexp.fut: minimum post-exposure follow-up time
 #' @export
-tdSim.exposure.matching1<-function(N_match, duration=24,lambda, rho=1, beta, rateC,matching.ratio=3,
+tdSim.exp.matching<-function(N_match, duration=24,lambda, rho=1, beta, rateC,matching.ratio=3,
                         prop.fullexp=0,maxrelexptime=1,min.futime=0, min.postexp.futime=0){
 
   data <- simulWeib_matching(N_match, duration, lambda, rho, beta, rateC,matching.ratio, min.futime)
@@ -66,7 +66,7 @@ tdSim.exposure.matching1<-function(N_match, duration=24,lambda, rho=1, beta, rat
   return(full_data)
 }
 
-getpower.matching1<-function(nSim, N_match,duration=24,med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta,
+getpower.exp.matching<-function(nSim, N_match,duration=24,med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta,
                              matching.ratio,type,scenario, method,
                            prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,
                            output.fn,simu.plot=FALSE) 
@@ -80,7 +80,7 @@ getpower.matching1<-function(nSim, N_match,duration=24,med.TTE.Control=24,rho=1,
   alpha=.05
   if(simu.plot){
     set.seed(999)
-      dat <- tdSim.exposure.matching1(N_match=N_match, duration=duration,lambda=lambda, rho=rho, beta=beta, 
+      dat <- tdSim.exp.matching(N_match=N_match, duration=duration,lambda=lambda, rho=rho, beta=beta, 
                                       rateC=rateC,matching.ratio=matching.ratio,
                                       prop.fullexp=prop.fullexp,maxrelexptime=maxrelexptime,min.futime=min.futime, 
                                       min.postexp.futime=min.postexp.futime)
@@ -94,7 +94,7 @@ getpower.matching1<-function(nSim, N_match,duration=24,med.TTE.Control=24,rho=1,
                             rateC=rateC, matching.ratio=matching.ratio,
                             min.futime=min.futime)
   }else{
-    dat <- tdSim.exposure.matching1(N_match=N_match, duration=duration,lambda=lambda, rho=rho, beta=beta, 
+    dat <- tdSim.exp.matching(N_match=N_match, duration=duration,lambda=lambda, rho=rho, beta=beta, 
                                     rateC=rateC,matching.ratio=matching.ratio,
                                     prop.fullexp=prop.fullexp,maxrelexptime=maxrelexptime,min.futime=min.futime, 
                                     min.postexp.futime=min.postexp.futime)
@@ -150,10 +150,10 @@ getpower.matching1<-function(nSim, N_match,duration=24,med.TTE.Control=24,rho=1,
 }
 
 
-getpower.matching_opt<-function(nSim, N,duration=24,med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta,
+getpower.exp.matching.opt<-function(nSim, N, ratios=c(1,0.25,0.333,0.5,2,3,4,5), duration=24,med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta,
                                 exp.prop,type,scenario, method,
                              prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,
-                             output.fn,simu.plot=FALSE) 
+                             output.fn=NULL,simu.plot=FALSE) 
 { 
   N_population = 100000
   lambda=log(2)/med.TTE.Control
@@ -194,10 +194,24 @@ getpower.matching_opt<-function(nSim, N,duration=24,med.TTE.Control=24,rho=1,med
     fit <- coxph(Surv(start,stop, status) ~ factor(x), data=population)
     real_betahat <- summary(fit)$coef[,"coef"]
   }
-  ratios = c(1,1/9,0.25,0.333,0.5,2:5, 9,19)
   result <- NULL
+  if (!(round((1-exp.prop)/exp.prop) %in% ratios)){
+    ratios = c(round((1-exp.prop)/exp.prop), ratios)
+  }
+  if (!(1 %in% ratios)){
+    ratios = c(1, ratios)
+  }
   for (ratio in ratios){
   print(ratio)
+  if(ratio >= 1){
+    N_match = floor(N/(ratio+1))
+    N_exposed = N_match
+    N_unexposed = ratio * floor(N/(ratio+1))
+  }else{
+    N_unexposed = floor((ratio*N)/(ratio+1))
+    N_match = N_unexposed
+    N_exposed = floor(1 / ratio) * floor((ratio*N)/(ratio+1))
+  }
   for(k in 1:nSim)
   {
     if (ratio >= 1){
@@ -235,22 +249,36 @@ getpower.matching_opt<-function(nSim, N,duration=24,med.TTE.Control=24,rho=1,med
     res[k,"medsurvt_c"] <- summary(sfit)$table[1,'median']
     res[k,"medsurvt_exp"] <- summary(sfit)$table[2,'median']
   }
-  if(ratio==1){
-    s2 = sqrt(var(res[,"betahat"]))
-    s1 = s2
-  }else{
-    s1 = sqrt(var(res[,"betahat"]))
+  if(ratio == 1){
+    var_11 = var(res[,"betahat"])
+  }else if(ratio == round((1-exp.prop)/exp.prop)){
+    var_samp_prop = var(res[,"betahat"])
   }
   bhat = mean(res[,"betahat"])
   df=data.frame(ratio=ratio,
+                i_scenario=scenario,
+                i_type=type,
+                i_min.futime=min.futime,
+                i_min.postexp.futime=min.postexp.futime,
+                i_lambda=log(2)/med.TTE.Control,
+                i_rho=rho,
+                i_rateC=rateC,                       
+                i_beta=beta,
+                N_match = N_match,
+                N_exposed = N_exposed,
+                N_unexposed = N_unexposed,
                 bhat=bhat,
                 pow=mean(res[,"signif"]),
                 actual_beta=real_betahat,
                 bias=bhat-real_betahat,
-                variance=var(res[,"betahat"]),
-                RE = (s1^2) / (s2^2))
+                variance=var(res[,"betahat"]))
   result <-  rbind(result, df)
   }
+  result$RE1 = result$variance / var_11
+  result$RE2 = result$variance / var_samp_prop
+  if(is.null(output.fn)){
+    return(result)
+  }else{
   if(file.exists(output.fn)){
     write.table(result,file=output.fn,row.names=FALSE,col.names=FALSE,append=TRUE,sep=",")
   }
@@ -258,6 +286,9 @@ getpower.matching_opt<-function(nSim, N,duration=24,med.TTE.Control=24,rho=1,med
     write.table(result,file=output.fn,row.names=FALSE,col.names=TRUE,sep=",")
   }
   return(result)
+  }
 }
+
+  
 
   

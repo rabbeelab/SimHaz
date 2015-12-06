@@ -1,0 +1,2 @@
+"i_scenario","i_type","i_N_match","i_matching.ratio","i_min.futime","i_min.postexp.futime","i_lambda","i_rho","i_rateC","i_beta","N_eff","N_effexp_p","bhat","HR","d","d_c","d_exp","mst_c","mst_exp","pow","variance"
+"exposure_matching","td",100,3,0,0,0.0288811325233311,1,0.0495105128971389,0.7,0,0,1.50320436683546,4.58872165333599,137.8,91.1,46.7,22.7644760067317,1.3454434707907,1,0.0439651404116217
