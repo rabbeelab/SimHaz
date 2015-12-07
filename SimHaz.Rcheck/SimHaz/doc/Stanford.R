@@ -1,18 +1,4 @@
----
-title: "Stanford Dataset (Time-Dependent Exposure)"
-author: Teeranan Pokaprakarn; Hiroto Udagawa; Danyi Xiong; Nusrat Rabbee (rabbee@berkeley.edu) 
-date: Department of Statistics, University of California, Berkeley, CA
-output: pdf_document
-header-includes:
-    - \usepackage{caption}
-vignette: >
-  %\VignetteIndexEntry{Stanford Dataset (Time-Dependent Exposure)}
-  %\VignetteEngine{knitr::knitr}
-  %\VignetteEncoding{UTF-8}
----
-\captionsetup[table]{labelformat=empty}
-
-```{r,echo=F, message=F}
+## ----echo=F, message=F---------------------------------------------------
 library(survival)
 library(vcd)
 library(MASS)
@@ -165,31 +151,26 @@ getpower.stanford=function(N,duration,b,r1,r2,r3,r4,r5=NULL,er,type,scenario,
   return(df)
 }
 
-```
-    
 
-## Stanford dataset (Time-Dependent Example)
+## ---- eval=F-------------------------------------------------------------
+## #Exposure rate calculation
+## exprate<-mean(jasa$transplant)
+## 
+## tdata <- jasa[, -(1:4)]
+## tdata$futime <- pmax(.5, tdata$futime)
+## indx <- with(tdata, which(wait.time == futime))
+## tdata$wait.time[indx] <- tdata$wait.time[indx] - .5
+## sdata <- tmerge(tdata, tdata, id=1:nrow(tdata),
+##                 death = event(futime, fustat),
+##                 trans = tdc(wait.time))
+## 
+## # getting parameter estimates from jasa (td case)
+## sfit_td<-survfit(Surv(tstart,tstop,death)~factor(trans),data=sdata)
+## mod_td<-coxph(Surv(tstart,tstop,death)~factor(trans),data=sdata)
+## beta_td<-mod_td$coefficients
+## 
 
-In this section, we partially used Method 1 to simulate the Stanford heart transplant dataset [1] with time-dependent exposure (transplant) of N = 103 subjects and calculate statistical power from the Cox regression model. The time unit in this study is days. We do not consider minimum follow-up time and minimum post-exposure follow-up time in our simulation, as this is the case in the actual dataset (JASA). We make the following estimates from the original dataset:
-```{r, eval=F}
-#Exposure rate calculation
-exprate<-mean(jasa$transplant) 
-
-tdata <- jasa[, -(1:4)]
-tdata$futime <- pmax(.5, tdata$futime)
-indx <- with(tdata, which(wait.time == futime))
-tdata$wait.time[indx] <- tdata$wait.time[indx] - .5
-sdata <- tmerge(tdata, tdata, id=1:nrow(tdata),
-                death = event(futime, fustat),
-                trans = tdc(wait.time))
-
-# getting parameter estimates from jasa (td case)
-sfit_td<-survfit(Surv(tstart,tstop,death)~factor(trans),data=sdata)
-mod_td<-coxph(Surv(tstart,tstop,death)~factor(trans),data=sdata)
-beta_td<-mod_td$coefficients
-
-```
-```{r,echo=F, message=F}
+## ----echo=F, message=F---------------------------------------------------
 attach(jasa)
 
 exprate<-mean(jasa$transplant) 
@@ -210,11 +191,8 @@ beta_td<-mod_td$coefficients
 kable(data.frame(N_eff_p=exprate,beta=beta_td, mst_c=summary(sfit_td)$table[1,"median"], mst_exp=summary(sfit_td)$table[2,"median"]), row.names = F,col.names = c("Effective Exposure Prop",'Beta','Unexposed Median Survival Time','Exposed Median Survival Time'), caption="Table 1: Estimates from Stanford time-dependent dataset")
       
 kable(data.frame(d=sum(sdata$death), d_c=summary(sfit_td)$table[1,"events"], d_exp=summary(sfit_td)$table[2,"events"]), row.names=F,col.names = c('Overall Events','Unexposed Events','Exposed Events'), caption='Table 1: Estimates from Stanford time-dependent dataset continued')
-```
 
-Further exploratory research on JASA leads to the following summary of follow-up time and censoring:
-
-```{r,echo=F}
+## ----echo=F--------------------------------------------------------------
 kable(t(data.frame(summary(jasa[jasa$transplant==1,]$futime)[-4])), row.names = F, caption='Table 2: Summary of follow-up time for exposed group
 ')
 
@@ -230,13 +208,8 @@ mean(jasa[jasa$transplant==0&jasa$futime>=5&jasa$futime<20,]$fustat==0),
 mean(jasa[jasa$transplant==0&jasa$futime>=20&jasa$futime<47,]$fustat==0),
 mean(jasa[jasa$transplant==0&jasa$futime>=47,]$fustat==0)), col.names = c('[0,5)','[5,20)','[20,47)','[47,1400]'), caption='Table 5: Proportion of censored subjects in each follow-up time interval (unexposed group)', digits= c(4,4,4,4))
 
-```
 
-We considered the power to detect a log hazard ratio ($\hat{\beta}$) different than zero through the Cox regression model if the data arose from a similar dataset. Since the estimated log hazard ratio ($\hat{\beta}$) in the actual JASA data set is 0.12515 (Table 1), we expect power to be at or below $\alpha = 0.025$. In order to detect more $\hat{\beta}$ that are significant and increase the power, we add more flexibility in data generation. 
-
-*Data Generation*: We considered an 1800-day study and let all subjects enter the study at time 0. We generate exposure status by using Binomial distribution probability equals 0.6699029, which was estimated from JASA. Follow-up times are generated separately for exposed and unexposed group from a piecewise exponential distribution approach based on Table 2 and 4. Parameters for follow-up time generation are displayed in Table 6 below.
-
-```{r,echo=F}
+## ----echo=F--------------------------------------------------------------
 
 fit1<-fitdistr(jasa[jasa$transplant==1&jasa$futime<=206,]$futime,"exponential")
 rate1<-fit1$estimate
@@ -256,20 +229,15 @@ rate5<-fit5$estimate
 fit6<-fitdistr(sdata[sdata$transplant==1,"wait.time"], "exponential") 
 rate6<-fit6$estimate
 
-```
-```{r,echo=F}
+
+## ----echo=F--------------------------------------------------------------
 
 kable(cbind(rate1,rate2,rate3),col.names=c('follow-up time <= 206 (rate1)', '206 < follow-up time <= 900 (rate2)','follow-up time > 900 (rate3)'), caption = "Table 6: Parameters of piecewise exponential distribution (time-dependent case)", row.names = F, align = 'c')
 
 kable(cbind(rate4,rate5), col.names = c('follow-up time <=20 (rate4)', "follow-up time > 20 (rate5)"), caption = "Table 6: Parameters of piecewise exponential distribution (time-dependent case) continued", row.names = F, align = 'c')
 
-```
 
-As for event status, we initialize all subjects’ status to be 1. For exposed subjects, switch their status to censored according to Table 3. For unexposed subjects, switch their status to censored according to Table 5. For each exposed subject, his/her exposure time is generated as the minimum of exponential distribution with rate6 equals 0.02654357 (estimated from waiting time (wait.time in JASA)) and his/her follow-up time/4, in purpose of making that subject getting exposed quickly after entering the study. 
-
-*Monte Carlo simulations*: We repeatedly simulated the data 500 times. We compare our results with jasa in following ways.
-
-```{r,echo=F, fig.width=9, fig.height=5}
+## ----echo=F, fig.width=9, fig.height=5-----------------------------------
 sdata1<-sdata
 sdata1$start<-sdata1$tstart
 sdata1$stop<-sdata1$tstop
@@ -283,9 +251,8 @@ par(mfrow = c(1,2),oma=c(1,2,1,1))
 plot_simuData(sdata1,"Jasa Data")
 plot_simuData(df_td)
 title(main = 'Incidence Plots', outer=T)
-```
 
-```{r,echo=F, fig.width=9, fig.height=5}
+## ----echo=F, fig.width=9, fig.height=5-----------------------------------
 par(mfrow = c(1,2),oma=c(1,2,1,1))
 surv_jasa<-survfit(Surv(tstart,tstop,death)~factor(trans),data=sdata)
 colors=c("blue","red")
@@ -299,10 +266,8 @@ title("Simulated Data")
 legend("topright",legend=c("No transplant","Transplant"),lty=1,col=colors)
 title(main = 'Kaplan-Meier Curves', outer=T)
 
-```
 
-
-```{r,echo=T, cache=T}
+## ----echo=T, cache=T-----------------------------------------------------
 ret<-getpower.stanford(N=103,duration=1800,b=beta_td,r1=rate1,r2=rate2,r3=rate3,r4=rate4,r5=rate5,
               er=exprate,type="td",scenario=" ",s1=1,s2=4,fA=0,fB=0,
               filename="simResults_td.csv",simu.plot=FALSE,r6=rate6)
@@ -312,26 +277,13 @@ ret<-getpower.stanford(N=103,duration=1800,b=beta_td,r1=rate1,r2=rate2,r3=rate3,
 ret2<-getpower.stanford(N=1030,duration=1800,b=beta_td,r1=rate1,r2=rate2,r3=rate3,r4=rate4,r5=rate5,
               er=exprate,type="td",scenario=" ",s1=1,s2=4,fA=0,fB=0,
               filename="simResults_fixed.csv",simu.plot=FALSE,r6=rate6)
-```
 
-```{r,echo=F}
+## ----echo=F--------------------------------------------------------------
 
 kable(ret[,c(6,7,15,16), ],row.names=F, col.names=c('Effective Exposure','Beta Hat', 'Unexposed Median Survival Time','Exposed Median Survival Time'), caption = 'Table 8: Estimates from simulated data')
 kable(ret[,c(12,13,14,17)], row.names=F, col.names=c('Overall Events','Unexposed Events', 'Exposed Events','Power'), caption = 'Table 8: Estimates from simulated data continued')
-```
 
-We repeated the simulation for N = 1030 and have the follow estimates:
-
-```{r,echo=F}
+## ----echo=F--------------------------------------------------------------
 kable(ret2[,c(6,7,15,16), ],row.names=F, col.names=c('Effective Exposure','Beta Hat', 'Unexposed Median Survival Time','Exposed Median Survival Time'), caption = 'Table 9: Estimates from simulated data')
 kable(ret2[,c(12,13,14,17)], row.names=F, col.names=c('Overall Events','Unexposed Events', 'Exposed Events','Power'), caption = 'Table 9: Estimates from simulated data continued')
-```
-
-As we expect, after increasing sample size from 103 to 1030, we have approximately 10 times more events in both groups. We also detect approximately 10 times more $\hat{\beta}$ that are significant, which yields a 10 times higher power. 
-
-
-## References
-
-[1] T. Therneau and C. Crowson (2015). Using Time Dependent Covariates and Time Dependent Coefficients in the Cox Model. https://cran.rproject.org/web/packages/survival/vignettes/timedep.pdf
-
 

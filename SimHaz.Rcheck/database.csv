@@ -1,0 +1,2 @@
+"i_scenario","i_N","i_min.futime","i_min.postexp.futime","i_exp.prop","i_lambda12","i_lambda23","i_lambda13","i_rateC","N_eff","N_effexp_p","bhat","HR","d","d_c","d_exp","mst_c","mst_exp","pow"
+"test",600,4,4,0.2,1.3,0.04,0.03,0.05,428,0.194553511120006,0.160058004189553,1.20318641614671,129,101.2,27.8,NA,21.4833989792455,0.2

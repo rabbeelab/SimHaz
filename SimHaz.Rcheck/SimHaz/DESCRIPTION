@@ -1,7 +1,8 @@
 Package: SimHaz
 Version: 0.1
 Date: 2015-09-29
-Title: Simulated Survival and Hazard Analysis for Time-Dependent Exposure
+Title: Simulated Survival and Hazard Analysis for Time-Dependent
+        Exposure
 Author: Danyi Xiong, Teeranan Pokaprakarn, Hiroto Udagawa, Nusrat Rabbee
 Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 Depends: R (>= 3.1.1)
@@ -12,3 +13,4 @@ URL: http://www.stat.berkeley.edu/~rabbee/research_webpage.htm
 BugReports: https://github.com/rabbeelab/SimHaz/issues
 Suggests: knitr, rmarkdown, xtable, MASS, powerSurvEpi, vcd
 VignetteBuilder: knitr, rmarkdown
+Built: R 3.2.2; ; 2015-12-07 09:04:06 UTC; unix
