@@ -1,6 +1,6 @@
 Package: SimHaz
-Version: 0.1
-Date: 2015-09-29
+Version: 0.2
+Date: 2015-12-09
 Title: Simulated Survival and Hazard Analysis for Time-Dependent Exposure
 Author: Danyi Xiong, Teeranan Pokaprakarn, Hiroto Udagawa, Nusrat Rabbee
 Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>

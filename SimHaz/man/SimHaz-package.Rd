@@ -40,7 +40,7 @@ df1 <- tdSim.method1(N = 600, duration = 24, lambda = log(2)/24, rho = 1,
 # reduce run time for CRAN submission.
 
 ret <- getpower.method1(nSim = 10, N = 600, b = 0.3, exp.prop = 0.2, 
-	type = "td", scenario = " ", maxrelexptime = 1/6, min.futime = 4,
-	min.postexp.futime = 4, output.fn = "output.csv")
+    type = "td", scenario = " ", maxrelexptime = 1/6, min.futime = 4,
+    min.postexp.futime = 4, output.fn = "output.csv")
 
 }

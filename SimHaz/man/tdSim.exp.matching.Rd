@@ -90,8 +90,8 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 
 
 df1 = tdSim.exp.matching<-function(N_match, duration=24,lambda, rho=1, 
-	beta, rateC,matching.ratio=3,  prop.fullexp=0,maxrelexptime=1,min.futime=0,
-	min.postexp.futime=0)
+    beta, rateC,matching.ratio=3,  prop.fullexp=0,maxrelexptime=1,min.futime=0,
+    min.postexp.futime=0)
 
 }
 \keyword{Simulation}

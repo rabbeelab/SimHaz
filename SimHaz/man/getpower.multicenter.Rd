@@ -11,8 +11,8 @@ This functions runs nSim (Number of simulations, specified by the user) Monte Ca
 }
 \usage{
 getpower.multicenter(nSim,N,duration=24,rho=1,beta,med.TimeToCensor=14,
-	df,dist=NULL, method, type, scenario, prop.fullexp=0, 
-	maxrelexptime=1, min.futime=0, min.postexp.futime=0, output.fn,simu.plot=FALSE) 
+    df,dist=NULL, method, type, scenario, prop.fullexp=0, maxrelexptime=1, 
+    min.futime=0, min.postexp.futime=0, output.fn,simu.plot=FALSE) 
 }
 \arguments{
   \item{nSim}{
@@ -149,14 +149,12 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 # Run 10 simulations. Each time simulate a dataset of 300 subjects
 
 input_df1 <- data.frame(cat_id = c("low","med","high"), center.size = rep(100,3), 
-                        cat_exp.prop = rep(1/3, 3),
-                        med.TTE.Control=c(14,20,31))
+                        cat_exp.prop = rep(1/3, 3), med.TTE.Control=c(14,20,31))
 
 df_strat <- getpower.multicenter(nSim = 10, N = 300, beta = 0.7, 
-								 df = input_df1,method="strata",  type = "td", 
-								 scenario = "strata", maxrelexptime = 1/6, 
-								 min.futime = 4, min.postexp.futime = 4, 
-								 output.fn = "output_mult1.csv")
+    df = input_df1,method="strata",  type = "td",  scenario = "strata", 
+    maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4, 
+    output.fn = "output_mult1.csv")
 	
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

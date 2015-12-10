@@ -105,8 +105,8 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 # Run 10 simulations. Each time simulate a dataset of 600 subjects
 
 ret <- getpower.method2(nSim=10, N=600, duration=24, scenario="test",
-  lambda12=1.3, lambda23=0.04, lambda13=0.03, HR=NULL,exp.prop=0.2, rateC=0.05,
-  min.futime=4, min.postexp.futime=4,output.fn="database.csv", simu.plot=FALSE) 
+    lambda12=1.3, lambda23=0.04, lambda13=0.03, HR=NULL,exp.prop=0.2, rateC=0.05,
+    min.futime=4, min.postexp.futime=4,output.fn="database.csv", simu.plot=FALSE) 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

@@ -11,11 +11,10 @@ This functions runs nSim (Number of simulations, specified by the user) Monte Ca
 }
 \usage{
 
-getpower.exp.matching.opt(nSim, N, ratios=c(1,0.25,0.333,0.5,2,3,4,5), duration=24,med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta,
-                                exp.prop,type,scenario, method,
-                             prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,
-                             output.fn=NULL,simu.plot=FALSE) 
-
+getpower.exp.matching.opt(nSim, N, ratios=c(1,0.25,0.333,0.5,2,3,4,5),duration=24,
+    med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta, exp.prop,type,scenario, 
+    method,  prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,
+    output.fn=NULL,simu.plot=FALSE) 
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -156,7 +155,7 @@ library(survival)
 # We recommend setting nSim to at least 500. It is set to 10 in the example to
 # reduce run time for CRAN submission.
 
-# Run 10 simulations. Each time simulate a dataset of 600 subjects with
+# Run 5 simulations. Each time simulate a dataset of 400 subjects with
 # time-dependent exposure with both minimum follow-up time (4 months) and
 # minimum post-exposure follow-up time (4 months) imposed. Also consider a
 # quick exposure after entering the study for each exposed subject. Set the
@@ -166,10 +165,11 @@ library(survival)
 # control group to be 24 months; exposure effect to be 0.3; median time to
 # censoring to be 14 months; and exposure proportion to be 20%.
 
-marginal = getpower.exp.matching.opt(nSim=50, N=400, duration=24, med.TTE.Control=24, rho=1,med.TimeToCensor=14,beta=0.5,
-exp.prop=0.3, type="td",scenario="opt_exp_matching", method="marginal",
-prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,
-                                output.fn="opt_matching",simu.plot=FALSE)
+marginal = getpower.exp.matching.opt(nSim=5, N=400, ratios=c(1), duration=24,
+    med.TTE.Control=24, rho=1,med.TimeToCensor=14,beta=0.5, exp.prop=0.3, 
+    type="td",scenario="opt_exp_matching", method="marginal",prop.fullexp=0,
+    maxrelexptime=1,min.futime=0,min.postexp.futime=0, output.fn="opt_matching",
+    simu.plot=FALSE)
 
 }
 
