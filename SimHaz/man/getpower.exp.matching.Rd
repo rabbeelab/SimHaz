@@ -40,7 +40,7 @@ getpower.exp.matching(nSim, N_match, duration = 24, med.TTE.Control = 24, rho = 
   A numeric value that represents the exposure effect, which is the regression coefficient (log hazard ratio) that represent the magnitude of the relationship between the exposure covariate and the risk of an event.
   }
   \item{matching.ratio}{
-
+Matching ratio used in exposure matching.For 1:1, the user should specify 1.input value 3 corresponds to 1:3 (exposed : unexposed). input value 0.25 corresponds to 4:1 (ie. 1:0.25)
   }
   \item{type}{
   A text string indicating the what type of dataset is of interest. Either one of "fixed" or "td" should be inputted.
@@ -83,10 +83,10 @@ A data.frame object with columns corresponding to
   Dataset type specified by the user
   }
   \item{i_N_match}{
- %FILL IN
+ Number of matching set specified by the user
   }
    \item{i_matching.ratio}{
-  %FILL IN
+  Matching ratio used in exposure matching specified by the user
    }
   \item{i_min.futime}{
   Minimum follow-up time to be considered, specified by the user
