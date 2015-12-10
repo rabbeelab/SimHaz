@@ -12,8 +12,8 @@ In particular, the output dataset has a column corresponding to the center id, w
 \usage{
 
 tdSim.multicenter(N,duration=24,rho=1,beta,rateC,df,
-              prop.fullexp=0,maxrelexptime=1,min.futime=0,
-			  min.postexp.futime=0, dist=NULL)  
+    prop.fullexp=0,maxrelexptime=1,min.futime=0,
+    min.postexp.futime=0, dist=NULL)  
 }
 
 \arguments{
@@ -95,9 +95,9 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 # exposure proportion.
   
 input_df1 <- data.frame(cat_id = c("low","med","high"), 
-						center.size = rep(100,3),  
-						cat_exp.prop = rep(1/3, 3), 
-						med.TTE.Control=c(14,20,31))
+                        center.size = rep(100,3),  
+                        cat_exp.prop = rep(1/3, 3), 
+                        med.TTE.Control=c(14,20,31))
 
 # Simulate a dataset of 600 subjects with time-dependent exposure. Consider
 # both minimum follow-up time (4 months) and minimum post-exposure follow-up
@@ -109,7 +109,7 @@ input_df1 <- data.frame(cat_id = c("low","med","high"),
 # censoring to be 14 months.
 
 df_strat <- tdSim.multicenter(N = 300, duration =24, rateC = log(2)/14, beta = 0.7, 
-	df = input_df1, maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4)
+    df = input_df1, maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

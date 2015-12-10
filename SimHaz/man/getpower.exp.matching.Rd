@@ -13,8 +13,8 @@ The function returns a data frame of scenario-specific parameters (including sta
 \usage{
 getpower.exp.matching(nSim, N_match, duration = 24, med.TTE.Control = 24, rho = 1,
     med.TimeToCensor = 14, beta, matching.ratio, type, scenario, method,
-	prop.fullexp = 0,maxrelexptime = 1, min.futime = 0,
-	min.postexp.futime = 0, output.fn, simu.plot = FALSE)
+    prop.fullexp = 0,maxrelexptime = 1, min.futime = 0,
+    min.postexp.futime = 0, output.fn, simu.plot = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -160,7 +160,7 @@ library(survival)
 # We recommend setting nSim to at least 500. It is set to 10 in the example to
 # reduce run time for CRAN submission.
 
-# Run 10 simulations. Each time simulate a dataset of 600 subjects with
+# Run 10 simulations. Each time simulate a dataset of 100 matches
 # time-dependent exposure with both minimum follow-up time (4 months) and
 # minimum post-exposure follow-up time (4 months) imposed. Also consider a
 # quick exposure after entering the study for each exposed subject. Set the
@@ -171,11 +171,11 @@ library(survival)
 # censoring to be 14 months; and exposure proportion to be 20%.
 
 marginal = getpower.exp.matching(nSim=10, N_match=100,duration=24,
-	med.TTE.Control=24,rho=1, med.TimeToCensor=14, beta=0.7,
-	matching.ratio=3,type="td", scenario="exposure_matching",  
-	method="marginal", prop.fullexp=0,maxrelexptime=1,
-	min.futime=0, min.postexp.futime=0, output.fn="result_matching",
-	simu.plot=FALSE)
+    med.TTE.Control=24,rho=1, med.TimeToCensor=14, beta=0.7,
+    matching.ratio=3,type="td", scenario="exposure_matching",  
+    method="marginal", prop.fullexp=0,maxrelexptime=1,
+    min.futime=0, min.postexp.futime=0, output.fn="result_matching",
+    simu.plot=FALSE)
 
 }
 
