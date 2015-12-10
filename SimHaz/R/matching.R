@@ -1,19 +1,32 @@
-simulWeib_matching <- function(N_match, duration, lambda, rho, beta, rateC,matching.ratio=3, min.futime)
+simulWeib_matching <- function(N_match, duration, lambda, rho, beta, rateC,matching.ratio, min.futime)
 { 
   # covariate --> N Bernoulli trials
-  N <- N_match*(1+matching.ratio)
-  expose <- rep(c(1,rep(0,matching.ratio)), N_match)
-  match_id <- rep(1:N_match, each=1+matching.ratio)
-  # Weibull latent event times
-  v <- runif(n=N)
-  Tlat <- (- log(v) / (lambda * exp(expose * beta)))^(1 / rho)
-  # censoring times
-  C <- rexp(n=N, rate=rateC)
-  C=pmin(C,rep(duration,length(C)))
-  # follow-up times and event indicators
-  time <- pmin(Tlat, C)
-  status <- as.numeric(Tlat <= C)
-  start = rep(0,length(time)) #all start at 0
+  if(matching.ratio >= 1){
+    N_exposed = N_match
+    N_unexposed = matching.ratio * N_exposed
+  }else{
+    N_unexposed = N_match
+    N_exposed = floor(1 / matching.ratio) * N_unexposed
+  }
+  if(matching.ratio >= 1){
+    N <- N_exposed+N_unexposed
+    expose <- rep(c(1,rep(0,matching.ratio)), N_match)
+    match_id <- rep(1:N_match, each=1+matching.ratio)
+  }else{
+    N <- N_exposed+N_unexposed
+    expose <- rep(c(0,rep(1,floor(1 / matching.ratio))), N_match)
+    match_id <- rep(1:N_match, each=1+floor(1 / matching.ratio))
+  }
+    # Weibull latent event times
+    v <- runif(n=N)
+    Tlat <- (- log(v) / (lambda * exp(expose * beta)))^(1 / rho)
+    # censoring times
+    C <- rexp(n=N, rate=rateC)
+    C=pmin(C,rep(duration,length(C)))
+    # follow-up times and event indicators
+    time <- pmin(Tlat, C)
+    status <- as.numeric(Tlat <= C)
+    start = rep(0,length(time)) #all start at 0
   if(min.futime==0){
     return(data.frame(id=1:N,start=start,stop=time,status=status,x=expose, match_id=match_id))
   }
@@ -21,7 +34,6 @@ simulWeib_matching <- function(N_match, duration, lambda, rho, beta, rateC,match
     return(data.frame(id=1:N,start=start,stop=time,status=status,x=expose, match_id=match_id)[which(time>min.futime),])
   }
 }
-
 # regular version to generate time-dependent dataset
 # fullyexp.p: fully exposed proportion, the default value is 0, can take values in [0, 1)
 # maxrelexp.t: maximum relative exposuret time, the default value is 1, can take values in (0, 1]
