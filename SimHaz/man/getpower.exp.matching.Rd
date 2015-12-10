@@ -2,12 +2,13 @@
 \alias{getpower.exp.matching}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Calculate power for the Cox proportional hazard model with
-time-dependent exposure using method 1
+Calculate power and betahat for Cox proportional Hazard model in the case of exposure matching.
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-This functions runs nSim (Number of simulations, specified by the user) Monte Carlo simulations, each time it calling tdSim.method1 internally. The function returns a data frame of scenario-specific parameters (including statistical power) and appends the output to a file with file name specified in the input parameters list. The user also have an option whether to plot an incidence plot or not.
+This functions runs nSim (Number of simulations, specified by the user) Monte Carlo simulations, each time it calling tdSim.method1 internally. This function is used in the case of exposure matching where exposed subject is matched with non-exposed subject according to the user-input ratio. Users specify the which Cox model approach to analyze the data with clusters(matching sets in this case).
+
+The function returns a data frame of scenario-specific parameters (including statistical power) and appends the output to a file with file name specified in the input parameters list. The user also have an option whether to plot an incidence plot or not.
 }
 \usage{
 getpower.exp.matching(nSim, N_match, duration = 24, med.TTE.Control = 24, rho = 1,

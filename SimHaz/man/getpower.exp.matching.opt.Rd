@@ -2,12 +2,11 @@
 \alias{getpower.exp.matching.opt}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Calculate power for the Cox proportional hazard model with
-time-dependent exposure using method 1
+Calculate betahat bias and variance for different matching ratios in the case of exposure matching in the Cox proportional Hazard model
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-This functions runs nSim (Number of simulations, specified by the user) Monte Carlo simulations, each time it calling tdSim.method1 internally. The function returns a data frame of scenario-specific parameters (including statistical power) and appends the output to a file with file name specified in the input parameters list. The user also have an option whether to plot an incidence plot or not.
+This function is used to explore what matching ratios should be used in the case of exposure matching. It simulate a large population (100000 subjects) in order to estimate a betahat value of that population. Then in repeated simulation, a subset of that population is drawn and exposure matching is done according to a user-specified list of ratios in order to compare the bias in the betahat estimate from the betahat value estimated from the large populationas well as the varaince of the betahat estimate for each ratio.
 }
 \usage{
 
@@ -26,7 +25,8 @@ getpower.exp.matching.opt(nSim, N, ratios=c(1,0.25,0.333,0.5,2,3,4,5), duration=
   Number of subjects to be screened.
   }
   \item{ratios}{
-  %FILL IN
+  Specification for matching ratio as a list of numbers.
+  For 1:1, the user should specify 1.input value 3 corresponds to 1:3 (exposed : unexposed). input value 0.25 corresponds to 4:1 (ie. 1:0.25). A list of c(1,0.25, 2) corresponds to the following matching ratios: 1:1, 4:1, 1:2
   }
   \item{duration}{
   Length of the study in months; the default value is 24 (months).
@@ -54,7 +54,7 @@ getpower.exp.matching.opt(nSim, N, ratios=c(1,0.25,0.333,0.5,2,3,4,5), duration=
   Any text string inputted by the user as an option to name a scenario that is being simulated. The use can simply put " "  if he/she decide to not name the scenario.
   }
   \item{method}{
-  %FILL IN HERE
+  Specified which Cox model approach to analyze the data with clusters(matching sets in this case). Can be one of the following: 'frailty', 'fixed effects', 'strata', 'Model with Independence Assumption'.
   }
   \item{prop.fullexp}{
   A numeric value in interval [0, 1) that represents the proportion of exposed subjects that are fully exposed from the beginning to the end of the study. The default value is 0, which means all exposed subjects have an exposure status transition at some point during the study. Only applies when type is "td". When type is "td", the value is automatically 1.
@@ -103,16 +103,16 @@ A data.frame object with columns corresponding to
   Rate of the exponential distribution to generate censoring times. Calculated from median time to censoring, which is specified by the user. i_beta  Input value of regression coefficient (log hazard ratio).
   }
   \item{i_beta}{
-  %FILL IN HERE
+  value of the input beta
   }
   \item{N_match}{
-  %FILL IN HERE
+  Number of matching sets
   }
   \item{N_exposed}{
-  %FILL IN HERE
+  Number of exposed subjects
   }
   \item{N_unexposed}{
-  %FILL IN HERE
+  Number of unexposed subjects
   }
   \item{bhat}{
   Simulated value of regression coefficient (log hazard ratio)
@@ -122,19 +122,19 @@ A data.frame object with columns corresponding to
   time-dependent exposure
   }
   \item{actual_beta}{
-  %FILL IN HERE
+  Value of betahat based on the population of 100000 subjects.
   }
   \item{bias}{
-  %FILL IN HERE
+  Value of betahat - actual_betahat(approximated from the big population)
   }
   \item{variance}{
-  %FILL IN HERE
+  Variance of the betahat from the simulations
   }
   \item{RE1}{
-  %FILL IN HERE
+   The variance of betahat of the ratio in that row divided by variance of   betahat for the 1:1 matching
   }
   \item{RE2}{
-  %FILL IN HERE
+  The variance of betahat of the ratio in that row divided by variance of the betahat for the closest ratio based on the exposure proportion in the population
   }
 }
 \references{
