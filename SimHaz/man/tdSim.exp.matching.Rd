@@ -37,7 +37,7 @@ tdSim.exp.matching(N_match, duration=24,lambda, rho=1, beta,
   }
   
   \item{matching.ratio}{
-  %FILL IN HERE
+  Matching ratio used in exposure matching.For 1:1, the user should specify 1.input value 3 corresponds to 1:3 (exposed : unexposed). input value 0.25 corresponds to 4:1 (ie. 1:0.25).
   }
   
   \item{prop.fullexp}{

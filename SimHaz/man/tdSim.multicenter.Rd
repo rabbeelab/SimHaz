@@ -48,7 +48,7 @@ the relationship between the exposure covariate and the risk of an event
   \item{min.postexp.futime}{A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure
   }
   \item{dist}{
-  
+  The distribution of the center effect across centers. Default is NULL. If dist= 'gamma', then a random frailty effect from a gamma distribution with scale 0.5 and shape 2 is used.
   }
 }
 
