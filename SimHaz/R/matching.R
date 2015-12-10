@@ -69,7 +69,7 @@ tdSim.exp.matching<-function(N_match, duration=24,lambda, rho=1, beta, rateC,mat
 getpower.exp.matching<-function(nSim, N_match,duration=24,med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta,
                              matching.ratio,type,scenario, method,
                            prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,
-                           output.fn,simu.plot=FALSE) 
+                           output.fn=NULL,simu.plot=FALSE) 
 { 
   lambda=log(2)/med.TTE.Control
   rateC=log(2)/med.TimeToCensor
@@ -140,6 +140,9 @@ getpower.exp.matching<-function(nSim, N_match,duration=24,med.TTE.Control=24,rho
                 pow=mean(res[,"signif"]),
                 variance=var(res[,"betahat"])
   )
+  if(is.null(output.fn)){
+    return(df)
+  }else{
   if(file.exists(output.fn)){
     write.table(df,file=output.fn,row.names=FALSE,col.names=FALSE,append=TRUE,sep=",")
   }
@@ -147,6 +150,7 @@ getpower.exp.matching<-function(nSim, N_match,duration=24,med.TTE.Control=24,rho
     write.table(df,file=output.fn,row.names=FALSE,col.names=TRUE,sep=",")
   }
   return(df)
+  }
 }
 
 
@@ -251,7 +255,8 @@ getpower.exp.matching.opt<-function(nSim, N, ratios=c(1,0.25,0.333,0.5,2,3,4,5),
   }
   if(ratio == 1){
     var_11 = var(res[,"betahat"])
-  }else if(ratio == round((1-exp.prop)/exp.prop)){
+  }
+  if(ratio == round((1-exp.prop)/exp.prop)){
     var_samp_prop = var(res[,"betahat"])
   }
   bhat = mean(res[,"betahat"])
