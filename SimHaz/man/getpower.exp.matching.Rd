@@ -104,7 +104,7 @@ A data.frame object with columns corresponding to
   Rate of the exponential distribution to generate censoring times. Calculated from median time to censoring, which is specified by the user. i_beta  Input value of regression coefficient (log hazard ratio).
   }
    \item{i_beta}{
-  %FILL IN
+   Value of the input beta
    }
   \item{N_eff}{
   Simulated number of evaluable subjects, which is the resulting number of subjects with or without considering minimum follow-up time and/or minimum post-exposure follow-up time.
@@ -138,7 +138,7 @@ A data.frame object with columns corresponding to
   time-dependent exposure
   }
   \item{variance}{
-  %FILL IN
+  Variance of the betahat from the simulations
   }
 }
 \references{

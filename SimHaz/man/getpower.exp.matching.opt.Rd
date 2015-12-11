@@ -6,7 +6,7 @@ Calculate betahat bias and variance for different matching ratios in the case of
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-This function is used to explore what matching ratios should be used in the case of exposure matching. It simulate a large population (100000 subjects) in order to estimate a betahat value of that population. Then in repeated simulation, a subset of that population is drawn and exposure matching is done according to a user-specified list of ratios in order to compare the bias in the betahat estimate from the betahat value estimated from the large populationas well as the varaince of the betahat estimate for each ratio.
+This function is used to explore what matching ratios should be used in the case of exposure matching. It simulate a large population (100000 subjects) in order to estimate a betahat value of that population. Then in repeated simulation, a subset of that population is drawn and exposure matching is done according to a user-specified list of ratios in order to compare the bias in the betahat estimate from the betahat value estimated from the large populations well as the variance of the betahat estimate for each ratio.
 }
 \usage{
 

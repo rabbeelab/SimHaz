@@ -1,12 +1,9 @@
 \name{tdSim.exp.matching}
 \alias{tdSim.exp.matching}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
 Simulate 1 dataframe (1 simulation) of time-dep exposure under method 2
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 This function simulate Survival Data. It generates a simulated dataset with time-dependent exposure under method 2 with a user-specified list of parameters as input.
 }
 \usage{
@@ -57,12 +54,8 @@ tdSim.exp.matching(N_match, duration=24,lambda, rho=1, beta,
 %%  ~~ If necessary, more details than the description above ~~
 Simulata a Survival dataset using a modified version of illness-death model controlled by lambda12, lambda23, lambda13
 }
+
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
   A data.frame object with columns corresponding to
   \item{id}{
   Integer that represents a subject's identification number
@@ -89,7 +82,7 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 \examples{
 
 
-df1 = tdSim.exp.matching<-function(N_match, duration=24,lambda, rho=1, 
+df = tdSim.exp.matching<-function(N_match, duration=24,lambda, rho=1, 
     beta, rateC,matching.ratio=3,  prop.fullexp=0,maxrelexptime=1,min.futime=0,
     min.postexp.futime=0)
 
