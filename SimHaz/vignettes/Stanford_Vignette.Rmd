@@ -7,8 +7,8 @@ header-includes:
     - \usepackage{caption}
 vignette: >
   %\VignetteIndexEntry{Stanford Dataset (Time-Dependent Exposure)}
-  %\VignetteEngine{knitr::knitr}
-  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
 \captionsetup[table]{labelformat=empty}
 

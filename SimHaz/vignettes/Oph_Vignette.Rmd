@@ -5,8 +5,8 @@ date: Department of Statistics, University of California, Berkeley, CA
 output: pdf_document
 vignette: >
   %\VignetteIndexEntry{Oph dataset (Time-Fixed Example)}
-  %\VignetteEngine{knitr::knitr}
-  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
 
 ```{r, echo=F}

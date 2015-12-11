@@ -5,8 +5,8 @@ date: Department of Statistics, University of California, Berkeley, CA
 output: pdf_document
 vignette: >
   %\VignetteIndexEntry{Multi-center Power Simulation}
-  %\VignetteEngine{knitr::knitr}
-  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
 \captionsetup[table]{labelformat=empty}
 ```{r, echo=F}
