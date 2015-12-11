@@ -1,0 +1,212 @@
+---
+title: "Exposure Matching Simulation"
+author: Teeranan Pokaprakarn; Hiroto Udagawa; Danyi Xiong; Nusrat Rabbee (rabbee@berkeley.edu) 
+date: Department of Statistics, University of California, Berkeley, CA
+output: pdf_document
+header-includes:
+    - \usepackage{caption}
+vignette: >
+  %\VignetteIndexEntry{Stanford Dataset (Time-Dependent Exposure)}
+  %\VignetteEngine{knitr::knitr}
+  %\VignetteEncoding{UTF-8}
+---
+\captionsetup[table]{labelformat=empty}
+```{r, echo=F}
+library(knitr)
+library(xtable)
+library(SimHaz)
+```
+
+##Exposure Matching
+
+In this section, we match each exposed subject to a number of unexposed subjects. We then group them together.
+
+###Scenario 1
+
+In this scenario, the user specifies the number of match groups and also the matching ratio along with the other usual parameters.
+For instance,
+
+```{r, eval=F}
+getpower.exp.matching(nSim=500, N_match=100,duration=24,med.TTE.Control=24,rho=1,
+                   med.TimeToCensor=14, beta=0.7,matching.ratio=3,type="td",
+                   scenario="exposure_matching",  method="marginal", 
+                   prop.fullexp=0,maxrelexptime=1,min.futime=0, min.postexp.futime=0, 
+                   output.fn="result_matching",simu.plot=FALSE)
+```
+
+This will generate 400 subjects (100 exposed, 300 unexposed) and match 1 exposed to 3 unexposed.
+
+```{r,echo=F, cache=T}
+
+table1 = data.frame()
+
+for(i in c('marginal','strata')){
+    table1 <- rbind(table1,getpower.exp.matching(nSim=5, N_match=100,duration=24,med.TTE.Control=24,rho=1, med.TimeToCensor=14, beta=0.7,matching.ratio=3,type="td", scenario="exposure_matching",  method=i, prop.fullexp=0,maxrelexptime=1,min.futime=0, min.postexp.futime=0,simu.plot=FALSE))
+}
+```
+```{r,echo=F}
+kable(data.frame(Method = c('marginal','strata'),betahat = table1$bhat, power = table1$pow))
+```
+
+###Scenario 2
+
+In this scenario, the user doesn’t specify the ratio but instead provide the number of subjects and a list of matching raios. The function below simulates a big population and then estimates the beta from that population, then samples from that population a subset of that population according to the number of subjects given by the users and a number of matching ratios specified by the user. Finally, it reports the estimated betahat and power for each of those ratio as well the bias and the variance of those betahat so the user can then decide what matching ratio to use so that the betahat is closest to the actual one estimated from the big population with reasonable variance.
+
+For each row of a specific ratio, Relative Efficiency1 (RE1) is calculated as the variance of betahat of that ratio divided by variance of betahat for the 1:1 matching. Relative Efficiency2 (RE2) is calculated as the variance of that ratio divided by variance of the closest ratio based on the exposure proportion in the population. For instance, if the exposure proportion is 0.2, the closest ratio based on this exposure proportion is 1:4. 
+
+
+```{r,echo=T, cache=T, include=F}
+table2 <- getpower.exp.matching.opt(nSim=500, N=400,ratios=c(1,0.25,0.333,0.5,2,3,4,5),duration=24,
+                                    med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta=0.7, exp.prop=0.3,
+                                    type="fixed",scenario="opt_exp_matching", method="marginal", 
+                                    prop.fullexp=0,maxrelexptime=1/6,min.futime=0,min.postexp.futime=4, 
+                                    simu.plot=FALSE) 
+
+
+
+table3 <- getpower.exp.matching.opt(nSim=500, N=400,ratios=c(1,0.25,0.333,0.5,2,3,4,5),duration=24,
+                                    med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta=0.7, exp.prop=0.5,
+                                    type="fixed",scenario="opt_exp_matching", method="marginal", 
+                                    prop.fullexp=0,maxrelexptime=1/6,min.futime=4,min.postexp.futime=4,
+                                    simu.plot=FALSE) 
+
+
+table4 <- getpower.exp.matching.opt(nSim=500, N=700,ratios=c(1,0.25,0.333,0.5,2,3,4,5),duration=24,
+                                    med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta=0.7, exp.prop=0.5,
+                                    type="fixed",scenario="opt_exp_matching", method="marginal",
+                                    prop.fullexp=0,maxrelexptime=1/6,min.futime=4,min.postexp.futime=4,
+                                    simu.plot=FALSE) 
+
+```
+
+
+```{r,eval=F}
+
+table2 <- getpower.exp.matching.opt(nSim=5, N=400,ratios=c(1,0.25,0.333,0.5,2,3,4,5),
+                                    duration=24,med.TTE.Control=24,rho=1,
+                                    med.TimeToCensor=14, beta=0.7, exp.prop=0.3, 
+                                    type="fixed", scenario="opt_exp_matching",
+                                    method="marginal", prop.fullexp=0, maxrelexptime=1/6,
+                                    min.futime=0,min.postexp.futime=4, simu.plot=FALSE) 
+
+par(mfrow=c(1,1))
+plot(table2$bias, xaxt='n',xlab='Ratio', ylab='Bias', main='Plots for N=400, 
+     Exp.prop=0.3')
+axis(1, at=1:8,labels=round(table2$ratio,2))
+abline(h=0,col=2)
+
+par(mfrow=c(1,2))
+
+plot(table2$bias, table2$variance, pch='',xlab='Bias',ylab='Variance', 
+     xlim=c(min(table2$bias)-0.005, max(table2$bias+0.005)),cex.axis = 0.75)
+text(table2$bias,table2$variance, as.character(table2$ratio), cex=0.75)
+plot(table2$ratio, xaxt='n',xlab = "Ratio", ylab = "Variance")
+axis(1, at=1:8,labels=round(table2$ratio,2),cex.axis = 0.5)
+
+```
+
+```{r,echo=F}
+par(mfrow=c(1,1))
+plot(table2$bias, xaxt='n',xlab='Ratio', ylab='Bias', main='Plots for N=400, Exp.prop=0.3')
+axis(1, at=1:8,labels=round(table2$ratio,2))
+abline(h=0,col=2)
+```
+        
+```{r,echo=F}
+par(mfrow=c(1,2))
+
+plot(table2$bias, table2$variance, pch='',xlab='Bias',ylab='Variance', xlim=c(min(table2$bias)-0.005, max(table2$bias+0.005)),cex.axis = 0.75)
+text(table2$bias,table2$variance, as.character(table2$ratio), cex=0.75)
+plot(table2$ratio, xaxt='n',xlab = "Ratio", ylab = "Variance")
+axis(1, at=1:8,labels=round(table2$ratio,2),cex.axis = 0.5)
+
+```
+
+```{r,eval=F}
+table3 <- getpower.exp.matching.opt(nSim=5, N=400,ratios=c(1,0.25,0.333,0.5,2,3,4,5),
+                                    duration=24,med.TTE.Control=24,rho=1,
+                                    med.TimeToCensor=14, beta=0.7, exp.prop=0.5, 
+                                    type="fixed", scenario="opt_exp_matching",
+                                    method="marginal", prop.fullexp=0, maxrelexptime=1/6,
+                                    min.futime=0,min.postexp.futime=4, simu.plot=FALSE) 
+
+par(mfrow=c(1,1))
+plot(table3$bias, xaxt='n',xlab='Ratio', ylab='Bias', main='Plots for N=400, 
+     Exp.prop=0.5')
+axis(1, at=1:8,labels=round(table3$ratio,2))
+abline(h=0,col=2)
+
+par(mfrow=c(1,2))
+
+plot(table3$bias, table3$variance, pch='',xlab='Bias',ylab='Variance', 
+     xlim=c(min(table3$bias)-0.005, max(table3$bias+0.005)),cex.axis = 0.75)
+text(table3$bias,table3$variance, as.character(table3$ratio), cex=0.75)
+plot(table3$ratio,xaxt='n', xlab = "Ratio", ylab = "Variance")
+axis(1, at=1:8,labels=round(table3$ratio,2),cex.axis = 0.5)
+
+```
+
+```{r,echo=F}
+par(mfrow=c(1,1))
+plot(table3$bias, xaxt='n',xlab='Ratio', ylab='Bias', main='Plots for N=400, Exp.prop=0.5')
+axis(1, at=1:8,labels=round(table3$ratio,2))
+abline(h=0,col=2)
+```
+        
+```{r,echo=F}
+par(mfrow=c(1,2))
+
+plot(table3$bias, table3$variance, pch='',xlab='Bias',ylab='Variance', xlim=c(min(table3$bias)-0.005, max(table3$bias+0.005)),cex.axis = 0.75)
+text(table3$bias,table3$variance, as.character(table3$ratio), cex=0.75)
+plot(table3$ratio,xaxt='n', xlab = "Ratio", ylab = "Variance")
+axis(1, at=1:8,labels=round(table3$ratio,2),cex.axis = 0.5)
+
+```
+
+
+
+
+```{r,eval=F}
+
+table4 <- getpower.exp.matching.opt(nSim=5, N=700,ratios=c(1,0.25,0.333,0.5,2,3,4,5),
+                                    duration=24,med.TTE.Control=24,rho=1,
+                                    med.TimeToCensor=14, beta=0.7, exp.prop=0.5, 
+                                    type="fixed", scenario="opt_exp_matching",
+                                    method="marginal", prop.fullexp=0, maxrelexptime=1/6,
+                                    min.futime=0,min.postexp.futime=4, simu.plot=FALSE) 
+
+par(mfrow=c(1,1))
+plot(table4$bias, xaxt='n',xlab='Ratio', ylab='Bias', main='Plots for N=700, 
+     Exp.prop=0.5')
+axis(1, at=1:8,labels=round(table4$ratio,2))
+abline(h=0,col=2)
+
+par(mfrow=c(1,2))
+
+plot(table4$bias, table4$variance, pch='',xlab='Bias',ylab='Variance', 
+     xlim=c(min(table4$bias)-0.005, max(table4$bias+0.005)),cex.axis = 0.75)
+text(table4$bias,table4$variance, as.character(table4$ratio), cex=0.75)
+plot(table4$ratio, xaxt='n',xlab = "Ratio", ylab = "Variance")
+axis(1, at=1:8,labels=round(table4$ratio,2),cex.axis = 0.5)
+
+```
+
+```{r,echo=F}
+par(mfrow=c(1,1))
+plot(table4$bias, xaxt='n',xlab='Ratio', ylab='Bias', main='Plots for N=700, Exp.prop=0.5')
+axis(1, at=1:8,labels=round(table4$ratio,2))
+abline(h=0,col=2)
+```
+        
+```{r,echo=F}
+par(mfrow=c(1,2))
+plot(table4$bias, table4$variance, pch='',xlab='Bias',ylab='Variance', xlim=c(min(table4$bias)-0.005, max(table4$bias+0.005)),cex.axis = 0.75)
+text(table4$bias,table4$variance, as.character(table4$ratio), cex=0.75)
+plot(table4$ratio, xaxt='n',xlab = "Ratio", ylab = "Variance")
+axis(1, at=1:8,labels=round(table4$ratio,2),cex.axis = 0.5)
+
+```
+
+
+
+
