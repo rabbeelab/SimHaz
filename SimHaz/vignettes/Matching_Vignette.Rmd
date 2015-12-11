@@ -6,7 +6,7 @@ output: pdf_document
 header-includes:
     - \usepackage{caption}
 vignette: >
-  %\VignetteIndexEntry{Stanford Dataset (Time-Dependent Exposure)}
+  %\VignetteIndexEntry{Exposure Matching Simulation}
   %\VignetteEngine{knitr::knitr}
   %\VignetteEncoding{UTF-8}
 ---
