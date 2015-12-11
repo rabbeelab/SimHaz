@@ -1,10 +1,10 @@
 \name{tdSim.exp.matching}
 \alias{tdSim.exp.matching}
 \title{
-Simulate 1 dataframe (1 simulation) of time-dep exposure under method 2
+Simulate 1 dataframe (1 simulation) of time-dep exposure in the case of exposure matching
 }
 \description{
-This function simulate Survival Data. It generates a simulated dataset with time-dependent exposure under method 2 with a user-specified list of parameters as input.
+This function simulate Survival Data. It generates a simulated dataset with time-dependent exposure with a user-specified list of parameters as input as well as matching id in order to do exposure matching.
 }
 \usage{
 
@@ -15,7 +15,7 @@ tdSim.exp.matching(N_match, duration=24,lambda, rho=1, beta,
 
 \arguments{
   \item{N_match}{
-  Number of subjects
+  Number of matching sets
   }
   \item{duration}{
   Length of the study in Months. The default value is 24 (months)
@@ -71,6 +71,9 @@ Simulata a Survival dataset using a modified version of illness-death model cont
   }
   \item{x}{
   Indicator of exposure. x = 1 when exposed and 0 otherwise
+  }
+  \item{match_id}{
+  Integer that represents a subject's matching set.
   }
 }
 
