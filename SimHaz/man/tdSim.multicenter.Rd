@@ -99,15 +99,6 @@ input_df1 <- data.frame(cat_id = c("low","med","high"),
                         cat_exp.prop = rep(1/3, 3), 
                         med.TTE.Control=c(14,20,31))
 
-# Simulate a dataset of 600 subjects with time-dependent exposure. Consider
-# both minimum follow-up time (4 months) and minimum post-exposure follow-up
-# time (4 months). Also consider a quick exposure after entering the study for
-# each exposed subject. Set the maximum relative exposure time to be 1/6. 
-
-# Set the duration of the study to be 24 months; the median time to event for
-# control group to be 24 months; exposure effect to be 0.3; median time to
-# censoring to be 14 months.
-
 df_strat <- tdSim.multicenter(N = 300, duration =24, rateC = log(2)/14, beta = 0.7, 
     df = input_df1, maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4)
 

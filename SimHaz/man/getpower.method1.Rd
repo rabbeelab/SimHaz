@@ -143,10 +143,6 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 }
 
 \examples{
-# Install the survival package if needed.
-
-library(survival)
-
 # We recommend setting nSim to at least 500. It is set to 10 in the example to
 # reduce run time for CRAN submission.
 

@@ -52,11 +52,7 @@ tdSim.method2(N,duration, lambda12, lambda23=NULL, lambda13,
 Simulata a Survival dataset using a modified version of illness-death model controlled by lambda12, lambda23, lambda13
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+
   A data.frame object with columns corresponding to
   \item{id}{
   Integer that represents a subject's identification number
@@ -81,6 +77,7 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 }
 
 \examples{
+
 sim_data <- tdSim.method2(500, duration=24,lambda12=1.3,lambda23=0.04, 
     lambda13=0.03, exp.prop=0.2,rateC=0.05, min.futime=4, min.postexp.futime=4)
 }

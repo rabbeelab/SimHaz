@@ -153,10 +153,6 @@ Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>
 }
 
 \examples{
-# Install the survival package if needed.
-
-library(survival)
-
 # We recommend setting nSim to at least 500. It is set to 10 in the example to
 # reduce run time for CRAN submission.
 
@@ -166,11 +162,8 @@ library(survival)
 # quick exposure after entering the study for each exposed subject. Set the
 # maximum relative exposure time to be 1/6. 
 
-# Set the duration of the study to be 24 months; the median time to event for
-# control group to be 24 months; exposure effect to be 0.3; median time to
-# censoring to be 14 months; and exposure proportion to be 20%.
 
-marginal = getpower.exp.matching(nSim=10, N_match=100,duration=24,
+ret = getpower.exp.matching(nSim=10, N_match=100,duration=24,
     med.TTE.Control=24,rho=1, med.TimeToCensor=14, beta=0.7,
     matching.ratio=3,type="td", scenario="exposure_matching",  
     method="marginal", prop.fullexp=0,maxrelexptime=1,
