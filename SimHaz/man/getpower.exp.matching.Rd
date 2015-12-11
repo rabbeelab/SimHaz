@@ -46,7 +46,7 @@ Matching ratio used in exposure matching.For 1:1, the user should specify 1.inpu
   A text string indicating the what type of dataset is of interest. Either one of "fixed" or "td" should be inputted.
   }
   \item{method}{
-
+  Specified which Cox model approach to analyze the data with clusters. Can be one of the following: 'frailty', 'fixed effects', 'strata', 'Model with Independence Assumption'. 
   }
   \item{scenario}{
   Any text string inputted by the user as an option to name a scenario that is being simulated. The use can simply put " "  if he/she decide to not name the scenario.
