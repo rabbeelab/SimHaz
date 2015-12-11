@@ -41,7 +41,7 @@ This will generate 400 subjects (100 exposed, 300 unexposed) and match 1 exposed
 table1 = data.frame()
 
 for(i in c('marginal','strata')){
-    table1 <- rbind(table1,getpower.exp.matching(nSim=5, N_match=100,duration=24,med.TTE.Control=24,rho=1, med.TimeToCensor=14, beta=0.7,matching.ratio=3,type="td", scenario="exposure_matching",  method=i, prop.fullexp=0,maxrelexptime=1,min.futime=0, min.postexp.futime=0,simu.plot=FALSE))
+    table1 <- rbind(table1,getpower.exp.matching(nSim=500, N_match=100,duration=24,med.TTE.Control=24,rho=1, med.TimeToCensor=14, beta=0.7,matching.ratio=3,type="td", scenario="exposure_matching",  method=i, prop.fullexp=0,maxrelexptime=1,min.futime=0, min.postexp.futime=0,simu.plot=FALSE))
 }
 ```
 ```{r,echo=F}
@@ -56,7 +56,7 @@ For each row of a specific ratio, Relative Efficiency1 (RE1) is calculated as th
 
 
 ```{r,echo=T, cache=T, include=F}
-table2 <- getpower.exp.matching.opt(nSim=500, N=400,ratios=c(1,0.25,0.333,0.5,2,3,4,5),duration=24,
+table2 <- getpower.exp.matching.opt(nSim=500, N=400,ratios=c(0.25,0.333,0.5,1,2,3,4,5),duration=24,
                                     med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta=0.7, exp.prop=0.3,
                                     type="fixed",scenario="opt_exp_matching", method="marginal", 
                                     prop.fullexp=0,maxrelexptime=1/6,min.futime=0,min.postexp.futime=4, 
@@ -64,14 +64,14 @@ table2 <- getpower.exp.matching.opt(nSim=500, N=400,ratios=c(1,0.25,0.333,0.5,2,
 
 
 
-table3 <- getpower.exp.matching.opt(nSim=500, N=400,ratios=c(1,0.25,0.333,0.5,2,3,4,5),duration=24,
+table3 <- getpower.exp.matching.opt(nSim=500, N=400,ratios=c(0.25,0.333,0.5,1,2,3,4,5),duration=24,
                                     med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta=0.7, exp.prop=0.5,
                                     type="fixed",scenario="opt_exp_matching", method="marginal", 
                                     prop.fullexp=0,maxrelexptime=1/6,min.futime=4,min.postexp.futime=4,
                                     simu.plot=FALSE) 
 
 
-table4 <- getpower.exp.matching.opt(nSim=500, N=700,ratios=c(1,0.25,0.333,0.5,2,3,4,5),duration=24,
+table4 <- getpower.exp.matching.opt(nSim=500, N=700,ratios=c(0.25,0.333,0.5,1,2,3,4,5),duration=24,
                                     med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta=0.7, exp.prop=0.5,
                                     type="fixed",scenario="opt_exp_matching", method="marginal",
                                     prop.fullexp=0,maxrelexptime=1/6,min.futime=4,min.postexp.futime=4,
@@ -82,7 +82,7 @@ table4 <- getpower.exp.matching.opt(nSim=500, N=700,ratios=c(1,0.25,0.333,0.5,2,
 
 ```{r,eval=F}
 
-table2 <- getpower.exp.matching.opt(nSim=5, N=400,ratios=c(1,0.25,0.333,0.5,2,3,4,5),
+table2 <- getpower.exp.matching.opt(nSim=500, N=400,ratios=c(0.25,0.333,0.5,1,2,3,4,5),
                                     duration=24,med.TTE.Control=24,rho=1,
                                     med.TimeToCensor=14, beta=0.7, exp.prop=0.3, 
                                     type="fixed", scenario="opt_exp_matching",
@@ -123,7 +123,7 @@ axis(1, at=1:8,labels=round(table2$ratio,2),cex.axis = 0.5)
 ```
 
 ```{r,eval=F}
-table3 <- getpower.exp.matching.opt(nSim=5, N=400,ratios=c(1,0.25,0.333,0.5,2,3,4,5),
+table3 <- getpower.exp.matching.opt(nSim=500, N=400,ratios=c(0.25,0.333,0.5,1,2,3,4,5),
                                     duration=24,med.TTE.Control=24,rho=1,
                                     med.TimeToCensor=14, beta=0.7, exp.prop=0.5, 
                                     type="fixed", scenario="opt_exp_matching",
@@ -168,7 +168,7 @@ axis(1, at=1:8,labels=round(table3$ratio,2),cex.axis = 0.5)
 
 ```{r,eval=F}
 
-table4 <- getpower.exp.matching.opt(nSim=5, N=700,ratios=c(1,0.25,0.333,0.5,2,3,4,5),
+table4 <- getpower.exp.matching.opt(nSim=500, N=700,ratios=c(0.25,0.333,0.5,1,2,3,4,5),
                                     duration=24,med.TTE.Control=24,rho=1,
                                     med.TimeToCensor=14, beta=0.7, exp.prop=0.5, 
                                     type="fixed", scenario="opt_exp_matching",
