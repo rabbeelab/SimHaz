@@ -3,16 +3,18 @@ title: "Multi-center Power Simulation"
 author: Teeranan Pokaprakarn; Hiroto Udagawa; Danyi Xiong; Nusrat Rabbee (rabbee@berkeley.edu) 
 date: Department of Statistics, University of California, Berkeley, CA
 output: pdf_document
+header-includes:
+   - \usepackage{booktabs}
 vignette: >
   %\VignetteIndexEntry{Multi-center Power Simulation}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
-\captionsetup[table]{labelformat=empty}
 ```{r, echo=F}
 library(knitr)
 library(xtable)
 library(SimHaz)
+library(survival)
 ```
 
 ## Multi-center Time-dependent Exposure
@@ -43,6 +45,7 @@ input_df <- data.frame(cat_id = as.factor(1:40), center.size = rep(10,40),
 ```{r, echo=F}
 #xtable(rbind(head(input_df,n=3),tail(input_df,n=3), make.row.names=F))
 ```
+
 \begin{table}[ht]
 \centering
 \begin{tabular}{rlrrr}
@@ -75,7 +78,7 @@ We ran this simulation with three different methods: independence assumption, st
 
 We then varied the number of total subjects and the center size which also affects the number of centers in our models. The results of our simulations are shown in the table below. 
 
-```{r, cache=T, echo=F}
+```{r,  echo=F}
 #example 1, no center effect
 
 input_df1 <- data.frame(cat_id = as.factor(1:10), center.size = rep(10,10), 
@@ -94,9 +97,8 @@ input_df2 <- data.frame(cat_id = as.factor(1:5), center.size = rep(20,5),
 table2 = data.frame()
 
 for(i in c('independence','strata','frailty')){
-    table2 <- rbind(table2,getpower.multicenter(nSim = 500, N = 100, beta = 0.7, df = input_df2,method=i, type = "td", scenario = i, maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4)[1,c(1,8,3,17,24)])
+    table2 <- rbind(table2,getpower.multicenter(nSim = 500, N = 100, beta = 0.7, df = input_df2,method=i,dist=NULL, type = "td", scenario = i, maxrelexptime = 1/6, min.futime = 4, min.postexp.futime = 4)[1,c(1,8,3,17,24)])
 }
-
 
 input_df3 <- data.frame(cat_id = as.factor(1:20), center.size = rep(10,20), 
                         cat_exp.prop = rep(1/3, 20),
@@ -139,7 +141,7 @@ for(i in c('independence','strata','frailty')){
 ```{r xtable, results='asis',echo=F}
 final1 = data.frame(rbind(table1,table2,table3,table4,table5,table6))
 colnames(final1) = c('Method','Center Size','N','Beta','Power')
-print(xtable(final1, caption = "Table 1: Equal Event Rates",,digits=c(0,0,0,0,5,3)), comment=F, hline.after = c(-1,0,3,6,9,12,15,18), booktabs=T,include.rownames = FALSE)
+print(xtable(final1, caption = "Equal Event Rates",,digits=c(0,0,0,0,5,3)), comment=F, hline.after = c(-1,0,3,6,9,12,15,18), booktabs=T,include.rownames = FALSE)
 ```
 
 ## Example 2: Events rates across centers are different
@@ -151,14 +153,27 @@ input_df <- data.frame(cat_id = as.factor(1:3), center.size = rep(100,3),
                        cat_exp.prop = rep(1/3, 3), med.TTE.Control=c(14,20,31)) 
 ```
 ```{r echo = F}
-kable(input_df)
+#xtable(input_df, make.row.names=F)
 ```
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rlrrr}
+  \hline
+ cat\_id & center.size & cat\_exp.prop & med.TTE.Control \\ 
+  \hline
+  1 & 100.00 & 0.33 & 14.00 \\ 
+  2 & 100.00 & 0.33 & 20.00 \\ 
+  3 & 100.00 & 0.33 & 31.00 \\ 
+   \hline
+\end{tabular}
+\end{table}
 
 We run the simulation in the same way we ran example 1 but with our new input data frame. 
 
 We do this now with four different methods: marginal cox, fixed effects, stratified, and frailty. Unlike scenario 1, we keep the number of centers fixed at three (K=3) and run four methods:
 
-```{r, cache=T, echo=F}
+```{r, echo=F}
 #example 2
 input_df7 <- data.frame(cat_id = c("low","med","high"), center.size = rep(100,3), 
                         cat_exp.prop = rep(1/3, 3),
@@ -175,7 +190,7 @@ for(i in c('marginal','fixed effects','strata','frailty')){
 final2 = data.frame(table7)
 colnames(final2) = c('Method','Center Size','N','Beta','Power')
 
-print(xtable(final2, caption = "Table 2: Fixed Different Event Rates for 3 Centers",digits=c(0,0,0,0,5,3)), comment=F,booktabs=T,include.rownames = FALSE)
+print(xtable(final2, caption = "Fixed Different Event Rates for 3 Centers",digits=c(0,0,0,0,5,3)), comment=F,booktabs=T,include.rownames = FALSE)
 
 ```
 
@@ -227,7 +242,7 @@ getpower.multicenter(nSim = 500 , N = 100, beta = 0.7, df = input_df,
 
 We run this simulation for our ‘marginal’, ‘strata’, and ‘frailty’ methods with varying center sizes, and N values.
 
-```{r, cache=T, echo=F, warning=F}
+```{r, echo=F, warning=F}
 #example 3 gamma distributed
 
 input_df8 <- data.frame(cat_id = as.factor(1:10), center.size = rep(10,10), 
@@ -296,7 +311,7 @@ for(i in c('strata','frailty')){
 final3 = data.frame(rbind(table8,table9,table10,table11,table12,table13))
 colnames(final3) = c('Method','Center Size','N','Beta','Power')
 
-print(xtable(final3, caption = "Table 3: Gamma Centered Event Rates",digits=c(0,0,0,0,5,3)), comment=F, hline.after = c(-1,0,2,4,6,8,10,12), booktabs=T,include.rownames = FALSE)
+print(xtable(final3, caption = "Gamma Centered Event Rates",digits=c(0,0,0,0,5,3)), comment=F, hline.after = c(-1,0,2,4,6,8,10,12), booktabs=T,include.rownames = FALSE)
 
 ```
 

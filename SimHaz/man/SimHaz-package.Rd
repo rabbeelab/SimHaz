@@ -1,13 +1,14 @@
 \name{SimHaz-package}
 \alias{SimHaz-package}
-\alias{SimHaz}
 \docType{package}
 \title{
 Simulated Survival and Hazard Analysis for time-dependent
 }
+
 \description{
 This package generates power for the Cox proportional hazards model by simulating survival events data with time dependent exposure status for subjects. A dichotomous exposure variable is considered with a single transition from unexposed to exposed status during the subject time's in the study.
 }
+
 \details{
 \tabular{ll}{
 Package: \tab SimHaz\cr
@@ -19,6 +20,7 @@ Depends: R (>= 3.1.1)
 Imports: survival
 }
 }
+
 \author{
 Danyi Xiong, Teeranan Pokaprakarn, Hiroto Udagawa, Nusrat Rabbee \cr
 Maintainer: Nusrat Rabbee <rabbee@berkeley.edu>

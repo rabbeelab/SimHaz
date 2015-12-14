@@ -36,7 +36,7 @@ getpower.exp.matching(nSim=500, N_match=100,duration=24,med.TTE.Control=24,rho=1
 
 This will generate 400 subjects (100 exposed, 300 unexposed) and match 1 exposed to 3 unexposed.
 
-```{r,echo=F, cache=T}
+```{r,echo=F}
 
 table1 = data.frame()
 
@@ -55,7 +55,7 @@ In this scenario, the user doesn’t specify the ratio but instead provide the n
 For each row of a specific ratio, Relative Efficiency1 (RE1) is calculated as the variance of betahat of that ratio divided by variance of betahat for the 1:1 matching. Relative Efficiency2 (RE2) is calculated as the variance of that ratio divided by variance of the closest ratio based on the exposure proportion in the population. For instance, if the exposure proportion is 0.2, the closest ratio based on this exposure proportion is 1:4. 
 
 
-```{r,echo=T, cache=T, include=F}
+```{r,echo=T,include=F}
 table2 <- getpower.exp.matching.opt(nSim=500, N=400,ratios=c(0.25,0.333,0.5,1,2,3,4,5),duration=24,
                                     med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta=0.7, exp.prop=0.3,
                                     type="fixed",scenario="opt_exp_matching", method="marginal", 

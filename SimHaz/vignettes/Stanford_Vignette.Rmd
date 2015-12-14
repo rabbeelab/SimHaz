@@ -302,7 +302,7 @@ title(main = 'Kaplan-Meier Curves', outer=T)
 ```
 
 
-```{r,echo=T, cache=T}
+```{r,echo=T}
 ret<-getpower.stanford(N=103,duration=1800,b=beta_td,r1=rate1,r2=rate2,r3=rate3,r4=rate4,r5=rate5,
               er=exprate,type="td",scenario=" ",s1=1,s2=4,fA=0,fB=0,
               filename="simResults_td.csv",simu.plot=FALSE,r6=rate6)

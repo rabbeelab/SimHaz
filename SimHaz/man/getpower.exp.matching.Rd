@@ -11,9 +11,9 @@ This functions runs nSim (Number of simulations, specified by the user) Monte Ca
 The function returns a data frame of scenario-specific parameters (including statistical power) and appends the output to a file with file name specified in the input parameters list. The user also have an option whether to plot an incidence plot or not.
 }
 \usage{
-getpower.exp.matching(nSim, N_match, duration = 24, med.TTE.Control = 24, rho = 1,
-    med.TimeToCensor = 14, beta, matching.ratio, type, scenario, method,
-    prop.fullexp = 0,maxrelexptime = 1, min.futime = 0,
+getpower.exp.matching(nSim, N_match, duration = 24, med.TTE.Control = 24, 
+	rho = 1, med.TimeToCensor = 14, beta, matching.ratio, type, scenario,
+	method, prop.fullexp = 0,maxrelexptime = 1, min.futime = 0,
     min.postexp.futime = 0, output.fn, simu.plot = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -61,7 +61,7 @@ Matching ratio used in exposure matching.For 1:1, the user should specify 1.inpu
   A numeric value that represents minimum follow-up time (in months). The default value is 0, which means no minimum follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study.
   }
   \item{min.postexp.futime}{
-  A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure.
+  A numeric value that represents minimum post-exposure follow-up time (in months). The defaul value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure.
   }
   \item{output.fn}{
   A .csv filename to write in the output. If the filename does not exist, the function will create a new .csv file for the output.

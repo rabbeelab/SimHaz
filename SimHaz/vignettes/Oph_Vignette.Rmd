@@ -54,7 +54,7 @@ We now run our simulation of data generation using Method 1 (see above) with the
 
 Most importantly, we check the number of control events (d_c), exposed events (d_exp), and power (pow) in our simulation output with the real data.
 
-```{r,echo=T, cache=T}
+```{r,echo=T}
 #Run power simulation on 450 subjects to get an N_effective value close to 354
 
 power1 = getpower.method1(500, 450, duration = 6, med.TTE.Control = 6, 
@@ -78,7 +78,7 @@ We can now see that our simulation has too few events, which results results in 
 ### Step 2: We compare the incidence plots of our real data with the simulated data with the objective of comparing distribution of min(event,censored) over time in exposed vs control groups.  
 
 
-```{r,echo=F, cache=T, fig.width=15, fig.height = 7}
+```{r,echo=F,fig.width=15, fig.height = 7}
 par(mfrow=c(1,2))
 power1 = getpower.method1(500, 450, duration = 6, med.TTE.Control = 6, 
                           rho = 1, med.TimeToCensor = 5, b=beta, exp.prop=exp,
@@ -133,7 +133,7 @@ We realize that this estimate based on the histogram may be an underestimate. Si
 
 Our new simulation plot as well as simulation results are shown below.
 
-```{r, echo=T, cache=T, fig.width=6, fig.height = 4}
+```{r, echo=T, fig.width=6, fig.height = 4}
 
 power2 = getpower.method1(1500, 480, duration = 6, med.TTE.Control = 3.5, 
                           rho = 1, med.TimeToCensor = 5, b=beta, exp.prop=exp, 

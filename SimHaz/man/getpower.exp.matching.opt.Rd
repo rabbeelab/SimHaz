@@ -10,10 +10,10 @@ This function is used to explore what matching ratios should be used in the case
 }
 \usage{
 
-getpower.exp.matching.opt(nSim, N, ratios=c(1,0.25,0.333,0.5,2,3,4,5),duration=24,
-    med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta, exp.prop,type,scenario, 
-    method,  prop.fullexp=0,maxrelexptime=1,min.futime=0,min.postexp.futime=0,
-    output.fn=NULL,simu.plot=FALSE) 
+getpower.exp.matching.opt(nSim, N, ratios=c(1,0.25,0.333,0.5,2,3,4,5),
+    duration=24, med.TTE.Control=24,rho=1,med.TimeToCensor=14,beta, 
+	exp.prop,type,scenario, method,  prop.fullexp=0,maxrelexptime=1,
+	min.futime=0,min.postexp.futime=0, output.fn=NULL,simu.plot=FALSE) 
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -65,7 +65,7 @@ getpower.exp.matching.opt(nSim, N, ratios=c(1,0.25,0.333,0.5,2,3,4,5),duration=2
   A numeric value that represents minimum follow-up time (in months). The default value is 0, which means no minimum follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study.
   }
   \item{min.postexp.futime}{
-  A numeric value that represents minimum post-exposure follow-up time (in months). The default value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure.
+  A numeric value that represents minimum post-exposure follow-up time (in months). The defaul value is 0, which means no minimum post-exposure follow-up time is considered. If it has a positive value, this argument will help exclude subjects that only spend a short amount of time in the study after their exposure.
   }
   \item{output.fn}{
   A .csv filename to write in the output. If the filename does not exist, the function will create a new .csv file for the output.

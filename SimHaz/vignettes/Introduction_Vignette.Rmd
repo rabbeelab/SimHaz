@@ -79,7 +79,7 @@ getpower.method1(nSim = 500, N = 600, beta = 0.3,type="td",
                  maxrelexptime=1/6, min.futime = 4)
 ```
 
-```{r, cache=T, echo=F, warning=F}
+```{r, echo=F, warning=F}
 betas=seq(.1,.7,.1)
 SS=c(600,800,1000)
 
@@ -166,7 +166,7 @@ getpower.method1(nSim = 500, N=600, beta=0.3,type="td", scenario='time dependent
                  min.postexp.futime = 4)
 ```
 
-```{r, cache=T, echo=F, warning=F}
+```{r, echo=F, warning=F}
 betas=seq(.1,.7,.1)
 SS=c(600,800,1000)
 
@@ -310,7 +310,7 @@ title("Figure 4. Incidence plots of the two method for beta = 0.3", outer=T, cex
 
 Figure 7 shows the incidence plots when using the two methods and setting the parameters for method 2 as discussed above. Observe that, the two survival data looks similar which is our purpose in this section where we compare the two methods of data generation. Nonetheless, the distribution of the time of exposure in method 2 is different due to the fact that it is independent of follow-up time.
 
-```{r,echo=F, cache=T, warning=F}
+```{r,echo=F, warning=F}
 
 final = data.frame()
 
