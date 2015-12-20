@@ -83,24 +83,31 @@ getpower.method1(nSim = 500, N = 600, beta = 0.3,type="td",
 betas=seq(.1,.7,.1)
 SS=c(600,800,1000)
 
-final = NULL
-for (l in 1:length(betas))
-{ 
-  for(s in 1:length(SS)){
-    ret<- getpower.method1(nSim = 500, N=SS[s],beta=betas[l],type="td",scenario=paste('td', s),exp.prop=0.2,maxrelexptime=1/6, min.futime = 0)
-    final = rbind(final,ret)
-  }
+if(!file.exists("Introduction/intro_final.Rds")) {
+    
+    final = NULL
+    for (l in 1:length(betas))
+    { 
+        for(s in 1:length(SS)){
+            ret<- getpower.method1(nSim = 500, N=SS[s],beta=betas[l],type="td",scenario=paste('td', s),exp.prop=0.2,maxrelexptime=1/6, min.futime = 0)
+            final = rbind(final,ret)
+        }
+    }
+    
+    for (l in 1:length(betas))
+    { 
+        for(s in 1:length(SS)){
+            ret<- getpower.method1(nSim = 500, N=SS[s], beta=betas[l], type="fixed", scenario=paste('fixed', s), exp.prop=0.2,maxrelexptime=1/6, min.futime = 0)
+            final = rbind(final,ret)
+        }
+    }
+    saveRDS(final, file="Introduction/intro_final.Rds")
 }
 
-for (l in 1:length(betas))
-{ 
-  for(s in 1:length(SS)){
-    ret<- getpower.method1(nSim = 500, N=SS[s],beta=betas[l],type="fixed",scenario=paste('fixed', s),exp.prop=0.2,maxrelexptime=1/6, min.futime = 0)
-    final = rbind(final,ret)
-  }
-}
 ```
 ```{r, echo=F}
+final = readRDS(file='Introduction/intro_final.Rds')
+
 final_table = final[final$i_beta=='0.3',]
 kable(final_table[c(4,1,5,2,6,3),c(2,3,13,14,18,19,20)],caption="Simulation results for scenario 1 - exposure time generated from Uniform(0, follow-up time/6), no minimum follow-up time is considered",row.names = F, col.names = c('Type','Sample Size',"Beta hat",'Hazard ratio','Median Survival-Unexposed','Median Survival-Exposed','Power'), align = 'c', digits = c(1,3,3,3,3,3,3))
 ```
@@ -170,24 +177,29 @@ getpower.method1(nSim = 500, N=600, beta=0.3,type="td", scenario='time dependent
 betas=seq(.1,.7,.1)
 SS=c(600,800,1000)
 
-final = NULL
-for (l in 1:length(betas))
-{ 
-  for(s in 1:length(SS)){
-    ret<- getpower.method1(nSim = 500, N=SS[s],beta=betas[l],type="td",scenario=paste('td', s),exp.prop=0.2,maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4)
-    final = rbind(final,ret)
-  }
-}
-
-for (l in 1:length(betas))
-{ 
-  for(s in 1:length(SS)){
-    ret<- getpower.method1(nSim = 500, N=SS[s],beta=betas[l],type="fixed",scenario=paste('fixed', s),exp.prop=0.2,maxrelexptime=1/6, min.futime = 4)
-    final = rbind(final,ret)
-  }
+if(!file.exists("Introduction/intro_final2.Rds")) {
+    
+    final = NULL
+    for (l in 1:length(betas))
+    { 
+        for(s in 1:length(SS)){
+            ret<- getpower.method1(nSim = 500, N=SS[s],beta=betas[l],type="td",scenario=paste('td', s),exp.prop=0.2,maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4)
+            final = rbind(final,ret)
+        }
+    }
+    
+    for (l in 1:length(betas))
+    { 
+        for(s in 1:length(SS)){
+            ret<- getpower.method1(nSim = 500, N=SS[s],beta=betas[l],type="fixed",scenario=paste('fixed', s),exp.prop=0.2,maxrelexptime=1/6, min.futime = 4)
+            final = rbind(final,ret)
+        }
+    }
+    saveRDS(final, file='intro_final2.Rds')
 }
 ```
 ```{r,echo=F}
+final = readRDS('Introduction/intro_final2.Rds')
 final_table = final[final$i_beta=='0.3',]
 
 kable(final_table[c(4,1,5,2,6,3),c(2,3,13,14,18,19,20)],caption="Simulation results for scenario 2 - exposure time generated from Uniform(0, follow-up time/6), minimum follow-up time and minimum follow-up time after exposure are considered",row.names = F, col.names = c('Type','Sample Size',"Beta hat",'Hazard ratio','Median Survival-Unexposed','Median Survival-Exposed','Power'), align = 'c', digits = c(1,3,3,3,3,3,3))
@@ -311,28 +323,35 @@ title("Figure 4. Incidence plots of the two method for beta = 0.3", outer=T, cex
 Figure 7 shows the incidence plots when using the two methods and setting the parameters for method 2 as discussed above. Observe that, the two survival data looks similar which is our purpose in this section where we compare the two methods of data generation. Nonetheless, the distribution of the time of exposure in method 2 is different due to the fact that it is independent of follow-up time.
 
 ```{r,echo=F, warning=F}
-
-final = data.frame()
-
-for (b in seq(0.1,0.6,0.1)){
-  final = rbind(final,getpower.method1(nSim=500, N=600, med.TTE.Control =24, beta=b, exp.prop=0.2, type='td', scenario='method1_filter', maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4),
-        
-  getpower.method1(nSim=500, N=800, med.TTE.Control=24, beta=b, exp.prop=0.2, type='td', scenario='method1_filter', maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4),
-  
-  getpower.method1(nSim=500, N=1000, med.TTE.Control=24, beta=b, exp.prop=0.2, type='td', scenario='method1_filter', maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4))
+if(!file.exists("Introduction/intro_final3.Rds")) {
+    final = data.frame()
+    
+    for (b in seq(0.1,0.6,0.1)){
+        final = rbind(final,getpower.method1(nSim=500, N=600, med.TTE.Control =24, beta=b, exp.prop=0.2, type='td', scenario='method1_filter', maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4),
+                      
+                      getpower.method1(nSim=500, N=800, med.TTE.Control=24, beta=b, exp.prop=0.2, type='td', scenario='method1_filter', maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4),
+                      
+                      getpower.method1(nSim=500, N=1000, med.TTE.Control=24, beta=b, exp.prop=0.2, type='td', scenario='method1_filter', maxrelexptime=1/6, min.futime = 4, min.postexp.futime = 4))
+    }
+    saveRDS(final, file="Introduction/intro_final3.Rds")
 }
 
-
-final2 = data.frame()
-for (b in seq(0.1,0.6,0.1)){
-    lambda23 = lambda*exp(b)
-    lambda12 = lambda23*45
-  final2 = rbind(final2, getpower.method2(nSim=500, N=600, duration=24, exp.prop=0.2, rateC=rateC, scenario='method2_filter', lambda12=lambda12, lambda23=lambda23, lambda13=lambda, min.futime=4,min.postexp.futime = 4),
-                getpower.method2(nSim=500, N=800, duration=24, exp.prop=0.2, rateC=rateC, scenario='method2_filter', lambda12=lambda12, lambda23=lambda23, lambda13=lambda, min.futime=4,min.postexp.futime = 4),
-                getpower.method2(nSim=500,N=1000, duration=24, exp.prop=0.2, rateC=rateC, scenario='method2_filter', lambda12=lambda12, lambda23=lambda23, lambda13=lambda, min.futime=4,min.postexp.futime = 4))
-  }
+if(!file.exists("Introduction/intro_final4.Rds")) {
+    final2 = data.frame()
+    for (b in seq(0.1,0.6,0.1)){
+        lambda23 = lambda*exp(b)
+        lambda12 = lambda23*45
+        final2 = rbind(final2, getpower.method2(nSim=500, N=600, duration=24, exp.prop=0.2, rateC=rateC, scenario='method2_filter', lambda12=lambda12, lambda23=lambda23, lambda13=lambda, min.futime=4,min.postexp.futime = 4),
+                       getpower.method2(nSim=500, N=800, duration=24, exp.prop=0.2, rateC=rateC, scenario='method2_filter', lambda12=lambda12, lambda23=lambda23, lambda13=lambda, min.futime=4,min.postexp.futime = 4),
+                       getpower.method2(nSim=500,N=1000, duration=24, exp.prop=0.2, rateC=rateC, scenario='method2_filter', lambda12=lambda12, lambda23=lambda23, lambda13=lambda, min.futime=4,min.postexp.futime = 4))
+    }
+    saveRDS(final2, file="Introduction/intro_final4.Rds")
+}
 ```
 ```{r echo=F}
+final = readRDS('Introduction/intro_final3.Rds')
+final2 = readRDS('Introduction/intro_final4.Rds')
+
 final2$i_beta = c(rep(0.1,3),rep(0.2,3),rep(0.3,3),rep(0.4,3),rep(0.5,3),rep(0.6,3))
 final2$i_type = 'td'
 par(mfrow=c(1,1))

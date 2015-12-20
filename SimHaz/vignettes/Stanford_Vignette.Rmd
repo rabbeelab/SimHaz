@@ -13,11 +13,11 @@ vignette: >
 \captionsetup[table]{labelformat=empty}
 
 ```{r,echo=F, message=F}
-library(survival)
 library(vcd)
 library(MASS)
 library(knitr)
 library(SimHaz)
+library(survival)
 
 ###SIMULWEIB NEW###
 simulWeib.stanford <- function(N, duration,rate1,rate2,rate3,rate4,rate5,exprate,filterA)
@@ -190,8 +190,6 @@ beta_td<-mod_td$coefficients
 
 ```
 ```{r,echo=F, message=F}
-attach(jasa)
-
 exprate<-mean(jasa$transplant) 
 
 tdata <- jasa[, -(1:4)]
@@ -303,19 +301,24 @@ title(main = 'Kaplan-Meier Curves', outer=T)
 
 
 ```{r,echo=T}
-ret<-getpower.stanford(N=103,duration=1800,b=beta_td,r1=rate1,r2=rate2,r3=rate3,r4=rate4,r5=rate5,
-              er=exprate,type="td",scenario=" ",s1=1,s2=4,fA=0,fB=0,
-              filename="simResults_td.csv",simu.plot=FALSE,r6=rate6)
-
+if(!file.exists("Stanford/stanford_ret.Rds")) {
+    
+    ret<-getpower.stanford(N=103, duration=1800, b=beta_td, r1=rate1, r2=rate2, r3=rate3, r4=rate4, r5=rate5, r6=rate6, er=exprate, type="td", scenario=" ", s1=1, s2=4, fA=0, fB=0, filename="simResults_td.csv", simu.plot=FALSE)
+    
+    saveRDS("Stanford/stanford_ret.Rds")
+}
 
 # repeat for N = 1030
-ret2<-getpower.stanford(N=1030,duration=1800,b=beta_td,r1=rate1,r2=rate2,r3=rate3,r4=rate4,r5=rate5,
-              er=exprate,type="td",scenario=" ",s1=1,s2=4,fA=0,fB=0,
-              filename="simResults_fixed.csv",simu.plot=FALSE,r6=rate6)
+if(!file.exists("Stanford/stanford_ret2.Rds")) {
+    
+    ret2<-getpower.stanford(N=1030, duration=1800,b=beta_td, r1=rate1, r2=rate2, r3=rate3, r4=rate4, r5=rate5,r6=rate6, er=exprate, type="td", scenario=" ", s1=1, s2=4, fA=0, fB=0, filename="simResults_fixed.csv", simu.plot=FALSE)
+    
+    saveRDS("Stanford/stanford_ret2.Rds")
+}
 ```
 
 ```{r,echo=F}
-
+ret = readRDS('Stanford/stanford_ret.Rds')
 kable(ret[,c(6,7,15,16), ],row.names=F, col.names=c('Effective Exposure','Beta Hat', 'Unexposed Median Survival Time','Exposed Median Survival Time'), caption = 'Table 8: Estimates from simulated data')
 kable(ret[,c(12,13,14,17)], row.names=F, col.names=c('Overall Events','Unexposed Events', 'Exposed Events','Power'), caption = 'Table 8: Estimates from simulated data continued')
 ```
@@ -323,6 +326,7 @@ kable(ret[,c(12,13,14,17)], row.names=F, col.names=c('Overall Events','Unexposed
 We repeated the simulation for N = 1030 and have the follow estimates:
 
 ```{r,echo=F}
+ret2 = readRDS('Stanford/stanford_ret2.Rds')
 kable(ret2[,c(6,7,15,16), ],row.names=F, col.names=c('Effective Exposure','Beta Hat', 'Unexposed Median Survival Time','Exposed Median Survival Time'), caption = 'Table 9: Estimates from simulated data')
 kable(ret2[,c(12,13,14,17)], row.names=F, col.names=c('Overall Events','Unexposed Events', 'Exposed Events','Power'), caption = 'Table 9: Estimates from simulated data continued')
 ```

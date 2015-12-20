@@ -56,14 +56,19 @@ Most importantly, we check the number of control events (d_c), exposed events (d
 
 ```{r,echo=T}
 #Run power simulation on 450 subjects to get an N_effective value close to 354
-
-power1 = getpower.method1(500, 450, duration = 6, med.TTE.Control = 6, 
-                          rho = 1, med.TimeToCensor = 5, b=beta, exp.prop=exp,
-                          type='fixed', prop.fullexp = full_exp, 
-                          scenario = 'fixed(500)',maxrelexptime = 1/6, 
-                          min.futime = 1, min.postexp.futime = 1)
+if(!file.exists("Oph/oph_simu.Rds")) {
+    
+    power1 = getpower.method1(500, 450, duration = 6, med.TTE.Control = 6, 
+                              rho = 1, med.TimeToCensor = 5, b=beta, exp.prop=exp,
+                              type='fixed', prop.fullexp = full_exp, 
+                              scenario = 'fixed(500)',maxrelexptime = 1/6, 
+                              min.futime = 1, min.postexp.futime = 1)
+    
+    saveRDS(power1, file='Oph/oph_simu.Rds')
+}
 ```
 ```{r, echo=F}
+power1 = readRDS('Oph/oph_simu.Rds')
 simu = data.frame(names = c('N','N Effective','Total Events','Control Events','Exposed Events','Power'),simulation = as.numeric(power1[c(3,11,15,16,17,20)]), oph = c(NA, 354,154,89,65,"0.638*"))
 
 kable(simu, digits = 2, align = 'c',col.names = c('Parameter','Simulation Results','Oph Data Event Count'),caption = "Simulation results vs Data")
@@ -134,15 +139,20 @@ We realize that this estimate based on the histogram may be an underestimate. Si
 Our new simulation plot as well as simulation results are shown below.
 
 ```{r, echo=T, fig.width=6, fig.height = 4}
+if(!file.exists("Oph/oph_simu2.Rds")) {
+    
+    power2 = getpower.method1(1500, 480, duration = 6, med.TTE.Control = 3.5, 
+                              rho = 1, med.TimeToCensor = 5, b=beta, exp.prop=exp, 
+                              type='fixed', prop.fullexp = full_exp, 
+                              scenario = 'fixed(500)',maxrelexptime = 1/6, min.futime = 1,
+                              min.postexp.futime = 1, simu.plot=T)
+    saveRDS(power2, file='Oph/oph_simu2.Rds')
 
-power2 = getpower.method1(1500, 480, duration = 6, med.TTE.Control = 3.5, 
-                          rho = 1, med.TimeToCensor = 5, b=beta, exp.prop=exp, 
-                          type='fixed', prop.fullexp = full_exp, 
-                          scenario = 'fixed(500)',maxrelexptime = 1/6, min.futime = 1,
-                          min.postexp.futime = 1, simu.plot=T)
-
+}
 ```
 ```{r, echo=F}
+power2 = readRDS('Oph/oph_simu2.Rds')
+
 simu2 = data.frame(names = c('N','N Effective','Total Events','Control Events','Exposed Events','Power'),simulation = as.numeric(power2[c(3,11,15,16,17,20)]), oph = c(NA, 354,154,89,65,0.638))
 
 kable(simu2, digits = 2, align = 'c',col.names = c('Parameter','Simulation Results','Oph Data Event Count'),caption = "Simulation results vs Data")
